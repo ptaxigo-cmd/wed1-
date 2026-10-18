@@ -14,63 +14,62 @@
 
         body {
             font-family: 'Noto Sans Georgian', sans-serif;
-            /* 👇 მთლიანი ეკრანის ფონად მითითებულია B.jpg 👇 */
             background-image: url('B.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            
             color: #333333;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px 10px;
+            padding: 30px 15px;
         }
 
-        /* 👇 მოსაწვევის ბარათი (გამჭვირვალე თეთრი ფონით) 👇 */
+        /* 👇 დაკორექტირებული ბარათის ზომები 👇 */
         .card {
-            background: rgba(255, 255, 255, 0.94);
-            max-width: 450px;
+            background: rgba(255, 255, 255, 0.93);
+            max-width: 520px; /* გაიზარდა 450px-დან 520px-მდე უკეთესი პროპორციისთვის */
             width: 100%;
             border-radius: 24px;
-            padding: 35px 25px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            padding: 40px 32px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
             position: relative;
             overflow: hidden;
         }
 
         .flower-dec {
-            font-size: 24px;
+            font-size: 26px;
             letter-spacing: 4px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .subtitle {
             font-size: 14px;
             letter-spacing: 1px;
             color: #8c7a6b;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 500;
         }
 
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 32px;
+            font-size: 34px;
             color: #5c4a3e;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
             font-weight: 600;
         }
 
         .invitation-text {
             font-size: 15px;
-            line-height: 1.7;
-            color: #555555;
+            line-height: 1.65;
+            color: #444444;
             margin-bottom: 25px;
+            padding: 0 10px;
         }
 
         /* Countdown Timer */
@@ -85,9 +84,9 @@
             display: flex;
             justify-content: space-between;
             background: #faf8f5;
-            padding: 15px;
-            border-radius: 14px;
-            margin-bottom: 25px;
+            padding: 16px;
+            border-radius: 16px;
+            margin-bottom: 22px;
             border: 1px dashed #dcd3c8;
         }
 
@@ -96,7 +95,7 @@
         }
 
         .timer-box .number {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             color: #5c4a3e;
         }
@@ -104,24 +103,25 @@
         .timer-box .label {
             font-size: 11px;
             color: #777777;
-            margin-top: 2px;
+            margin-top: 3px;
         }
 
         /* Event Details */
         .event-info {
             background: #ffffff;
             border: 1px solid #efeae4;
-            border-radius: 14px;
-            padding: 15px;
+            border-radius: 16px;
+            padding: 18px;
             margin-bottom: 15px;
             text-align: left;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         }
 
         .event-title {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
             color: #5c4a3e;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -130,8 +130,8 @@
         .event-detail {
             font-size: 13px;
             color: #666666;
-            margin-bottom: 12px;
-            line-height: 1.4;
+            margin-bottom: 14px;
+            line-height: 1.5;
         }
 
         /* Buttons */
@@ -160,11 +160,11 @@
         .btn-rsvp {
             background-color: #4a6b5d;
             color: #ffffff;
-            padding: 15px;
+            padding: 16px;
             font-size: 15px;
-            margin-top: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(74, 107, 93, 0.3);
+            margin-top: 22px;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(74, 107, 93, 0.25);
         }
 
         .btn-rsvp:hover {
@@ -173,8 +173,25 @@
 
         .footer-note {
             font-size: 12px;
-            color: #666;
-            margin-top: 25px;
+            color: #777;
+            margin-top: 22px;
+        }
+
+        /* 📱 მობილურის ადაპტაცია */
+        @media (max-width: 480px) {
+            .card {
+                padding: 28px 18px;
+                border-radius: 20px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            .invitation-text {
+                font-size: 14px;
+            }
+            .timer-box .number {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -230,35 +247,4 @@
             <a href="https://maps.google.com" target="_blank" class="btn btn-map">ნახე რუკაზე (Google Maps)</a>
         </div>
 
-        <!-- RSVP / დასტურის ღილაკი -->
-        <a href="https://tally.so" target="_blank" class="btn btn-rsvp">✅ დაადასტურეთ დასწრება</a>
-
-        <div class="footer-note">გთხოვთ, დასწრება დაადასტუროთ 10 აგვისტომდე</div>
-    </div>
-
-    <!-- JavaScript უკუთვლის ტაიმერისთვის -->
-    <script>
-        const weddingDate = new Date("Aug 25, 2027 16:00:00").getTime();
-
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-
-            if (distance < 0) {
-                clearInterval(timer);
-                document.querySelector(".timer-container").innerHTML = "<div style='width:100%; font-weight:bold; color:#8c7a6b;'>ღონისძიება დაწყებულია!</div>";
-            }
-        }, 1000);
-    </script>
-</body>
-</html>
+        <!-- RSVP / დასტურის ღილ
