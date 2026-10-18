@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ნიკა & ანი - მოწვევა ქორწილში</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fdfbf7; color: #4a4a4a; text-align: center; padding: 20px; }
+        .card { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        h1 { color: #8b6b4e; font-size: 28px; margin-bottom: 10px; }
+        p { font-size: 16px; line-height: 1.6; margin-bottom: 15px; }
+        .date { font-size: 20px; font-weight: bold; color: #2c3e50; margin: 20px 0; }
+        .btn { display: block; width: 100%; padding: 14px; margin: 10px 0; background-color: #8b6b4e; color: white; text-decoration: none; border-radius: 10px; font-size: 16px; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background-color: #6f533a; }
+        .photo { width: 100%; height: auto; border-radius: 15px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- წყვილის ფოტო -->
+        <img src="https://via.placeholder.com/400x250" alt="წყვილის ფოტო" class="photo">
+        
+        <p>სიყვარულით გეპატიჟებით ჩვენს ქორწილში!</p>
+        <h1>ნიკა & ანი</h1>
+        
+        <div class="date">🗓 25 აგვისტო, 2026 | ⏰ 16:00 სთ</div>
+        
+        <p>გთხოვთ გვიზიაროთ ეს ბედნიერი დღე</p>
+        
+        <!-- ლოკაციების ბმულები -->
+        <a href="https://maps.google.com" target="_blank" class="btn">⛪️ ჯვრისწერის ადგილი (Google Maps)</a>
+        <a href="https://maps.google.com" target="_blank" class="btn">🍷 რესტორნის ლოკაცია (Google Maps)</a>
+        
+        <!-- RSVP / დასტურის ფორმა (Google Forms ან Tally ბმული) -->
+        <a href="https://tally.so" target="_blank" class="btn" style="background-color: #2e7d32;">✅ დაადასტურეთ დასწრება</a>
+    </div>
+
+</body>
+</html>
