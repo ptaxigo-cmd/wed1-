@@ -158,3 +158,112 @@
         .btn-map:hover {
             background-color: #736254;
         }
+
+        .btn-rsvp {
+            background-color: #4a6b5d;
+            color: #ffffff;
+            padding: 15px;
+            font-size: 15px;
+            margin-top: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(74, 107, 93, 0.2);
+        }
+
+        .btn-rsvp:hover {
+            background-color: #3b564a;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="flower-dec">🌿</div>
+        <div class="subtitle">სიყვარულით გეპატიჟებით</div>
+        <h1>ნიკა & ანი</h1>
+        
+        <!-- წყვილის ფოტო -->
+        <img src="https://picsum.photos/400/260" alt="ქორწილი" class="hero-img">
+
+        <p class="invitation-text">
+            ჩვენთვის ძვირფასო ადამიანებო, გვიხარია გაგიზიაროთ ჩვენი ცხოვრების ყველაზე მნიშვნელოვანი დღე!
+        </p>
+
+        <!-- უკუთვლის ტაიმერი -->
+        <div class="timer-title">ღონისძიებამდე დარჩენილია:</div>
+        <div class="timer-container">
+            <div class="timer-box">
+                <div class="number" id="days">00</div>
+                <div class="label">დღე</div>
+            </div>
+            <div class="timer-box">
+                <div class="number" id="hours">00</div>
+                <div class="label">საათი</div>
+            </div>
+            <div class="timer-box">
+                <div class="number" id="minutes">00</div>
+                <div class="label">წუთი</div>
+            </div>
+            <div class="timer-box">
+                <div class="number" id="seconds">00</div>
+                <div class="label">წამი</div>
+            </div>
+        </div>
+
+        <!-- ჯვრისწერა -->
+        <div class="event-info">
+            <div class="event-title">⛪️ ჯვრისწერა</div>
+            <div class="event-detail">
+                🗓 25 აგვისტო, 2026 | ⏰ 16:00 სთ<br>
+                📍 სვეტიცხოვლის საკათედრო ტაძარი, მცხეთა
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="btn btn-map">ნახე რუკაზე (Google Maps)</a>
+        </div>
+
+        <!-- რესტორანი -->
+        <div class="event-info">
+            <div class="event-title">🍷 საქორწილო წვეულება</div>
+            <div class="event-detail">
+                🗓 25 აგვისტო, 2026 | ⏰ 19:00 სთ<br>
+                📍 რესტორანი „შატო“, თბილისი
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="btn btn-map">ნახე რუკაზე (Google Maps)</a>
+        </div>
+
+        <!-- RSVP / დასტურის ღილაკი -->
+        <a href="https://tally.so" target="_blank" class="btn btn-rsvp">✅ დაადასტურეთ დასწრება</a>
+
+        <div class="footer-note">გთხოვთ, დასწრება დაადასტუროთ 10 აგვისტომდე</div>
+    </div>
+
+    <!-- JavaScript უკუთვლის ტაიმერისთვის -->
+    <script>
+        const weddingDate = new Date("Aug 25, 2026 16:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.querySelector(".timer-container").innerHTML = "<div style='width:100%; font-weight:bold; color:#8c7a6b;'>ღონისძიება დაწყებულია!</div>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
