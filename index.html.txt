@@ -4,38 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ნიკა & ანი - მოწვევა ქორწილში</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fdfbf7; color: #4a4a4a; text-align: center; padding: 20px; }
-        .card { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        h1 { color: #8b6b4e; font-size: 28px; margin-bottom: 10px; }
-        p { font-size: 16px; line-height: 1.6; margin-bottom: 15px; }
-        .date { font-size: 20px; font-weight: bold; color: #2c3e50; margin: 20px 0; }
-        .btn { display: block; width: 100%; padding: 14px; margin: 10px 0; background-color: #8b6b4e; color: white; text-decoration: none; border-radius: 10px; font-size: 16px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background-color: #6f533a; }
-        .photo { width: 100%; height: auto; border-radius: 15px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <div class="card">
-        <!-- წყვილის ფოტო -->
-        <img src="https://via.placeholder.com/400x250" alt="წყვილის ფოტო" class="photo">
-        
-        <p>სიყვარულით გეპატიჟებით ჩვენს ქორწილში!</p>
-        <h1>ნიკა & ანი</h1>
-        
-        <div class="date">🗓 25 აგვისტო, 2026 | ⏰ 16:00 სთ</div>
-        
-        <p>გთხოვთ გვიზიაროთ ეს ბედნიერი დღე</p>
-        
-        <!-- ლოკაციების ბმულები -->
-        <a href="https://maps.google.com" target="_blank" class="btn">⛪️ ჯვრისწერის ადგილი (Google Maps)</a>
-        <a href="https://maps.google.com" target="_blank" class="btn">🍷 რესტორნის ლოკაცია (Google Maps)</a>
-        
-        <!-- RSVP / დასტურის ფორმა (Google Forms ან Tally ბმული) -->
-        <a href="https://tally.so" target="_blank" class="btn" style="background-color: #2e7d32;">✅ დაადასტურეთ დასწრება</a>
-    </div>
+        body {
+            font-family: 'Noto Sans Georgian', sans-serif;
+            background-color: #f7f4ef;
+            color: #333333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 10px;
+        }
 
-</body>
-</html>
+        .card {
+            background: #ffffff;
+            max-width: 450px;
+            width: 100%;
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            border: 1px solid #eae5dd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flower-dec {
+            font-size: 24px;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8c7a6b;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            color: #5c4a3e;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .invitation-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #555555;
+            margin-bottom: 25px;
+        }
+
+        /* Countdown Timer */
+        .timer-title {
+            font-size: 13px;
+            color: #8c7a6b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .timer-container {
+            display: flex;
+            justify-content: space-between;
+            background: #faf8f5;
+            padding: 15px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+            border: 1px dashed #dcd3c8;
+        }
+
+        .timer-box {
+            flex: 1;
+        }
+
+        .timer-box .number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #5c4a3e;
+        }
+
+        .timer-box .label {
+            font-size: 11px;
+            color: #777777;
+            margin-top: 2px;
+        }
+
+        /* Event Details */
+        .event-info {
+            background: #ffffff;
+            border: 1px solid #efeae4;
+            border-radius: 14px;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .event-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #5c4a3e;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .event-detail {
+            font-size: 13px;
+            color: #666666;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        /* Buttons */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .btn-map {
+            background-color: #8c7a6b;
+            color: #ffffff;
+        }
+
+        .btn-map:hover {
+            background-color: #736254;
+        }
