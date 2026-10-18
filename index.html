@@ -14,7 +14,13 @@
 
         body {
             font-family: 'Noto Sans Georgian', sans-serif;
-            background-color: #eef2f5;
+            /* 👇 მთლიანი ეკრანის ფონად უდევს თქვენი ატვირთული ნახატი B.jpg 👇 */
+            background-image: url('B.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
             color: #333333;
             display: flex;
             justify-content: center;
@@ -23,20 +29,17 @@
             padding: 20px 10px;
         }
 
-        /* 👇 სურათი ჩასმულია ბარათის ფონად B.jpg სახელწოდებით 👇 */
+        /* 👇 თავად მოსაწვევის ბარათი (სუფთა, ელეგანტური თეთრი ფონით) 👇 */
         .card {
-            background-image: url('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            
-            max-width: 480px;
+            background: rgba(255, 255, 255, 0.94);
+            max-width: 450px;
             width: 100%;
             border-radius: 24px;
-            padding: 40px 25px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            padding: 35px 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
             text-align: center;
-            border: 3px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
         }
@@ -45,55 +48,47 @@
             font-size: 24px;
             letter-spacing: 4px;
             margin-bottom: 10px;
-            text-shadow: 0 1px 3px rgba(255,255,255,0.8);
         }
 
         .subtitle {
             font-size: 14px;
             letter-spacing: 1px;
-            color: #5c4a3e;
+            color: #8c7a6b;
             margin-bottom: 15px;
-            font-weight: 600;
-            text-shadow: 0 1px 3px rgba(255,255,255,0.8);
+            font-weight: 500;
         }
 
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 34px;
-            color: #3c2a1e;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-shadow: 0 1px 4px rgba(255,255,255,0.9);
+            font-size: 32px;
+            color: #5c4a3e;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .invitation-text {
             font-size: 15px;
-            line-height: 1.6;
-            color: #2c2c2c;
+            line-height: 1.7;
+            color: #555555;
             margin-bottom: 25px;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: 500;
         }
 
         /* Countdown Timer */
         .timer-title {
             font-size: 13px;
-            color: #5c4a3e;
-            margin-bottom: 8px;
+            color: #8c7a6b;
+            margin-bottom: 10px;
             font-weight: 600;
-            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
         }
 
         .timer-container {
             display: flex;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.92);
+            background: #faf8f5;
             padding: 15px;
             border-radius: 14px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            border: 1px dashed #dcd3c8;
         }
 
         .timer-box {
@@ -108,18 +103,18 @@
 
         .timer-box .label {
             font-size: 11px;
-            color: #666666;
+            color: #777777;
             margin-top: 2px;
         }
 
         /* Event Details */
         .event-info {
-            background: rgba(255, 255, 255, 0.92);
+            background: #ffffff;
+            border: 1px solid #efeae4;
             border-radius: 14px;
             padding: 15px;
             margin-bottom: 15px;
             text-align: left;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .event-title {
@@ -134,7 +129,7 @@
 
         .event-detail {
             font-size: 13px;
-            color: #555555;
+            color: #666666;
             margin-bottom: 12px;
             line-height: 1.4;
         }
@@ -178,12 +173,8 @@
 
         .footer-note {
             font-size: 12px;
-            color: #333333;
-            margin-top: 20px;
-            font-weight: 500;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 6px;
-            border-radius: 8px;
+            color: #666;
+            margin-top: 25px;
         }
     </style>
 </head>
