@@ -14,11 +14,12 @@
 
         body {
             font-family: 'Noto Sans Georgian', sans-serif;
-            /* 👇 სურათის პოზიცია გადატანილია ზემოთ, რომ ეკლესია და გუმბათი სრულად ჩანდეს 👇 */
+            /* 👇 სურათი სრულად გამოჩნდება გაჭრის გარეშე 👇 */
             background-image: url('B.jpg');
-            background-size: cover;
-            background-position: center 25%;
+            background-size: contain; /* სურათი სრულად ჩაჯდება ეკრანზე მოჭრის გარეშე */
+            background-position: center top;
             background-repeat: no-repeat;
+            background-color: #f7f4ef; /* ფონის ძირითადი ფერი სურათის გარშემო */
             background-attachment: fixed;
             
             color: #333333;
@@ -26,22 +27,23 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 30px 15px;
+            padding: 40px 15px;
         }
 
-        /* 👇 ბარათი ოპტიმალური ზომებითა და სინათლით 👇 */
+        /* 👇 ბარათი 👇 */
         .card {
-            background: rgba(255, 255, 255, 0.90);
+            background: rgba(255, 255, 255, 0.92);
             max-width: 500px;
             width: 100%;
             border-radius: 24px;
             padding: 35px 28px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(6px);
             position: relative;
             overflow: hidden;
+            margin-top: 20px;
         }
 
         .flower-dec {
