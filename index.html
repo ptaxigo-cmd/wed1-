@@ -8,7 +8,6 @@
     /* ზოგადი სტილები და სქროლის გასწორება */
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
     }
 
     * {
@@ -57,6 +56,7 @@
       color: #333;
       font-weight: 500;
       transition: color 0.3s;
+      cursor: pointer;
     }
 
     nav ul li a:hover {
@@ -82,7 +82,7 @@
       background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), center/cover no-repeat;
       color: white;
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px 100px 20px;
     }
 
     .hero-section h1 {
@@ -98,7 +98,7 @@
 
     /* სერვისების სექცია */
     .services-section {
-      padding: 80px 20px;
+      padding: 100px 20px 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
       text-align: center;
@@ -127,7 +127,7 @@
 
     /* გუნდის სექცია */
     .team-section {
-      padding: 80px 20px;
+      padding: 100px 20px 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
       text-align: center;
@@ -285,7 +285,7 @@
 
     /* გალერეა და მედია არქივი */
     .gallery-section {
-      padding: 80px 20px;
+      padding: 100px 20px 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
       text-align: center;
@@ -312,10 +312,10 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#hero">მთავარი</a></li>
-        <li><a href="#services">სერვისები</a></li>
-        <li><a href="#about">ჩვენ შესახებ</a></li>
-        <li><a href="#gallery">გალერეა</a></li>
+        <li><a href="#hero" onclick="scrollToSection('hero')">მთავარი</a></li>
+        <li><a href="#services" onclick="scrollToSection('services')">სერვისები</a></li>
+        <li><a href="#about" onclick="scrollToSection('about')">ჩვენ შესახებ</a></li>
+        <li><a href="#gallery" onclick="scrollToSection('gallery')">გალერეა</a></li>
       </ul>
     </nav>
     <a href="tel:+995568112350" class="phone-btn">+995 568 112 350</a>
@@ -421,6 +421,21 @@
   </div>
 
   <script>
+    // მენიუს ბმულებზე დაწკაპუნებისას რბილი სქროლი
+    function scrollToSection(sectionId) {
+      event.preventDefault();
+      const target = document.getElementById(sectionId);
+      if (target) {
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // ვიდეოს მოდალური ფანჯრის ფუნქციები
     function openVideo(videoSrc) {
       const modal = document.getElementById('videoModal');
       const video = document.getElementById('modalVideo');
@@ -429,10 +444,6 @@
       video.play().catch(error => {
         console.log("Autoplay prevented:", error);
       });
-    }
-
-    def closeVideo() {
-      // (ცდომილების თავიდან ასაცილებლად სწორი JS ფუნქცია)
     }
 
     function closeVideo() {
