@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PetTaxi Tbilisi - შინაური ცხოველების ტრანსპორტირება</title>
   <style>
-    /* ზოგადი სტილები */
+    /* ზოგადი სტილები და სქროლის გასწორება */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      scroll-behavior: smooth;
     }
 
     body {
@@ -75,7 +79,7 @@
 
     /* მთავარი (Hero) სექცია */
     .hero-section {
-      background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), url('B.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), center/cover no-repeat;
       color: white;
       text-align: center;
       padding: 100px 20px;
@@ -425,6 +429,10 @@
       video.play().catch(error => {
         console.log("Autoplay prevented:", error);
       });
+    }
+
+    def closeVideo() {
+      // (ცდომილების თავიდან ასაცილებლად სწორი JS ფუნქცია)
     }
 
     function closeVideo() {
