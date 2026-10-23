@@ -34,7 +34,6 @@
       z-index: 100;
     }
 
-    /* ლოგო და ტექსტი ერთად */
     .logo-container {
       display: flex;
       align-items: center;
@@ -97,10 +96,10 @@
     #hero {
       display: block;
       max-width: 100%;
-      background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), center/cover no-repeat;
+      background: linear-gradient(rgba(29, 53, 87, 0.85), rgba(29, 53, 87, 0.85)), center/cover no-repeat;
       color: white;
       text-align: center;
-      padding: 140px 20px;
+      padding: 100px 20px;
     }
 
     #hero h1 {
@@ -112,6 +111,34 @@
       font-size: 18px;
       max-width: 600px;
       margin: 0 auto 30px auto;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      padding: 20px 30px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-card h3 {
+      font-size: 32px;
+      color: #ffb703;
+      margin-bottom: 5px;
+    }
+
+    .stat-card p {
+      font-size: 15px;
+      color: #e0e0e0;
+      margin: 0;
     }
 
     /* სერვისების სექცია */
@@ -402,7 +429,15 @@
   <section id="hero" class="page-section" style="display: block;">
     <h1>შინაური ცხოველების უსაფრთხო ტრანსპორტირება</h1>
     <p>ვეტექიმთან, სალონსა და სასტუმროში კომფორტული მგზავრობა თქვენი ოთხფეხა მეგობრებისთვის თბილისსა და მთელ საქართველოში.</p>
-    <a href="tel:+995568112350" class="phone-btn" style="display: inline-block;">დაგვიკავშირდით</a>
+    <a href="tel:+995568112350" class="phone-btn" style="display: inline-block; margin-bottom: 20px;">დაგვიკავშირდით</a>
+
+    <!-- კმაყოფილი მომხმარებლების სტატისტიკა -->
+    <div class="hero-stats">
+      <div class="stat-card">
+        <h3>1,500+</h3>
+        <p>კმაყოფილი მომხმარებელი</p>
+      </div>
+    </div>
   </section>
 
   <!-- სერვისები -->
