@@ -104,7 +104,6 @@
       min-height: 500px;
     }
 
-    /* ფონური სლაიდების კონტეინერი */
     .hero-bg-slider {
       position: absolute;
       top: 0;
@@ -130,7 +129,6 @@
       opacity: 1;
     }
 
-    /* მუქი გადასაფარებელი ფენა (Overlay) ტექსტის იკითხვადობისთვის */
     #hero::before {
       content: '';
       position: absolute;
@@ -314,6 +312,86 @@
       font-weight: 500;
     }
 
+    /* --- გალერეის სექციის ახალი ტაბები (ფოტო/ვიდეო) --- */
+    #gallery {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 60px 30px;
+    }
+
+    .gallery-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0 40px 0;
+    }
+
+    .tab-btn {
+      background: #f4f7f6;
+      color: #1d3557;
+      border: 2px solid #e0e0e0;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn:hover {
+      border-color: #ff6b00;
+      color: #ff6b00;
+    }
+
+    .tab-btn.active {
+      background: #ff6b00;
+      color: white;
+      border-color: #ff6b00;
+      box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+    }
+
+    .gallery-content-pane {
+      display: none;
+    }
+
+    .gallery-content-pane.active {
+      display: block;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      background: #f9f9f9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .gallery-item img, .gallery-item video {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item p {
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1d3557;
+      text-align: center;
+    }
+
     /* სოციალური ღილაკები */
     .social-links-grid {
       display: flex;
@@ -398,7 +476,7 @@
       background: #ff6b00;
     }
 
-    #gallery, #contact {
+    #contact {
       background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -512,7 +590,7 @@
   <!-- მთავარი სექცია ავტომატური სლაიდერით -->
   <section id="hero" class="page-section" style="display: block;">
     
-    <!-- ფონური ფოტოების სლაიდერი ატვირთული ფაილების მიხედვით -->
+    <!-- ფონური ფოტოების სლაიდერი -->
     <div class="hero-bg-slider">
       <div class="bg-slide active" style="background-image: url('B.jpg.jpg');"></div>
       <div class="bg-slide" style="background-image: url('B.2jpg.jpg');"></div>
@@ -615,11 +693,50 @@
     </div>
   </section>
 
-  <!-- გალერეა და მედია არქივი -->
+  <!-- განახლებული გალერეა ფოტო/ვიდეო ტაბებით -->
   <section id="gallery" class="page-section">
     <span class="sub-title">მედია არქივი</span>
     <h2 class="section-title">ფოტოები და ვიდეოები</h2>
-    <p>აქ შეგიძლიათ განათავსოთ ძაღლებისა და კატების ფოტოები და ვიდეოები.</p>
+
+    <!-- ტაბების ღილაკები -->
+    <div class="gallery-tabs">
+      <button class="tab-btn active" onclick="switchGalleryTab('photos')">📸 ფოტოები</button>
+      <button class="tab-btn" onclick="switchGalleryTab('videos')">🎥 ვიდეოები</button>
+    </div>
+
+    <!-- ფოტოების სექცია -->
+    <div id="gallery-photos" class="gallery-content-pane active">
+      <div class="gallery-grid">
+        <!-- ფოტოების დასამატებლად გამოიყენეთ ეს ბლოკები -->
+        <div class="gallery-item">
+          <img src="B.jpg.jpg" alt="PetTaxi Photo">
+          <p>კომფორტული მგზავრობა</p>
+        </div>
+        <div class="gallery-item">
+          <img src="B.2jpg.jpg" alt="PetTaxi Photo">
+          <p>ბედნიერი ოთხფეხა მგზავრი</p>
+        </div>
+        <div class="gallery-item">
+          <img src="B.3jpg.jpg" alt="PetTaxi Photo">
+          <p>უსაფრთხო ტრანსპორტირება</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ვიდეოების სექცია -->
+    <div id="gallery-videos" class="gallery-content-pane">
+      <div class="gallery-grid">
+        <!-- ვიდეოების დასამატებლად გამოიყენეთ ეს ბლოკები -->
+        <div class="gallery-item" onclick="openVideo('akaki.mp4')" style="cursor: pointer;">
+          <video src="akaki.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <p>▶ ვიდეო მიმოხილვა #1</p>
+        </div>
+        <div class="gallery-item" onclick="openVideo('meriam.mp4')" style="cursor: pointer;">
+          <video src="meriam.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <p>▶ ვიდეო მიმოხილვა #2</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- კონტაქტი სოციალური ქსელებით -->
@@ -708,7 +825,7 @@
       }
     }
 
-    setInterval(nextSlide, 5000); // 5000ms = 5 წამი
+    setInterval(nextSlide, 5000);
 
     // სექციების გადართვის ფუნქცია
     function showSection(sectionId) {
@@ -721,6 +838,23 @@
       if (target) {
         target.style.display = 'block';
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // გალერეის ტაბების გადართვის ფუნქცია (ფოტოები / ვიდეოები)
+    function switchGalleryTab(tabName) {
+      const panes = document.querySelectorAll('.gallery-content-pane');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      panes.forEach(pane => pane.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      if (tabName === 'photos') {
+        document.getElementById('gallery-photos').classList.add('active');
+        buttons[0].classList.add('active');
+      } else if (tabName === 'videos') {
+        document.getElementById('gallery-videos').classList.add('active');
+        buttons[1].classList.add('active');
       }
     }
 
