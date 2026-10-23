@@ -312,7 +312,7 @@
       font-weight: 500;
     }
 
-    /* --- გალერეის სექციის ახალი ტაბები (ფოტო/ვიდეო) --- */
+    /* გალერეის ტაბები და ბადე */
     #gallery {
       background: #ffffff;
       border-radius: 16px;
@@ -363,6 +363,16 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
+    }
+
+    .empty-notice {
+      grid-column: 1 / -1;
+      padding: 40px;
+      color: #777;
+      font-size: 16px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      border: 2px dashed #ddd;
     }
 
     .gallery-item {
@@ -589,8 +599,6 @@
 
   <!-- მთავარი სექცია ავტომატური სლაიდერით -->
   <section id="hero" class="page-section" style="display: block;">
-    
-    <!-- ფონური ფოტოების სლაიდერი -->
     <div class="hero-bg-slider">
       <div class="bg-slide active" style="background-image: url('B.jpg.jpg');"></div>
       <div class="bg-slide" style="background-image: url('B.2jpg.jpg');"></div>
@@ -608,7 +616,6 @@
       <p>ვეტექიმთან, სალონსა და სასტუმროში კომფორტული მგზავრობა თქვენი ოთხფეხა მეგობრებისთვის თბილისსა და მთელ საქართველოში.</p>
       <a href="tel:+995568112350" class="phone-btn" style="display: inline-block; margin-bottom: 20px;">დაგვიკავშირდით</a>
 
-      <!-- კმაყოფილი მომხმარებლების სტატისტიკა -->
       <div class="hero-stats">
         <div class="stat-card">
           <h3>1,500+</h3>
@@ -649,7 +656,6 @@
     <p class="section-description">მოხარული ვართ წარმოდგიდგინოთ ჩვენი გუნდი — პროფესიონალები, რომლებიც ზრუნავენ თქვენი ოთხფეხა მეგობრების უსაფრთხო, სტრესისგან თავისუფალ და მაქსიმალურად კომფორტულ მგზავრობაზე! 🐾✨</p>
     
     <div class="team-grid">
-      <!-- აკაკი თოლორდავა -->
       <div class="team-card" onclick="openVideo('akaki.mp4')">
         <div class="video-preview-wrapper">
           <video src="akaki.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
@@ -663,7 +669,6 @@
         </div>
       </div>
 
-      <!-- მერიამ ქარაჯა -->
       <div class="team-card" onclick="openVideo('meriam.mp4')">
         <div class="video-preview-wrapper">
           <video src="meriam.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
@@ -677,7 +682,6 @@
         </div>
       </div>
 
-      <!-- გივიკო მერკვილაძე -->
       <div class="team-card" onclick="openVideo('giviko.mp4')">
         <div class="video-preview-wrapper">
           <video src="giviko.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
@@ -693,48 +697,45 @@
     </div>
   </section>
 
-  <!-- განახლებული გალერეა ფოტო/ვიდეო ტაბებით -->
+  <!-- გალერეა (გასუფთავებული ახალი ფოტო/ვიდეოებისთვის) -->
   <section id="gallery" class="page-section">
     <span class="sub-title">მედია არქივი</span>
     <h2 class="section-title">ფოტოები და ვიდეოები</h2>
 
-    <!-- ტაბების ღილაკები -->
     <div class="gallery-tabs">
       <button class="tab-btn active" onclick="switchGalleryTab('photos')">📸 ფოტოები</button>
       <button class="tab-btn" onclick="switchGalleryTab('videos')">🎥 ვიდეოები</button>
     </div>
 
-    <!-- ფოტოების სექცია -->
+    <!-- ფოტოების სექცია (ცარიელი, მზად ასატვირთად) -->
     <div id="gallery-photos" class="gallery-content-pane active">
       <div class="gallery-grid">
-        <!-- ფოტოების დასამატებლად გამოიყენეთ ეს ბლოკები -->
-        <div class="gallery-item">
-          <img src="B.jpg.jpg" alt="PetTaxi Photo">
-          <p>კომფორტული მგზავრობა</p>
+        <div class="empty-notice">
+          ფოტოები მალე დაემატება. (შეგიძლიათ ატვირთოთ ახალი ფოტოები GitHub-ზე და დაამატოთ კოდში)
         </div>
-        <div class="gallery-item">
-          <img src="B.2jpg.jpg" alt="PetTaxi Photo">
-          <p>ბედნიერი ოთხფეხა მგზავრი</p>
-        </div>
-        <div class="gallery-item">
-          <img src="B.3jpg.jpg" alt="PetTaxi Photo">
-          <p>უსაფრთხო ტრანსპორტირება</p>
-        </div>
+        <!-- 
+          ფოტოს დასამატებლად გამოიყენეთ ეს შაბლონი:
+          <div class="gallery-item">
+            <img src="თქვენი_ფოტო.jpg" alt="PetTaxi Photo">
+            <p>ფოტოს აღწერა</p>
+          </div>
+        -->
       </div>
     </div>
 
-    <!-- ვიდეოების სექცია -->
+    <!-- ვიდეოების სექცია (ცარიელი, მზად ასატვირთად) -->
     <div id="gallery-videos" class="gallery-content-pane">
       <div class="gallery-grid">
-        <!-- ვიდეოების დასამატებლად გამოიყენეთ ეს ბლოკები -->
-        <div class="gallery-item" onclick="openVideo('akaki.mp4')" style="cursor: pointer;">
-          <video src="akaki.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <p>▶ ვიდეო მიმოხილვა #1</p>
+        <div class="empty-notice">
+          ვიდეოები მალე დაემატება. (შეგიძლიათ ატვირთოთ ახალი ვიდეოები GitHub-ზე და დაამატოთ კოდში)
         </div>
-        <div class="gallery-item" onclick="openVideo('meriam.mp4')" style="cursor: pointer;">
-          <video src="meriam.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <p>▶ ვიდეო მიმოხილვა #2</p>
-        </div>
+        <!-- 
+          ვიდეოს დასამატებლად გამოიყენეთ ეს შაბლონი:
+          <div class="gallery-item" onclick="openVideo('თქვენი_ვიდეო.mp4')" style="cursor: pointer;">
+            <video src="თქვენი_ვიდეო.mp4#t=0.1" preload="metadata" muted playsinline></video>
+            <p>▶ ვიდეოს აღწერა</p>
+          </div>
+        -->
       </div>
     </div>
   </section>
@@ -813,7 +814,6 @@
   </div>
 
   <script>
-    // ავტომატური ფონური სლაიდერი (იცვლება 5 წამში ერთხელ)
     const slides = document.querySelectorAll('.bg-slide');
     let currentSlide = 0;
 
@@ -827,7 +827,6 @@
 
     setInterval(nextSlide, 5000);
 
-    // სექციების გადართვის ფუნქცია
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.page-section');
       sections.forEach(sec => {
@@ -841,7 +840,6 @@
       }
     }
 
-    // გალერეის ტაბების გადართვის ფუნქცია (ფოტოები / ვიდეოები)
     function switchGalleryTab(tabName) {
       const panes = document.querySelectorAll('.gallery-content-pane');
       const buttons = document.querySelectorAll('.tab-btn');
@@ -858,7 +856,6 @@
       }
     }
 
-    // ვიდეოს მოდალური ფანჯარა
     function openVideo(videoSrc) {
       const modal = document.getElementById('videoModal');
       const video = document.getElementById('modalVideo');
