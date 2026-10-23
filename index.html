@@ -22,6 +22,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Noto Sans Georgian', 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -87,7 +88,7 @@
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             list-style: none;
             align-items: center;
         }
@@ -97,6 +98,11 @@
             color: var(--text-dark);
             font-weight: 700;
             font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-orange);
         }
 
         .btn-call {
@@ -107,6 +113,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-call:hover {
+            opacity: 0.9;
         }
 
         .hero {
@@ -202,6 +213,26 @@
             font-weight: 700;
         }
 
+        .about-section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 32px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .about-section p {
+            font-size: 17px;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
         footer {
             background-color: var(--primary-dark);
             color: white;
@@ -247,6 +278,7 @@
             <ul class="nav-links">
                 <li><a href="#home">მთავარი</a></li>
                 <li><a href="#services">სერვისები</a></li>
+                <li><a href="#about">ჩვენ შესახებ</a></li>
                 <li><a href="tel:+995599000000" class="btn-call"><i class="fa-solid fa-phone"></i> +995 599 00 00 00</a></li>
             </ul>
         </div>
@@ -260,7 +292,7 @@
 
     <section class="services-section" id="services">
         <div class="section-title">
-            
+            <h3>✨ Our Services Include</h3>
             <h2>✨ ჩვენი მომსახურება მოიცავს</h2>
         </div>
 
@@ -295,6 +327,11 @@
                 <p>კომფორტული და უსაფრთხო ტრანსპორტირება საქართველოს ნებისმიერ რეგიონსა თუ ქალაქგარეთა მიმართულებით.</p>
             </div>
         </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <h2>ჩვენ შესახებ</h2>
+        <p>PetTaxi შეიქმნა იმისათვის, რომ შინაური ცხოველების გადაყვანა თბილისსა და მთელ საქართველოში იყოს სრულიად უსაფრთხო, კომფორტული და სტრესისგან თავისუფალი. ჩვენი გუნდი ზრუნავს თითოეულ ოთხფეხა მეგობარზე ისეთივე სიყვარულით და ყურადღებით, როგორითაც მათი პატრონები.</p>
     </section>
 
     <footer>
