@@ -16,6 +16,9 @@
       background-color: #f4f7f6;
       color: #333;
       line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     /* ჰედერი */
@@ -80,10 +83,10 @@
       max-width: 1200px;
       margin: 0 auto;
       text-align: center;
-      min-height: 70vh;
+      flex: 1;
     }
 
-    /* მთავარი (Hero) სექცია - ჩანს თავიდანვე */
+    /* მთავარი (Hero) სექცია */
     #hero {
       display: block;
       max-width: 100%;
@@ -277,19 +280,91 @@
       background: #ff6b00;
     }
 
-    /* გალერეა და კონტაქტი */
     #gallery, #contact {
       background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
+    /* პროფესიონალური მრავალსვეტიანი ფუტერი */
     footer {
-      background: #1d3557;
-      color: white;
-      text-align: center;
-      padding: 30px;
-      margin-top: 60px;
+      background-color: #112233;
+      color: #ffffff;
+      padding: 50px 40px 20px 40px;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: left;
+    }
+
+    .footer-col h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .footer-col p {
+      color: #b0c4de;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      color: #b0c4de;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    .footer-col ul li a:hover {
+      color: #ff6b00;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 20px auto 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 13px;
+      color: #8899a6;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      color: #8899a6;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #ffffff;
     }
   </style>
 </head>
@@ -410,9 +485,43 @@
     </div>
   </section>
 
-  <!-- ფუტერი -->
+  <!-- პროფესიონალური ფუტერი -->
   <footer>
-    <p>&copy; 2026 PetTaxi Tbilisi. ყველა უფლება დაცულია.</p>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>PetTaxi Tbilisi</h3>
+        <p>შინაური ცხოველების უსაფრთხო და კომფორტული ტრანსპორტირება თბილისსა და მთელ საქართველოში.</p>
+      </div>
+      <div class="footer-col">
+        <h3>ლინკები</h3>
+        <ul>
+          <li><a onclick="showSection('hero')">მთავარი</a></li>
+          <li><a onclick="showSection('services')">სერვისები</a></li>
+          <li><a onclick="showSection('about')">ჩვენ შესახებ</a></li>
+          <li><a onclick="showSection('gallery')">გალერეა</a></li>
+          <li><a onclick="showSection('contact')">კონტაქტი</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>კონტაქტი</h3>
+        <p>📞 568 112 350</p>
+        <p>🕒 24/7 გრაფიკი</p>
+        <p>📍 თბილისი და გარეუბნები</p>
+      </div>
+      <div class="footer-col">
+        <h3>ნდობა და უსაფრთხოება</h3>
+        <p>🛡️ ლიცენზირებული სერვისი</p>
+        <p>🔒 სრული კომფორტი და დაცულობა</p>
+        <p>🐾 გამოცდილი მძღოლები</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 PetTaxi Tbilisi. ყველა უფლება დაცულია.</p>
+      <div class="footer-bottom-links">
+        <a href="#">კონფიდენციალურობის პოლიტიკა</a>
+        <a href="#">სერვისის პირობები</a>
+      </div>
+    </div>
   </footer>
 
   <!-- ვიდეოს მოდალური ფანჯარა -->
