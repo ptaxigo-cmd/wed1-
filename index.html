@@ -210,27 +210,27 @@
     /* სოციალური ქსელების ღილაკების სტილები */
     .social-links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 15px;
-      margin-top: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
     }
 
     .social-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 12px;
+      gap: 8px;
+      padding: 10px 15px;
+      border-radius: 10px;
       color: white;
       text-decoration: none;
       font-weight: bold;
-      font-size: 15px;
+      font-size: 14px;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
     .social-btn:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       opacity: 0.9;
     }
 
@@ -455,15 +455,6 @@
       font-weight: 600;
     }
 
-    /* Google Reviews სექცია */
-    #reviews-section {
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      padding: 60px 30px;
-      margin-bottom: 40px;
-    }
-
     /* მოდალური ფანჯარა ფოტოს დეტალებისთვის */
     .photo-modal {
       display: none;
@@ -611,8 +602,8 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
       padding-bottom: 40px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       text-align: left;
@@ -1095,26 +1086,18 @@
     </div>
   </section>
 
-  <!-- Google Reviews (შეფასებების) სექცია -->
-  <section id="reviews-section" class="page-section">
-    <span class="sub-title">მომხმარებელთა შეფასებები</span>
-    <h2 class="section-title">რას ამბობენ ჩვენზე Google-ში ⭐</h2>
-    <!-- Elfsight Google Reviews Widget -->
-    <div class="elfsight-app-70eb222f-9926-461d-ba44-04a05aa12829" data-elfsight-app-lazy></div>
-  </section>
-
   <!-- საკონტაქტო სექცია -->
   <section id="contact" class="page-section">
     <span class="sub-title">დაგვიკავშირდით</span>
     <h2 class="section-title">საკონტაქტო ინფორმაცია</h2>
-    <div class="services-grid" style="max-width: 700px; margin: 0 auto;">
+    <div class="services-grid" style="max-width: 600px; margin: 0 auto;">
       <div class="service-card" style="text-align: center;">
         <h3>📞 ტელეფონი</h3>
         <p style="margin-bottom: 20px;">
           <a href="tel:+995568112350" style="color: #ff6b00; font-size: 22px; text-decoration: none; font-weight: bold;">+995 568 112 350</a>
         </p>
 
-        <h3 style="margin-top: 25px;">🌐 სოციალური ქსელები</h3>
+        <h3 style="margin-top: 25px; color: #1d3557; margin-bottom: 10px;">🌐 სოციალური ქსელები</h3>
         <div class="social-links-grid">
           <a href="https://www.facebook.com/PetTaxiTbilisi" target="_blank" class="social-btn social-fb">Facebook</a>
           <a href="https://www.instagram.com/pettaxi_tbilisi?stkn=bTN3N3B4amJ5cHcz&utm_source=qr" target="_blank" class="social-btn social-insta">Instagram</a>
@@ -1125,7 +1108,7 @@
     </div>
   </section>
 
-  <!-- ფუტერი -->
+  <!-- ფუტერი (Google Reviews ჩასმულია მარჯვენა მხარეს) -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -1139,6 +1122,7 @@
           <li><a onclick="showSection('services')">სერვისები</a></li>
           <li><a onclick="showSection('about')">ჩვენ შესახებ</a></li>
           <li><a onclick="showSection('gallery')">გალერეა</a></li>
+          <li><a onclick="showSection('contact')">კონტაქტი</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1146,6 +1130,12 @@
         <p>📞 568 112 350</p>
         <p>🕒 24/7 მხარდაჭერა</p>
         <p>📍 თბილისი და რეგიონები</p>
+      </div>
+      <!-- წითლად შემოხაზული ადგილი - Google Reviews -->
+      <div class="footer-col" style="min-width: 250px;">
+        <h3>⭐ შეფასებები</h3>
+        <!-- Elfsight Google Reviews Widget -->
+        <div class="elfsight-app-70eb222f-9926-461d-ba44-04a05aa12829" data-elfsight-app-lazy></div>
       </div>
     </div>
     <div class="footer-bottom">
