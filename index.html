@@ -312,7 +312,7 @@
       font-weight: 500;
     }
 
-    /* გალერეის ტაბები და ბადე */
+    /* გალერეის სტილები */
     #gallery {
       background: #ffffff;
       border-radius: 16px;
@@ -365,26 +365,19 @@
       gap: 20px;
     }
 
-    .empty-notice {
-      grid-column: 1 / -1;
-      padding: 40px;
-      color: #777;
-      font-size: 16px;
-      background: #f9f9f9;
-      border-radius: 12px;
-      border: 2px dashed #ddd;
-    }
-
     .gallery-item {
       background: #f9f9f9;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       transition: transform 0.3s ease;
+      cursor: pointer;
+      text-align: left;
     }
 
     .gallery-item:hover {
       transform: translateY(-4px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
 
     .gallery-item img, .gallery-item video {
@@ -394,12 +387,106 @@
       display: block;
     }
 
-    .gallery-item p {
-      padding: 12px;
-      font-size: 14px;
-      font-weight: 500;
+    .gallery-item-info {
+      padding: 15px;
+    }
+
+    .gallery-item-info h4 {
+      font-size: 16px;
       color: #1d3557;
-      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .gallery-item-info p {
+      font-size: 13px;
+      color: #666;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .read-more-hint {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #ff6b00;
+      font-weight: 600;
+    }
+
+    /* მოდალური ფანჯარა ფოტოს დეტალებისთვის */
+    .photo-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .photo-modal-content {
+      background: white;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      text-align: left;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .photo-modal-img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+    }
+
+    .photo-modal-body {
+      padding: 25px;
+      overflow-y: auto;
+    }
+
+    .photo-modal-body h3 {
+      color: #1d3557;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .photo-modal-body p {
+      color: #444;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .close-photo-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1010;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .close-photo-modal:hover {
+      background: #ff6b00;
     }
 
     /* სოციალური ღილაკები */
@@ -432,7 +519,7 @@
     .social-btn.tiktok { background-color: #000000; }
     .social-btn.whatsapp { background-color: #25d366; }
 
-    /* მოდალური ფანჯარა ვიდეოსთვის */
+    /* ვიდეოს მოდალური ფანჯარა */
     .video-modal {
       display: none;
       position: fixed;
@@ -697,7 +784,7 @@
     </div>
   </section>
 
-  <!-- გალერეა (გასუფთავებული ახალი ფოტო/ვიდეოებისთვის) -->
+  <!-- გალერეა ფოტოებისა და ვიდეოების ტაბებით -->
   <section id="gallery" class="page-section">
     <span class="sub-title">მედია არქივი</span>
     <h2 class="section-title">ფოტოები და ვიდეოები</h2>
@@ -707,35 +794,203 @@
       <button class="tab-btn" onclick="switchGalleryTab('videos')">🎥 ვიდეოები</button>
     </div>
 
-    <!-- ფოტოების სექცია (ცარიელი, მზად ასატვირთად) -->
+    <!-- ფოტოების სექცია (ყველა ატვირთული ფოტოთი) -->
     <div id="gallery-photos" class="gallery-content-pane active">
       <div class="gallery-grid">
-        <div class="empty-notice">
-          ფოტოები მალე დაემატება. (შეგიძლიათ ატვირთოთ ახალი ფოტოები GitHub-ზე და დაამატოთ კოდში)
-        </div>
-        <!-- 
-          ფოტოს დასამატებლად გამოიყენეთ ეს შაბლონი:
-          <div class="gallery-item">
-            <img src="თქვენი_ფოტო.jpg" alt="PetTaxi Photo">
-            <p>ფოტოს აღწერა</p>
+        
+        <div class="gallery-item" onclick="openPhotoModal('photo1.jpg', 'PetTaxi-ის მგზავრი', 'ჩვენი საყვარელი მგზავრი კომფორტულად მგზავრობს PetTaxi-ით.')">
+          <img src="photo1.jpg" alt="PetTaxi Photo 1">
+          <div class="gallery-item-info">
+            <h4>PetTaxi-ის მგზავრი</h4>
+            <p>ჩვენი საყვარელი მგზავრი კომფორტულად...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
-        -->
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo2.jpg', 'უსაფრთხო ტრანსპორტირება', 'შინაური ცხოველების უსაფრთხო და სტრესისგან თავისუფალი გადაყვანა.')">
+          <img src="photo2.jpg" alt="PetTaxi Photo 2">
+          <div class="gallery-item-info">
+            <h4>უსაფრთხო ტრანსპორტირება</h4>
+            <p>შინაური ცხოველების უსაფრთხო და სტრესისგან...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo3.jpg', 'კომფორტული მგზავრობა', 'სპეციალურად აღჭურვილი ავტომობილები თქვენი ოთხფეხა მეგობრებისთვის.')">
+          <img src="photo3.jpg" alt="PetTaxi Photo 3">
+          <div class="gallery-item-info">
+            <h4>კომფორტული მგზავრობა</h4>
+            <p>სპეციალურად აღჭურვილი ავტომობილები...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo4.jpg', 'ვიზიტი ვეტექიმთან', 'კლინიკაში დროული და მშვიდი გადაყვანა.')">
+          <img src="photo4.jpg" alt="PetTaxi Photo 4">
+          <div class="gallery-item-info">
+            <h4>ვიზიტი ვეტექიმთან</h4>
+            <p>კლინიკაში დროული და მშვიდი...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo5.jpg', 'მზრუნველი გუნდი', 'ჩვენი გუნდი თითოეულ ცხოველზე განსაკუთრებულად ზრუნავს.')">
+          <img src="photo5.jpg" alt="PetTaxi Photo 5">
+          <div class="gallery-item-info">
+            <h4>მზრუნველი გუნდი</h4>
+            <p>ჩვენი გუნდი თითოეულ ცხოველზე...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo6.jpg', 'მგზავრობა სალონში', 'გრუმინგსა და თავის მოვლის ცენტრებში ტრანსპორტირება.')">
+          <img src="photo6.jpg" alt="PetTaxi Photo 6">
+          <div class="gallery-item-info">
+            <h4>მგზავრობა სალონში</h4>
+            <p>გრუმინგსა და თავის მოვლის...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo7.jpg', 'ბედნიერი ოთხფეხა', 'კმაყოფილი მომხმარებლები PetTaxi-ის ავტომობილში.')">
+          <img src="photo7.jpg" alt="PetTaxi Photo 7">
+          <div class="gallery-item-info">
+            <h4>ბედნიერი ოთხფეხა</h4>
+            <p>კმაყოფილი მომხმარებლები PetTaxi-ის...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo8.jpg', 'ქალაქგარეთ მგზავრობა', 'რეგიონებსა და ქალაქგარეთ უსაფრთხო გადაყვანა.')">
+          <img src="photo8.jpg" alt="PetTaxi Photo 8">
+          <div class="gallery-item-info">
+            <h4>ქალაქგარეთ მგზავრობა</h4>
+            <p>რეგიონებსა და ქალაქგარეთ უსაფრთხო...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo9.jpg', 'სასტუმროში ტრანსპორტირება', 'ცხოველთა სასტუმროებში კომფორტული გადაყვანა.')">
+          <img src="photo9.jpg" alt="PetTaxi Photo 9">
+          <div class="gallery-item-info">
+            <h4>სასტუმროში ტრანსპორტირება</h4>
+            <p>ცხოველთა სასტუმროებში კომფორტული...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo10.jpg', 'მშვიდი გარემო', 'სრული სიმშვიდე და უსაფრთხოება მგზავრობისას.')">
+          <img src="photo10.jpg" alt="PetTaxi Photo 10">
+          <div class="gallery-item-info">
+            <h4>მშვიდი გარემო</h4>
+            <p>სრული სიმშვიდე და უსაფრთხოება...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo11.jpg', 'პროფესიონალური სერვისი', 'გამოცდილი მძღოლები და მოწესრიგებული ტრანსპორტი.')">
+          <img src="photo11.jpg" alt="PetTaxi Photo 11">
+          <div class="gallery-item-info">
+            <h4>პროფესიონალური სერვისი</h4>
+            <p>გამოცდილი მძღოლები და მოწესრიგებული...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo12.jpg', 'სანდო ტრანსპორტირება', 'თქვენი ოთხფეხა მეგობარი საიმედო ხელშია.')">
+          <img src="photo12.jpg" alt="PetTaxi Photo 12">
+          <div class="gallery-item-info">
+            <h4>სანდო ტრანსპორტირება</h4>
+            <p>თქვენი ოთხფეხა მეგობარი საიმედო...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo13.jpg', 'მუდმივი მზრუნველობა', 'ჩვენ ვზრუნავთ თითოეულ დეტალზე მგზავრობისას.')">
+          <img src="photo13.jpg" alt="PetTaxi Photo 13">
+          <div class="gallery-item-info">
+            <h4>მუდმივი მზრუნველობა</h4>
+            <p>ჩვენ ვზრუნავთ თითოეულ დეტალზე...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo14.jpg.jpg', 'PetTaxi-ის სერვისი', 'სრული კომფორტი და დაცულობა.')">
+          <img src="photo14.jpg.jpg" alt="PetTaxi Photo 14">
+          <div class="gallery-item-info">
+            <h4>PetTaxi-ის სერვისი</h4>
+            <p>სრული კომფორტი და დაცულობა...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo15.jpg.jpg', 'უსაფრთხო მგზავრი', 'ცხოველთა უსაფრთხო გადაყვანა თბილისში.')">
+          <img src="photo15.jpg.jpg" alt="PetTaxi Photo 15">
+          <div class="gallery-item-info">
+            <h4>უსაფრთხო მგზავრი</h4>
+            <p>ცხოველთა უსაფრთხო გადაყვანა...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo16.jpg.jpg', 'კომფორტული ტრანსპორტი', 'მოწესრიგებული და სუფთა სალონი.')">
+          <img src="photo16.jpg.jpg" alt="PetTaxi Photo 16">
+          <div class="gallery-item-info">
+            <h4>კომფორტული ტრანსპორტი</h4>
+            <p>მოწესრიგებული და სუფთა სალონი...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo17.jpg.jpg', 'მშვიდი მგზავრობა', 'სტრესისგან თავისუფალი გარემო.')">
+          <img src="photo17.jpg.jpg" alt="PetTaxi Photo 17">
+          <div class="gallery-item-info">
+            <h4>მშვიდი მგზავრობა</h4>
+            <p>სტრესისგან თავისუფალი გარემო...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openPhotoModal('photo18.jpg.jpg', 'PetTaxi Tbilisi', 'თქვენი ოთხფეხა მეგობრების საიმედო პარტნიორი.')">
+          <img src="photo18.jpg.jpg" alt="PetTaxi Photo 18">
+          <div class="gallery-item-info">
+            <h4>PetTaxi Tbilisi</h4>
+            <p>თქვენი ოთხფეხა მეგობრების საიმედო...</p>
+            <span class="read-more-hint">მეტის წაკითხვა →</span>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- ვიდეოების სექცია (ცარიელი, მზად ასატვირთად) -->
+    <!-- ვიდეოების სექცია -->
     <div id="gallery-videos" class="gallery-content-pane">
       <div class="gallery-grid">
-        <div class="empty-notice">
-          ვიდეოები მალე დაემატება. (შეგიძლიათ ატვირთოთ ახალი ვიდეოები GitHub-ზე და დაამატოთ კოდში)
-        </div>
-        <!-- 
-          ვიდეოს დასამატებლად გამოიყენეთ ეს შაბლონი:
-          <div class="gallery-item" onclick="openVideo('თქვენი_ვიდეო.mp4')" style="cursor: pointer;">
-            <video src="თქვენი_ვიდეო.mp4#t=0.1" preload="metadata" muted playsinline></video>
-            <p>▶ ვიდეოს აღწერა</p>
+        
+        <div class="gallery-item" onclick="openVideo('akaki.mp4')">
+          <video src="akaki.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო მიმოხილვა - აკაკი</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
           </div>
-        -->
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('meriam.mp4')">
+          <video src="meriam.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო მიმოხილვა - მერიამი</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('giviko.mp4')">
+          <video src="giviko.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო მიმოხილვა - გივიკო</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -813,6 +1068,18 @@
     </div>
   </div>
 
+  <!-- ფოტოს დეტალური ტექსტის მოდალური ფანჯარა -->
+  <div id="photoModal" class="photo-modal" onclick="closePhotoModalOnOutside(event)">
+    <div class="photo-modal-content">
+      <button class="close-photo-modal" onclick="closePhotoModal()">&times;</button>
+      <img id="modalPhotoImg" src="" alt="Photo" class="photo-modal-img">
+      <div class="photo-modal-body">
+        <h3 id="modalPhotoTitle"></h3>
+        <p id="modalPhotoDesc"></p>
+      </div>
+    </div>
+  </div>
+
   <script>
     const slides = document.querySelectorAll('.bg-slide');
     let currentSlide = 0;
@@ -853,6 +1120,25 @@
       } else if (tabName === 'videos') {
         document.getElementById('gallery-videos').classList.add('active');
         buttons[1].classList.add('active');
+      }
+    }
+
+    function openPhotoModal(imgSrc, title, desc) {
+      const modal = document.getElementById('photoModal');
+      document.getElementById('modalPhotoImg').src = imgSrc;
+      document.getElementById('modalPhotoTitle').innerText = title;
+      document.getElementById('modalPhotoDesc').innerText = desc;
+      modal.style.display = 'flex';
+    }
+
+    function closePhotoModal() {
+      document.getElementById('photoModal').style.display = 'none';
+    }
+
+    function closePhotoModalOnOutside(event) {
+      const content = document.querySelector('.photo-modal-content');
+      if (!content.contains(event.target)) {
+        closePhotoModal();
       }
     }
 
