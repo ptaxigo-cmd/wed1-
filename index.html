@@ -1,597 +1,361 @@
+
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetTaxi - შინაური ცხოველების ტრანსპორტირება</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Noto+Sans+Georgian:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-orange: #FF7012;
-            --primary-dark: #0F172A;
-            --teal-color: #00A3AD;
-            --bg-dots: #FFFDF0;
-            --text-dark: #1E293B;
-            --text-gray: #64748B;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetTaxi Tbilisi - შინაური ცხოველების ტრანსპორტირება</title>
+  <style>
+    /* ზოგადი სტილები */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Noto Sans Georgian', 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+      line-height: 1.6;
+    }
 
-        body {
-            background-color: var(--bg-dots);
-            background-image: radial-gradient(#E2D9C8 1.2px, transparent 1.2px);
-            background-size: 24px 24px;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+    /* ჰედერი */
+    header {
+      background: #ffffff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-        header {
-            background-color: #FFFFFF;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 20px;
+      color: #1d3557;
+    }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 14px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-        .logo-box {
-            width: 58px;
-            height: 58px;
-            background-color: var(--primary-orange);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 15px rgba(255, 112, 18, 0.35);
-        }
+    nav ul li a:hover {
+      color: #ff6b00;
+    }
 
-        .logo-brand {
-            font-size: 28px;
-            font-weight: 800;
-            line-height: 1;
-        }
+    .phone-btn {
+      background: #1d3557;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
 
-        .logo-brand .pet { color: var(--primary-dark); }
-        .logo-brand .taxi { color: var(--primary-orange); }
+    .phone-btn:hover {
+      background: #ff6b00;
+    }
 
-        .logo-sub {
-            color: var(--teal-color);
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 1.8px;
-            margin-top: 3px;
-            text-transform: uppercase;
-        }
+    /* გუნდის სექცია */
+    .team-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-            align-items: center;
-        }
+    .sub-title {
+      color: #ff6b00;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 700;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
+    .section-title {
+      font-size: 32px;
+      color: #1d3557;
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
 
-        .nav-links a:hover {
-            color: var(--primary-orange);
-        }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
 
-        .btn-call {
-            background-color: var(--teal-color);
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+    .team-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+    }
 
-        .hero {
-            padding: 70px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
 
-        .hero-badge {
-            background: #FFF0E6;
-            color: var(--primary-orange);
-            border: 1px solid rgba(255, 112, 18, 0.25);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
+    .video-preview-wrapper {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background-color: #0d1b2a;
+      overflow: hidden;
+    }
 
-        .hero h1 {
-            font-size: 44px;
-            font-weight: 800;
-            color: var(--primary-dark);
-            margin-bottom: 15px;
-        }
+    .card-video-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .hero h1 span { color: var(--primary-orange); }
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
 
-        .hero p {
-            font-size: 18px;
-            color: var(--text-gray);
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
+    .team-card:hover .play-overlay {
+      background: rgba(0, 0, 0, 0.1);
+    }
 
-        /* Services Section */
-        .services-section {
-            padding: 70px 20px;
-            background-color: #FFFFFF;
-        }
+    .play-btn-icon {
+      width: 50px;
+      height: 50px;
+      background: #ff6b00;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+    }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .team-info {
+      padding: 20px;
+    }
 
-        .section-title h3 {
-            color: var(--teal-color);
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
+    .team-info h3 {
+      font-size: 20px;
+      color: #1d3557;
+      margin-bottom: 5px;
+    }
 
-        .section-title h2 {
-            font-size: 32px;
-            color: var(--primary-dark);
-            font-weight: 800;
-        }
+    .team-info p {
+      color: #ff6b00;
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+    /* მოდალური ფანჯარა ვიდეოსთვის */
+    .video-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .service-card {
-            background: var(--bg-dots);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid #E2E8F0;
-        }
+    .modal-content-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
 
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background-color: #FFF0E6;
-            color: var(--primary-orange);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            margin-bottom: 20px;
-        }
+    .modal-video {
+      width: 100%;
+      max-height: 80vh;
+      display: block;
+    }
 
-        .service-card h4 {
-            font-size: 19px;
-            color: var(--primary-dark);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 1010;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
 
-        /* About & Team Section */
-        .about-section {
-            padding: 80px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+    .close-modal:hover {
+      background: #ff6b00;
+    }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
+    /* მედია არქივი / გალერეა */
+    .media-archive-section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-        .team-card {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            cursor: pointer;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .team-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-orange);
-        }
-
-        .video-thumbnail {
-            width: 100%;
-            height: 180px;
-            background-color: #0F172A;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 45px;
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .play-btn {
-            background-color: var(--primary-orange);
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(255, 112, 18, 0.4);
-            transition: transform 0.2s;
-        }
-
-        .team-card:hover .play-btn {
-            transform: scale(1.1);
-        }
-
-        .team-card h4 {
-            font-size: 20px;
-            color: var(--primary-dark);
-            font-weight: 700;
-        }
-
-        .team-card p {
-            color: var(--teal-color);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            padding: 70px 20px;
-            background-color: #FFFFFF;
-        }
-
-        .gallery-grid {
-            max-width: 1100px;
-            margin: 40px auto 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .gallery-box {
-            background: var(--bg-dots);
-            border: 2px dashed var(--teal-color);
-            border-radius: 20px;
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        .gallery-box i {
-            font-size: 36px;
-            color: var(--teal-color);
-            margin-bottom: 12px;
-        }
-
-        .gallery-box h3 {
-            font-size: 20px;
-            color: var(--primary-dark);
-            margin-bottom: 15px;
-        }
-
-        .sub-folders {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .folder-badge {
-            background: white;
-            padding: 8px 15px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
-            border: 1px solid #E2E8F0;
-        }
-
-        /* Modal / Pop-up Video */
-        .video-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(15, 23, 42, 0.85);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: black;
-            width: 100%;
-            max-width: 800px;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: white;
-            font-size: 32px;
-            cursor: pointer;
-            z-index: 10;
-            background: rgba(0,0,0,0.5);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
-        }
-
-        .close-btn:hover {
-            background: var(--primary-orange);
-        }
-
-        .video-modal video {
-            width: 100%;
-            display: block;
-            max-height: 80vh;
-        }
-
-        footer {
-            background-color: var(--primary-dark);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 30px; }
-        }
-    </style>
+    .media-archive-section h3 {
+      font-size: 24px;
+      color: #1d3557;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo-container">
-                <div class="logo-box">
-                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g transform="translate(18, 10) rotate(-20) scale(0.68)">
-                            <ellipse cx="20" cy="18" rx="5" ry="8" fill="#2B263F"/>
-                            <ellipse cx="36" cy="12" rx="5" ry="8" fill="#2B263F"/>
-                            <ellipse cx="52" cy="18" rx="5" ry="8" fill="#2B263F"/>
-                            <ellipse cx="64" cy="32" rx="5" ry="7" fill="#2B263F"/>
-                            <path d="M 20 48 C 15 33, 30 28, 42 28 C 55 28, 70 33, 65 48 C 60 62, 48 65, 42 65 C 35 65, 25 62, 20 48 Z" fill="#2B263F"/>
-                        </g>
-                        <g transform="translate(44, 38) rotate(-20) scale(0.68)">
-                            <ellipse cx="20" cy="18" rx="5" ry="8" fill="#2B263F"/>
-                            <ellipse cx="36" cy="12" rx="5" ry="8" fill="#2B263F"/>
-                            <ellipse cx="52" cy="18" rx="5" ry="8" fill="#2B263F"/>
-                            <ellipse cx="64" cy="32" rx="5" ry="7" fill="#2B263F"/>
-                            <path d="M 20 48 C 15 33, 30 28, 42 28 C 55 28, 70 33, 65 48 C 60 62, 48 65, 42 65 C 35 65, 25 62, 20 48 Z" fill="#2B263F"/>
-                        </g>
-                    </svg>
-                </div>
-                <div>
-                    <div class="logo-brand"><span class="pet">Pet</span><span class="taxi">Taxi</span></div>
-                    <div class="logo-sub">PET TRANSPORTATION</div>
-                </div>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#home">მთავარი</a></li>
-                <li><a href="#services">სერვისები</a></li>
-                <li><a href="#about">ჩვენ შესახებ</a></li>
-                <li><a href="#gallery">გალერეა</a></li>
-                <li><a href="tel:+995568112350" class="btn-call"><i class="fa-solid fa-phone"></i> +995 568 112 350</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <span class="hero-badge"><i class="fa-solid fa-paw"></i> უსაფრთხო & კომფორტული მგზავრობა</span>
-        <h1>ტაქსი შენი <span>ოთხფეხა</span> მეგობრებისთვის!</h1>
-        <p>PetTaxi გთავაზობთ შინაური ცხოველების უსაფრთხო, კომფორტულ და სტრესისგან თავისუფალ ტრანსპორტირებას თბილისსა და მთელ საქართველოში.</p>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section" id="services">
-        <div class="section-title">
-            <h3>✨ Our Services Include</h3>
-            <h2>✨ ჩვენი მომსახურება მოიცავს</h2>
-        </div>
-
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-taxi"></i></div>
-                <h4>🚕 კარიდან კარამდე</h4>
-                <p>ჩვენ მოვაკითხავთ თქვენს ცხოველს მითითებულ მისამართზე და უზრუნველვყოფთ მის უსაფრთხო ტრანსპორტირებას.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                <h4>🏥 ვიზიტი ვეტერინართან და გრუმინგზე</h4>
-                <p>იქნება ეს გეგმიური შემოწმება თუ სილამაზის პროცედურები, ჩვენ მივიყვანთ თქვენს მეგობარს ზუსტად იქ, სადაც საჭიროა.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-user-clock"></i></div>
-                <h4>⏳ პირადი ასისტენტი</h4>
-                <p>ჩვენი მძღოლი მეტია, ვიდრე უბრალოდ გადამყვანი — ის არის კომპანიონი, რომელიც დაელოდება პროცედურების დასრულებას და მუდმივად მზრუნველად ადევნებს თვალს თქვენს ცხოველს.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-house-chimney-check"></i></div>
-                <h4>🏠 უსაფრთხო დაბრუნება</h4>
-                <p>პროცედურების დასრულების შემდეგ, ჩვენს მგზავრს კომფორტულად და დაცულად დავაბრუნებთ სახლში.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-mountain-city"></i></div>
-                <h4>🏞️ ქალაქგარეთ მგზავრობა</h4>
-                <p>კომფორტული და უსაფრთხო ტრანსპორტირება საქართველოს ნებისმიერ რეგიონსა თუ ქალაქგარეთა მიმართულებით.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section with Team Videos -->
-    <section class="about-section" id="about">
-        <div class="section-title">
-            <h3>ჩვენ შესახებ</h3>
-            <h2>გაიცანით PetTaxi-ის გუნდი</h2>
-        </div>
-
-        <div class="team-grid">
-            <!-- Team Member 1: Akaki -->
-            <div class="team-card" onclick="openVideo('akaki.mp4')">
-                <div class="video-thumbnail">
-                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
-                </div>
-                <h4>აკაკი თოლორდავა</h4>
-                <p>PetTaxi - ის დამფუძნებელი</p>
-            </div>
-
-            <!-- Team Member 2: Meriam -->
-            <div class="team-card" onclick="openVideo('meriam.mp4')">
-                <div class="video-thumbnail">
-                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
-                </div>
-                <h4>მერიამ ქარაჯა</h4>
-                <p>PetTaxi - ის მარკეტოლოგი</p>
-            </div>
-
-            <!-- Team Member 3: Giviko -->
-            <div class="team-card" onclick="openVideo('giviko.mp4')">
-                <div class="video-thumbnail">
-                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
-                </div>
-                <h4>გივიკო მერკვილაძე</h4>
-                <p>PetTaxi - ის გენერალური მენეჯერი</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Files Section -->
-    <section class="gallery-section" id="gallery">
-        <div class="section-title">
-            <h3>მედია არქივი</h3>
-            <h2>ფოტოები და ვიდეოები</h2>
-        </div>
-
-        <div class="gallery-grid">
-            <!-- Photos Section -->
-            <div class="gallery-box">
-                <i class="fa-solid fa-images"></i>
-                <h3>📷 ფოტოები</h3>
-                <div class="sub-folders">
-                    <span class="folder-badge">🐶 ძაღლები</span>
-                    <span class="folder-badge">🐱 კატები</span>
-                </div>
-            </div>
-
-            <!-- Videos Section -->
-            <div class="gallery-box">
-                <i class="fa-solid fa-film"></i>
-                <h3>🎥 ვიდეოები</h3>
-                <div class="sub-folders">
-                    <span class="folder-badge">🐶 ძაღლები</span>
-                    <span class="folder-badge">🐱 კატები</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal for Video Pop-up -->
-    <div class="video-modal" id="videoModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeVideo()">&times;</span>
-            <video id="player" controls>
-                <source id="videoSource" src="" type="video/mp4">
-                თქვენს ბრაუზერს ვიდეოს მხარდაჭერა არ აქვს.
-            </video>
-        </div>
+  <!-- ჰედერი -->
+  <header>
+    <div class="logo-container">
+      <span>PetTaxi</span>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#">მთავარი</a></li>
+        <li><a href="#">სერვისები</a></li>
+        <li><a href="#about">ჩვენ შესახებ</a></li>
+        <li><a href="#">გალერეა</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+995568112350" class="phone-btn">+995 568 112 350</a>
+  </header>
 
-    <footer>
-        <p>© 2026 PetTaxi - PET TRANSPORTATION. ყველა უფლება დაცულია.</p>
-    </footer>
+  <!-- გუნდის სექცია -->
+  <section id="about" class="team-section">
+    <div class="container">
+      <span class="sub-title">ჩვენ შესახებ</span>
+      <h2 class="section-title">გაიცანით PetTaxi-ის გუნდი</h2>
+      
+      <div class="team-grid">
+        <!-- აკაკი თოლორდავა -->
+        <div class="team-card" onclick="openVideo('akaki.mp4')">
+          <div class="video-preview-wrapper">
+            <video src="akaki.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
+            <div class="play-overlay">
+              <div class="play-btn-icon">▶</div>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3>აკაკი თოლორდავა</h3>
+            <p>PetTaxi - ის დამფუძნებელი</p>
+          </div>
+        </div>
 
-    <script>
-        function openVideo(videoFile) {
-            var modal = document.getElementById('videoModal');
-            var player = document.getElementById('player');
-            var source = document.getElementById('videoSource');
-            
-            source.src = videoFile;
-            player.load();
-            modal.style.display = 'flex';
-            player.play();
-        }
+        <!-- მერიამ ქარაჯა -->
+        <div class="team-card" onclick="openVideo('meriam.mp4')">
+          <div class="video-preview-wrapper">
+            <video src="meriam.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
+            <div class="play-overlay">
+              <div class="play-btn-icon">▶</div>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3>მერიამ ქარაჯა</h3>
+            <p>PetTaxi - ის მარკეტოლოგი</p>
+          </div>
+        </div>
 
-        function closeVideo() {
-            var modal = document.getElementById('videoModal');
-            var player = document.getElementById('player');
-            
-            player.pause();
-            modal.style.display = 'none';
-        }
+        <!-- გივიკო მერკვილაძე -->
+        <div class="team-card" onclick="openVideo('giviko.mp4')">
+          <div class="video-preview-wrapper">
+            <video src="giviko.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
+            <div class="play-overlay">
+              <div class="play-btn-icon">▶</div>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3>გივიკო მერკვილაძე</h3>
+            <p>PetTaxi - ის გენერალური მენეჯერი</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        window.onclick = function(event) {
-            var modal = document.getElementById('videoModal');
-            if (event.target == modal) {
-                closeVideo();
-            }
-        }
-    </script>
+  <!-- მედია არქივის სექცია -->
+  <section class="media-archive-section">
+    <h3>მედია არქივი: ფოტოები და ვიდეოები</h3>
+    <p>სექცია ცხოველებისა და ტრანსპორტირების მასალებისთვის</p>
+  </section>
+
+  <!-- ვიდეოს მოდალური ფანჯარა -->
+  <div id="videoModal" class="video-modal" onclick="closeVideoOnOutside(event)">
+    <div class="modal-content-wrapper">
+      <button class="close-modal" onclick="closeVideo()">&times;</button>
+      <video id="modalVideo" class="modal-video" controls playsinline></video>
+    </div>
+  </div>
+
+  <script>
+    function openVideo(videoSrc) {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+      video.src = videoSrc;
+      modal.style.display = 'flex';
+      video.play().catch(error => {
+        console.log("Autoplay prevented:", error);
+      });
+    }
+
+    function closeVideo() {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+      video.pause();
+      video.src = '';
+      modal.style.display = 'none';
+    }
+
+    function closeVideoOnOutside(event) {
+      const wrapper = document.querySelector('.modal-content-wrapper');
+      if (!wrapper.contains(event.target)) {
+        closeVideo();
+      }
+    }
+  </script>
+
 </body>
 </html>
