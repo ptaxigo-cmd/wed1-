@@ -794,168 +794,186 @@
       <button class="tab-btn" onclick="switchGalleryTab('videos')">🎥 ვიდეოები</button>
     </div>
 
-    <!-- ფოტოების სექცია (ყველა ატვირთული ფოტოთი) -->
+    <!-- ფოტოების სექცია -->
     <div id="gallery-photos" class="gallery-content-pane active">
       <div class="gallery-grid">
         
-        <div class="gallery-item" onclick="openPhotoModal('photo1.jpg', 'PetTaxi-ის მგზავრი', 'ჩვენი საყვარელი მგზავრი კომფორტულად მგზავრობს PetTaxi-ით.')">
+        <!-- photo1 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo1.jpg', 'ლეკვების გადარჩენის ისტორია', 'გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში ჩამოყვანილი ორი პატარა ლეკვი მძიმე მდგომარეობაში იყო. ავარიის შედეგად მიყენებულმა დაზიანებებმა — ყბის მოტეხილობამ და კიდურების ტრავმებმა — მათი სიცოცხლე საფრთხის ქვეშ დააყენა. დროული ჩარევისა და ოპერაციის წყალობით, ორივე პატარა თავს უკეთ გრძნობს. უღრმესი მადლობა Tamo Tolordava-სა და ცხოველთა გადარჩენის სახალხო ფრონტს, რომლებმაც გულთან მიიტანეს და ადამიანების გვერდით დგომით ამ ორი უმწეო არსების გადასარჩენად ყველაფერი გააკეთეს. კეთილი საქმეები აუცილებლად ფასდება!')">
           <img src="photo1.jpg" alt="PetTaxi Photo 1">
           <div class="gallery-item-info">
-            <h4>PetTaxi-ის მგზავრი</h4>
-            <p>ჩვენი საყვარელი მგზავრი კომფორტულად...</p>
+            <h4>ლეკვების გადარჩენის ისტორია</h4>
+            <p>გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo2.jpg', 'უსაფრთხო ტრანსპორტირება', 'შინაური ცხოველების უსაფრთხო და სტრესისგან თავისუფალი გადაყვანა.')">
+        <!-- photo2 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo2.jpg', 'კიმჩი - Stamba Hotel', 'ყველასთვის საყვარელი მგზავრი — კიმჩი, Stamba Hotel-ის საყვარელი ბინადარი! კიმჩი გრუმინგში მივიყვანეთ თავის მოვლის პროცედურებზე. მოხარულები ვართ, რომ მგზავრობამ კომფორტულად ჩაიარა და კიმჩი ბედნიერად გრძნობს თავს.')">
           <img src="photo2.jpg" alt="PetTaxi Photo 2">
           <div class="gallery-item-info">
-            <h4>უსაფრთხო ტრანსპორტირება</h4>
-            <p>შინაური ცხოველების უსაფრთხო და სტრესისგან...</p>
+            <h4>კიმჩი - Stamba Hotel</h4>
+            <p>ყველასთვის საყვარელი მგზავრი — კიმჩი, Stamba Hotel-ის...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo3.jpg', 'კომფორტული მგზავრობა', 'სპეციალურად აღჭურვილი ავტომობილები თქვენი ოთხფეხა მეგობრებისთვის.')">
+        <!-- photo3 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo3.jpg', 'კორას წარმატებული ოპერაცია', 'ეს არის კორა, რომელსაც რამდენიმეჯერ მოუწია ვეტლაიფის ვეტერინალურ კლინიკაში ვიზიტი რადგან სიმსივნური წამონაზარდი ჰქონდა, წარმატებით ჩაუტარდა ოპერაცია და დღეს ის ბედნიერად და ჯანმრთელად გრძნობს თავს.')">
           <img src="photo3.jpg" alt="PetTaxi Photo 3">
           <div class="gallery-item-info">
-            <h4>კომფორტული მგზავრობა</h4>
-            <p>სპეციალურად აღჭურვილი ავტომობილები...</p>
+            <h4>კორას წარმატებული ოპერაცია</h4>
+            <p>ეს არის კორა, რომელსაც რამდენიმეჯერ მოუწია ვეტლაიფის...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo4.jpg', 'ვიზიტი ვეტექიმთან', 'კლინიკაში დროული და მშვიდი გადაყვანა.')">
+        <!-- photo4 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo4.jpg', 'ლეკვები გორიდან (LuckyPaw)', 'გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში ჩამოყვანილი ორი პატარა ლეკვი მძიმე მდგომარეობაში იყო. ავარიის შედეგად მიყენებულმა დაზიანებებმა — ყბის მოტეხილობამ და კიდურების ტრავმებმა — მათი სიცოცხლე საფრთხის ქვეშ დააყენა. დროული ჩარევისა და ოპერაციის წყალობით, ორივე პატარა თავს უკეთ გრძნობს.')">
           <img src="photo4.jpg" alt="PetTaxi Photo 4">
           <div class="gallery-item-info">
-            <h4>ვიზიტი ვეტექიმთან</h4>
-            <p>კლინიკაში დროული და მშვიდი...</p>
+            <h4>ლეკვები გორიდან (LuckyPaw)</h4>
+            <p>გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo5.jpg', 'მზრუნველი გუნდი', 'ჩვენი გუნდი თითოეულ ცხოველზე განსაკუთრებულად ზრუნავს.')">
+        <!-- photo5 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo5.jpg', 'ნენე - Radio City', 'ეს არის ნენე — PetTaxi Tbilisi-ს მთავარი მგზავრი და განწყობის შემქმნელი! Radio City • რადიო ქალაქიდან. ნენე იმდენად უსაყვარლესი და უთბილესია, რომ მასთან ერთად მგზავრობა თავგადასავალია.')">
           <img src="photo5.jpg" alt="PetTaxi Photo 5">
           <div class="gallery-item-info">
-            <h4>მზრუნველი გუნდი</h4>
-            <p>ჩვენი გუნდი თითოეულ ცხოველზე...</p>
+            <h4>ნენე - Radio City</h4>
+            <p>ეს არის ნენე — PetTaxi Tbilisi-ს მთავარი მგზავრი...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo6.jpg', 'მგზავრობა სალონში', 'გრუმინგსა და თავის მოვლის ცენტრებში ტრანსპორტირება.')">
+        <!-- photo6 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo6.jpg', 'არჩი - ANNCY DOG HOTEL', 'ჩვენ ისევ არჩის ვმასპინძლობთ. როგორც PetTaxi-ის მუდმივი მგზავრი, ის უკვე მიჩვეულია PetTaxi-ს სერვისს. არჩი მიგვყავს ANNCY DOG HOTEL-ის სასტუმროში, სადაც მას სრულიად ადაპტირებული და უსაფრთხო გარემო ელოდება.')">
           <img src="photo6.jpg" alt="PetTaxi Photo 6">
           <div class="gallery-item-info">
-            <h4>მგზავრობა სალონში</h4>
-            <p>გრუმინგსა და თავის მოვლის...</p>
+            <h4>არჩი - ANNCY DOG HOTEL</h4>
+            <p>ჩვენ ისევ არჩის ვმასპინძლობთ. როგორც PetTaxi-ის მუდმივი...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo7.jpg', 'ბედნიერი ოთხფეხა', 'კმაყოფილი მომხმარებლები PetTaxi-ის ავტომობილში.')">
+        <!-- photo7 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo7.jpg', 'ფაფი - Groom.ge', 'ეს არის ფაფი ჩვენი მგზავრი! მოხარულები ვართ, რომ PetTaxi-ის გუნდმა ვიზრუნეთ მის უსაფრთხო და კომფორტულ მგზავრობაზე Groom.ge - გრუმინგ სალონისკენ, სადაც მას ნამდვილად საუკეთესო მომსახურება გაუწიეს.')">
           <img src="photo7.jpg" alt="PetTaxi Photo 7">
           <div class="gallery-item-info">
-            <h4>ბედნიერი ოთხფეხა</h4>
-            <p>კმაყოფილი მომხმარებლები PetTaxi-ის...</p>
+            <h4>ფაფი - Groom.ge</h4>
+            <p>ეს არის ფაფი ჩვენი მგზავრი! მოხარულები ვართ, რომ...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo8.jpg', 'ქალაქგარეთ მგზავრობა', 'რეგიონებსა და ქალაქგარეთ უსაფრთხო გადაყვანა.')">
+        <!-- photo8 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo8.jpg', 'შავი - ტრანსპორტირების ისტორია', 'ყველაფერი დაიწყო ორი უცხოელი სტუმრის ზარით Ringovet. იპოვეს ძაღლი, რომელიც თავად ვერ გადაადგილდებოდა. რენტგენმა აჩვენა: ხერხემალში უცხო სხეული იყო, რამაც უკანა კიდურების სრული დამბლა გამოიწვია. საბოლოოდ გადაიყვანეს Tamaz Elizbarashvili dog shelter-ში.')">
           <img src="photo8.jpg" alt="PetTaxi Photo 8">
           <div class="gallery-item-info">
-            <h4>ქალაქგარეთ მგზავრობა</h4>
-            <p>რეგიონებსა და ქალაქგარეთ უსაფრთხო...</p>
+            <h4>შავი - ტრანსპორტირების ისტორია</h4>
+            <p>ყველაფერი დაიწყო ორი უცხოელი სტუმრის ზარით Ringovet...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo9.jpg', 'სასტუმროში ტრანსპორტირება', 'ცხოველთა სასტუმროებში კომფორტული გადაყვანა.')">
+        <!-- photo9 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo9.jpg', 'ლაქი - Vetex კლინიკა', 'ჩვენი მუდმივი და ყველაზე სიმპატიური მგზავრი - ლაქი! უკვე მესამედ გვანდობს თავის კომფორტსა და უსაფრთხოებას. დღეს გეგმიურ აცრაზე ვიყავიით Vetex-ის კლინიკაში. ლაქი ნამდვილად გამორჩეულად ლამაზი და ჭკვიანი ბიჭია.')">
           <img src="photo9.jpg" alt="PetTaxi Photo 9">
           <div class="gallery-item-info">
-            <h4>სასტუმროში ტრანსპორტირება</h4>
-            <p>ცხოველთა სასტუმროებში კომფორტული...</p>
+            <h4>ლაქი - Vetex კლინიკა</h4>
+            <p>ჩვენი მუდმივი და ყველაზე სიმპატიური მგზავრი - ლაქი!...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo10.jpg', 'მშვიდი გარემო', 'სრული სიმშვიდე და უსაფრთხოება მგზავრობისას.')">
+        <!-- photo10 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo10.jpg', 'შავი - Groom.ge', 'ეს არის შავი ჩვენი მგზავრი! მოხარულები ვართ, რომ PetTaxi-ის გუნდმა ვიზრუნეთ მის უსაფრთხო და კომფორტულ მგზავრობაზე Groom.ge - გრუმინგ სალონისკენ, სადაც მას საუკეთესო მომსახურება გაუწიეს.')">
           <img src="photo10.jpg" alt="PetTaxi Photo 10">
           <div class="gallery-item-info">
-            <h4>მშვიდი გარემო</h4>
-            <p>სრული სიმშვიდე და უსაფრთხოება...</p>
+            <h4>შავი - Groom.ge</h4>
+            <p>ეს არის შავი ჩვენი მგზავრი! მოხარულები ვართ, რომ...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo11.jpg', 'პროფესიონალური სერვისი', 'გამოცდილი მძღოლები და მოწესრიგებული ტრანსპორტი.')">
+        <!-- photo11 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo11.jpg', 'მარუსია - Zooplaza', 'ჩვენი საყვარელი მგზავრი მარუსია! ძაღლი, რომელიც პასუხისმგებლიანი პატრონის წყალობით ყოველთვის დროულად და ხალისით სტუმრობს Zooplaza-ს ვეტ-კლინიკას გეგმიური აცრებისთვის.')">
           <img src="photo11.jpg" alt="PetTaxi Photo 11">
           <div class="gallery-item-info">
-            <h4>პროფესიონალური სერვისი</h4>
-            <p>გამოცდილი მძღოლები და მოწესრიგებული...</p>
+            <h4>მარუსია - Zooplaza</h4>
+            <p>ჩვენი საყვარელი მგზავრი მარუსია! ძაღლი, რომელიც...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo12.jpg', 'სანდო ტრანსპორტირება', 'თქვენი ოთხფეხა მეგობარი საიმედო ხელშია.')">
+        <!-- photo12 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo12.jpg', 'ქალბატონი ჯინა', 'გაიცანით ქალბატონი ჯინა! გზად მგზავრობა PetTaxi-ით ძალიან კომფორტულია. ვესტუმრეთ Groom.ge-ს, სადაც მოვლა და სილამაზე უმაღლეს დონეზეა შესრულებული. ჯინა უკვე სახლშია — ბედნიერი და განახლებული იმიჯით!')">
           <img src="photo12.jpg" alt="PetTaxi Photo 12">
           <div class="gallery-item-info">
-            <h4>სანდო ტრანსპორტირება</h4>
-            <p>თქვენი ოთხფეხა მეგობარი საიმედო...</p>
+            <h4>ქალბატონი ჯინა</h4>
+            <p>გაიცანით ქალბატონი ჯინა! გზად მგზავრობა PetTaxi-ით...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo13.jpg', 'მუდმივი მზრუნველობა', 'ჩვენ ვზრუნავთ თითოეულ დეტალზე მგზავრობისას.')">
+        <!-- photo13 -->
+        <div class="gallery-item" onclick="openPhotoModal('photo13.jpg', 'ბელა - გეგმიური ვიზიტი', 'ეს თბილი, ჭკვიანი და ულამაზესი გოგო ბელა კლინიკაში გეგმიურ ვიზიტზე გვყავდა. ძალიან გვიხარია, რომ მან კვლავ PetTaxi-ის სერვისი აირჩია!')">
           <img src="photo13.jpg" alt="PetTaxi Photo 13">
           <div class="gallery-item-info">
-            <h4>მუდმივი მზრუნველობა</h4>
-            <p>ჩვენ ვზრუნავთ თითოეულ დეტალზე...</p>
+            <h4>ბელა - გეგმიური ვიზიტი</h4>
+            <p>ეს თბილი, ჭკვიანი და ულამაზესი გოგო ბელა კლინიკაში...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo14.jpg.jpg', 'PetTaxi-ის სერვისი', 'სრული კომფორტი და დაცულობა.')">
+        <!-- photo14.jpg.jpg -->
+        <div class="gallery-item" onclick="openPhotoModal('photo14.jpg.jpg', 'მაქსი - აეროპორტიდან', 'ეს არის მაქსი, რომელსაც დავხვდით აეროპორტში და მივიყვანეთ სახლში უსაფრთხოდ და კომფორტულად.')">
           <img src="photo14.jpg.jpg" alt="PetTaxi Photo 14">
           <div class="gallery-item-info">
-            <h4>PetTaxi-ის სერვისი</h4>
-            <p>სრული კომფორტი და დაცულობა...</p>
+            <h4>მაქსი - აეროპორტიდან</h4>
+            <p>ეს არის მაქსი, რომელსაც დავხვდით აეროპორტში და...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo15.jpg.jpg', 'უსაფრთხო მგზავრი', 'ცხოველთა უსაფრთხო გადაყვანა თბილისში.')">
+        <!-- photo15.jpg.jpg -->
+        <div class="gallery-item" onclick="openPhotoModal('photo15.jpg.jpg', 'გუდა - ვეტერინართან', 'გაიცანით გუდა! ცოტა ხნის წინ პატარა პრობლემა ჰქონდა და ჩვენი PetTaxi-ის დახმარებით ვეტერინართან მივიდა. დამცავი საყელო მიუხედავად იმისა, რომ უკეთია, უკვე შესანიშნავად და მხიარულად გრძნობს თავს!')">
           <img src="photo15.jpg.jpg" alt="PetTaxi Photo 15">
           <div class="gallery-item-info">
-            <h4>უსაფრთხო მგზავრი</h4>
-            <p>ცხოველთა უსაფრთხო გადაყვანა...</p>
+            <h4>გუდა - ვეტერინართან</h4>
+            <p>გაიცანით გუდა! ცოტა ხნის წინ პატარა პრობლემა ჰქონდა...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo16.jpg.jpg', 'კომფორტული ტრანსპორტი', 'მოწესრიგებული და სუფთა სალონი.')">
+        <!-- photo16.jpg.jpg -->
+        <div class="gallery-item" onclick="openPhotoModal('photo16.jpg.jpg', 'თედი - გრუმინგი', 'ეს არის თედი, რომელიც გრუმინგზე გვყავდა. ასე იჯდა მშვიდად, არც განძრეულა მთელი პროცედურის განმავლობაში.')">
           <img src="photo16.jpg.jpg" alt="PetTaxi Photo 16">
           <div class="gallery-item-info">
-            <h4>კომფორტული ტრანსპორტი</h4>
-            <p>მოწესრიგებული და სუფთა სალონი...</p>
+            <h4>თედი - გრუმინგი</h4>
+            <p>ეს არის თედი, რომელიც გრუმინგზე გვყავდა. ასე იჯდა...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo17.jpg.jpg', 'მშვიდი მგზავრობა', 'სტრესისგან თავისუფალი გარემო.')">
+        <!-- photo17.jpg.jpg -->
+        <div class="gallery-item" onclick="openPhotoModal('photo17.jpg.jpg', 'დათუნია - ჩაუ ჩაუ', 'ეს არის ჩაუ ჩაუ, რომელიც მგზავრობდა ჩვენთან ერთად. მას დათუნია შევარქვით ზედმეტსახელად და შესანიშნავი მგზავრი აღმოჩნდა.')">
           <img src="photo17.jpg.jpg" alt="PetTaxi Photo 17">
           <div class="gallery-item-info">
-            <h4>მშვიდი მგზავრობა</h4>
-            <p>სტრესისგან თავისუფალი გარემო...</p>
+            <h4>დათუნია - ჩაუ ჩაუ</h4>
+            <p>ეს არის ჩაუ ჩაუ, რომელიც მგზავრობდა ჩვენთან ერთად...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openPhotoModal('photo18.jpg.jpg', 'PetTaxi Tbilisi', 'თქვენი ოთხფეხა მეგობრების საიმედო პარტნიორი.')">
+        <!-- photo18.jpg.jpg -->
+        <div class="gallery-item" onclick="openPhotoModal('photo18.jpg.jpg', 'ბაქსი - გრუმინგ სალონი', 'ეს არის ბაქსი, რომელიც გვყავდა გრუმინგ სალონში. ბაქსი უთბილესი და უჭკვიანესი ბიჭია, რომელმაც ყველას თავი შეასყვარა.')">
           <img src="photo18.jpg.jpg" alt="PetTaxi Photo 18">
           <div class="gallery-item-info">
-            <h4>PetTaxi Tbilisi</h4>
-            <p>თქვენი ოთხფეხა მეგობრების საიმედო...</p>
+            <h4>ბაქსი - გრუმინგ სალონი</h4>
+            <p>ეს არის ბაქსი, რომელიც გვყავდა გრუმინგ სალონში...</p>
             <span class="read-more-hint">მეტის წაკითხვა →</span>
           </div>
         </div>
