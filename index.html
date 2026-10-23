@@ -207,6 +207,38 @@
       font-size: 20px;
     }
 
+    /* სოციალური ქსელების ღილაკების სტილები */
+    .social-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      opacity: 0.9;
+    }
+
+    .social-fb { background-color: #1877f2; }
+    .social-tiktok { background-color: #000000; }
+    .social-wa { background-color: #25d366; }
+    .social-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
     /* გუნდის სექცია */
     .sub-title {
       color: #ff6b00;
@@ -1071,14 +1103,24 @@
     <div class="elfsight-app-70eb222f-9926-461d-ba44-04a05aa12829" data-elfsight-app-lazy></div>
   </section>
 
-  <!-- კონტაქტი სოციალური ქსელებით -->
+  <!-- საკონტაქტო სექცია -->
   <section id="contact" class="page-section">
     <span class="sub-title">დაგვიკავშირდით</span>
     <h2 class="section-title">საკონტაქტო ინფორმაცია</h2>
-    <div class="services-grid" style="max-width: 600px; margin: 0 auto;">
+    <div class="services-grid" style="max-width: 700px; margin: 0 auto;">
       <div class="service-card" style="text-align: center;">
         <h3>📞 ტელეფონი</h3>
-        <p style="margin-bottom: 20px;"><a href="tel:+995568112350" style="color: #ff6b00; font-size: 20px; text-decoration: none; font-weight: bold;">+995 568 112 350</a></p>
+        <p style="margin-bottom: 20px;">
+          <a href="tel:+995568112350" style="color: #ff6b00; font-size: 22px; text-decoration: none; font-weight: bold;">+995 568 112 350</a>
+        </p>
+
+        <h3 style="margin-top: 25px;">🌐 სოციალური ქსელები</h3>
+        <div class="social-links-grid">
+          <a href="https://www.facebook.com/PetTaxiTbilisi" target="_blank" class="social-btn social-fb">Facebook</a>
+          <a href="https://www.instagram.com/pettaxi_tbilisi?stkn=bTN3N3B4amJ5cHcz&utm_source=qr" target="_blank" class="social-btn social-insta">Instagram</a>
+          <a href="https://www.tiktok.com/@pettaxi_tbilisi?_r=1&_t=ZS-99jbESancLY" target="_blank" class="social-btn social-tiktok">TikTok</a>
+          <a href="https://wa.me/995568112350" target="_blank" class="social-btn social-wa">WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
