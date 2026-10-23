@@ -44,7 +44,7 @@
     nav ul {
       display: flex;
       list-style: none;
-      gap: 30px;
+      gap: 25px;
     }
 
     nav ul li a {
@@ -73,7 +73,7 @@
       background: #ff6b00;
     }
 
-    /* ძირითადი სექციების საერთო სტილი - თავიდან ყველა დამალულია გარდა მთავარისა */
+    /* ძირითადი სექციების საერთო სტილი */
     .page-section {
       display: none;
       padding: 60px 20px;
@@ -277,8 +277,8 @@
       background: #ff6b00;
     }
 
-    /* გალერეა */
-    #gallery {
+    /* გალერეა და კონტაქტი */
+    #gallery, #contact {
       background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -306,6 +306,7 @@
         <li><a onclick="showSection('services')">სერვისები</a></li>
         <li><a onclick="showSection('about')">ჩვენ შესახებ</a></li>
         <li><a onclick="showSection('gallery')">გალერეა</a></li>
+        <li><a onclick="showSection('contact')">კონტაქტი</a></li>
       </ul>
     </nav>
     <a href="tel:+995568112350" class="phone-btn">+995 568 112 350</a>
@@ -395,6 +396,20 @@
     <p>აქ შეგიძლიათ განათავსოთ ძაღლებისა და კატების ფოტოები და ვიდეოები.</p>
   </section>
 
+  <!-- კონტაქტი -->
+  <section id="contact" class="page-section">
+    <span class="sub-title">დაგვიკავშირდით</span>
+    <h2 class="section-title">საკონტაქტო ინფორმაცია</h2>
+    <div class="services-grid" style="max-width: 500px; margin: 0 auto;">
+      <div class="service-card" style="text-align: center;">
+        <h3>📞 ტელეფონი</h3>
+        <p style="margin-bottom: 20px;"><a href="tel:+995568112350" style="color: #ff6b00; font-size: 20px; text-decoration: none; font-weight: bold;">+995 568 112 350</a></p>
+        <h3>📍 მისამართი</h3>
+        <p>თბილისი და მთელი საქართველო</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ფუტერი -->
   <footer>
     <p>&copy; 2026 PetTaxi Tbilisi. ყველა უფლება დაცულია.</p>
@@ -409,15 +424,12 @@
   </div>
 
   <script>
-    // სექციების გადართვის ფუნქცია (აჩვენებს მხოლოდ არჩეულს, სხვებს მალავს)
     function showSection(sectionId) {
-      // ვპოულობთ ყველა სექციას და ვუცვლით display-ს none-ზე
       const sections = document.querySelectorAll('.page-section');
       sections.forEach(sec => {
         sec.style.display = 'none';
       });
 
-      // ვპოულობთ და ვრთავთ მხოლოდ არჩეულ სექციას
       const target = document.getElementById(sectionId);
       if (target) {
         target.style.display = 'block';
@@ -425,7 +437,6 @@
       }
     }
 
-    // ვიდეოს მოდალური ფანჯრის ფუნქციები
     function openVideo(videoSrc) {
       const modal = document.getElementById('videoModal');
       const video = document.getElementById('modalVideo');
