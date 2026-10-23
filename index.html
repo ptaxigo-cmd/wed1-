@@ -283,8 +283,9 @@
       background: #ff6b00;
     }
 
-    /* გალერეა და მედია არქივი */
+    /* გალერეა - თავიდან დამალულია (display: none) */
     .gallery-section {
+      display: none; 
       padding: 100px 20px 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
@@ -400,7 +401,7 @@
     </div>
   </section>
 
-  <!-- გალერეა და მედია არქივი -->
+  <!-- გალერეა და მედია არქივი (გამოჩნდება მხოლოდ ღილაკზე დაჭერისას) -->
   <section id="gallery" class="gallery-section">
     <span class="sub-title">მედია არქივი</span>
     <h2 class="section-title">ფოტოები და ვიდეოები</h2>
@@ -421,10 +422,16 @@
   </div>
 
   <script>
-    // მენიუს ბმულებზე დაწკაპუნებისას რბილი სქროლი
+    // მენიუს ბმულებზე დაწკაპუნებისას
     function scrollToSection(sectionId) {
       event.preventDefault();
       const target = document.getElementById(sectionId);
+      
+      // თუ მომხმარებელი აჭერს გალერეას, ვბლოკავთ მის გამოჩენას და ვრთავთ display: block-ს
+      if (sectionId === 'gallery') {
+        target.style.display = 'block';
+      }
+
       if (target) {
         const headerHeight = document.querySelector('header').offsetHeight;
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
