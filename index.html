@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PetTaxi Tbilisi - შინაური ცხოველების ტრანსპორტირება</title>
   <style>
-    /* ზოგადი სტილები და სქროლის გასწორება */
-    html {
-      scroll-behavior: smooth;
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -43,6 +38,7 @@
       font-weight: bold;
       font-size: 20px;
       color: #1d3557;
+      cursor: pointer;
     }
 
     nav ul {
@@ -77,33 +73,38 @@
       background: #ff6b00;
     }
 
-    /* მთავარი (Hero) სექცია */
-    .hero-section {
+    /* ძირითადი სექციების საერთო სტილი - თავიდან ყველა დამალულია გარდა მთავარისა */
+    .page-section {
+      display: none;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      min-height: 70vh;
+    }
+
+    /* მთავარი (Hero) სექცია - ჩანს თავიდანვე */
+    #hero {
+      display: block;
+      max-width: 100%;
       background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), center/cover no-repeat;
       color: white;
       text-align: center;
-      padding: 120px 20px 100px 20px;
+      padding: 140px 20px;
     }
 
-    .hero-section h1 {
+    #hero h1 {
       font-size: 42px;
       margin-bottom: 20px;
     }
 
-    .hero-section p {
+    #hero p {
       font-size: 18px;
       max-width: 600px;
       margin: 0 auto 30px auto;
     }
 
     /* სერვისების სექცია */
-    .services-section {
-      padding: 100px 20px 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -126,13 +127,6 @@
     }
 
     /* გუნდის სექცია */
-    .team-section {
-      padding: 100px 20px 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
     .sub-title {
       color: #ff6b00;
       font-weight: bold;
@@ -283,16 +277,11 @@
       background: #ff6b00;
     }
 
-    /* გალერეა - თავიდან დამალულია (display: none) */
-    .gallery-section {
-      display: none; 
-      padding: 100px 20px 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
+    /* გალერეა */
+    #gallery {
       background: #ffffff;
       border-radius: 16px;
-      margin-bottom: 40px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
     footer {
@@ -308,29 +297,29 @@
 
   <!-- ჰედერი -->
   <header>
-    <div class="logo-container">
+    <div class="logo-container" onclick="showSection('hero')">
       <span>PetTaxi Tbilisi</span>
     </div>
     <nav>
       <ul>
-        <li><a href="#hero" onclick="scrollToSection('hero')">მთავარი</a></li>
-        <li><a href="#services" onclick="scrollToSection('services')">სერვისები</a></li>
-        <li><a href="#about" onclick="scrollToSection('about')">ჩვენ შესახებ</a></li>
-        <li><a href="#gallery" onclick="scrollToSection('gallery')">გალერეა</a></li>
+        <li><a onclick="showSection('hero')">მთავარი</a></li>
+        <li><a onclick="showSection('services')">სერვისები</a></li>
+        <li><a onclick="showSection('about')">ჩვენ შესახებ</a></li>
+        <li><a onclick="showSection('gallery')">გალერეა</a></li>
       </ul>
     </nav>
     <a href="tel:+995568112350" class="phone-btn">+995 568 112 350</a>
   </header>
 
   <!-- მთავარი სექცია -->
-  <section id="hero" class="hero-section">
+  <section id="hero" class="page-section" style="display: block;">
     <h1>შინაური ცხოველების უსაფრთხო ტრანსპორტირება</h1>
     <p>ვეტექიმთან, სალონსა და სასტუმროში კომფორტული მგზავრობა თქვენი ოთხფეხა მეგობრებისთვის თბილისსა და მთელ საქართველოში.</p>
     <a href="tel:+995568112350" class="phone-btn" style="display: inline-block;">დაგვიკავშირდით</a>
   </section>
 
   <!-- სერვისები -->
-  <section id="services" class="services-section">
+  <section id="services" class="page-section">
     <span class="sub-title">რას ვთავაზობთ</span>
     <h2 class="section-title">ჩვენი სერვისები</h2>
     <div class="services-grid">
@@ -350,59 +339,57 @@
   </section>
 
   <!-- გუნდის სექცია (ჩვენ შესახებ) -->
-  <section id="about" class="team-section">
-    <div class="container">
-      <span class="sub-title">ჩვენ შესახებ</span>
-      <h2 class="section-title">გაიცანით PetTaxi-ის გუნდი</h2>
-      
-      <div class="team-grid">
-        <!-- აკაკი თოლორდავა -->
-        <div class="team-card" onclick="openVideo('akaki.mp4')">
-          <div class="video-preview-wrapper">
-            <video src="akaki.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
-            <div class="play-overlay">
-              <div class="play-btn-icon">▶</div>
-            </div>
-          </div>
-          <div class="team-info">
-            <h3>აკაკი თოლორდავა</h3>
-            <p>PetTaxi - ის დამფუძნებელი</p>
+  <section id="about" class="page-section">
+    <span class="sub-title">ჩვენ შესახებ</span>
+    <h2 class="section-title">გაიცანით PetTaxi-ის გუნდი</h2>
+    
+    <div class="team-grid">
+      <!-- აკაკი თოლორდავა -->
+      <div class="team-card" onclick="openVideo('akaki.mp4')">
+        <div class="video-preview-wrapper">
+          <video src="akaki.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
+          <div class="play-overlay">
+            <div class="play-btn-icon">▶</div>
           </div>
         </div>
+        <div class="team-info">
+          <h3>აკაკი თოლორდავა</h3>
+          <p>PetTaxi - ის დამფუძნებელი</p>
+        </div>
+      </div>
 
-        <!-- მერიამ ქარაჯა -->
-        <div class="team-card" onclick="openVideo('meriam.mp4')">
-          <div class="video-preview-wrapper">
-            <video src="meriam.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
-            <div class="play-overlay">
-              <div class="play-btn-icon">▶</div>
-            </div>
-          </div>
-          <div class="team-info">
-            <h3>მერიამ ქარაჯა</h3>
-            <p>PetTaxi - ის მარკეტოლოგი</p>
+      <!-- მერიამ ქარაჯა -->
+      <div class="team-card" onclick="openVideo('meriam.mp4')">
+        <div class="video-preview-wrapper">
+          <video src="meriam.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
+          <div class="play-overlay">
+            <div class="play-btn-icon">▶</div>
           </div>
         </div>
+        <div class="team-info">
+          <h3>მერიამ ქარაჯა</h3>
+          <p>PetTaxi - ის მარკეტოლოგი</p>
+        </div>
+      </div>
 
-        <!-- გივიკო მერკვილაძე -->
-        <div class="team-card" onclick="openVideo('giviko.mp4')">
-          <div class="video-preview-wrapper">
-            <video src="giviko.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
-            <div class="play-overlay">
-              <div class="play-btn-icon">▶</div>
-            </div>
+      <!-- გივიკო მერკვილაძე -->
+      <div class="team-card" onclick="openVideo('giviko.mp4')">
+        <div class="video-preview-wrapper">
+          <video src="giviko.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
+          <div class="play-overlay">
+            <div class="play-btn-icon">▶</div>
           </div>
-          <div class="team-info">
-            <h3>გივიკო მერკვილაძე</h3>
-            <p>PetTaxi - ის გენერალური მენეჯერი</p>
-          </div>
+        </div>
+        <div class="team-info">
+          <h3>გივიკო მერკვილაძე</h3>
+          <p>PetTaxi - ის გენერალური მენეჯერი</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- გალერეა და მედია არქივი (გამოჩნდება მხოლოდ ღილაკზე დაჭერისას) -->
-  <section id="gallery" class="gallery-section">
+  <!-- გალერეა და მედია არქივი -->
+  <section id="gallery" class="page-section">
     <span class="sub-title">მედია არქივი</span>
     <h2 class="section-title">ფოტოები და ვიდეოები</h2>
     <p>აქ შეგიძლიათ განათავსოთ ძაღლებისა და კატების ფოტოები და ვიდეოები.</p>
@@ -422,23 +409,19 @@
   </div>
 
   <script>
-    // მენიუს ბმულებზე დაწკაპუნებისას
-    function scrollToSection(sectionId) {
-      event.preventDefault();
-      const target = document.getElementById(sectionId);
-      
-      // თუ მომხმარებელი აჭერს გალერეას, ვბლოკავთ მის გამოჩენას და ვრთავთ display: block-ს
-      if (sectionId === 'gallery') {
-        target.style.display = 'block';
-      }
+    // სექციების გადართვის ფუნქცია (აჩვენებს მხოლოდ არჩეულს, სხვებს მალავს)
+    function showSection(sectionId) {
+      // ვპოულობთ ყველა სექციას და ვუცვლით display-ს none-ზე
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(sec => {
+        sec.style.display = 'none';
+      });
 
+      // ვპოულობთ და ვრთავთ მხოლოდ არჩეულ სექციას
+      const target = document.getElementById(sectionId);
       if (target) {
-        const headerHeight = document.querySelector('header').offsetHeight;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+        target.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
 
