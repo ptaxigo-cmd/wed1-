@@ -92,14 +92,59 @@
       flex: 1;
     }
 
-    /* მთავარი (Hero) სექცია */
+    /* --- ავტომატური სლაიდერის სტილები HERO სექციისთვის --- */
     #hero {
       display: block;
       max-width: 100%;
-      background: linear-gradient(rgba(29, 53, 87, 0.85), rgba(29, 53, 87, 0.85)), center/cover no-repeat;
+      position: relative;
       color: white;
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px;
+      overflow: hidden;
+      min-height: 500px;
+    }
+
+    /* ფონური სლაიდების კონტეინერი */
+    .hero-bg-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .bg-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .bg-slide.active {
+      opacity: 1;
+    }
+
+    /* მუქი გადასაფარებელი ფენა (Overlay) ტექსტის იკითხვადობისთვის */
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(29, 53, 87, 0.7);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
     }
 
     #hero h1 {
@@ -111,6 +156,7 @@
       font-size: 18px;
       max-width: 600px;
       margin: 0 auto 30px auto;
+      color: #e0e0e0;
     }
 
     .hero-stats {
@@ -137,11 +183,11 @@
 
     .stat-card p {
       font-size: 15px;
-      color: #e0e0e0;
+      color: #ffffff;
       margin: 0;
     }
 
-    /* სერვისების სექცია - 4 ბარათისთვის გასწორებული ბადე */
+    /* სერვისების სექცია */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -268,7 +314,7 @@
       font-weight: 500;
     }
 
-    /* სოციალური ღილაკების სტილები კონტაქტისთვის */
+    /* სოციალური ღილაკები */
     .social-links-grid {
       display: flex;
       justify-content: center;
@@ -463,17 +509,33 @@
     <a href="tel:+995568112350" class="phone-btn">+995 568 112 350</a>
   </header>
 
-  <!-- მთავარი სექცია -->
+  <!-- მთავარი სექცია ავტომატური სლაიდერით -->
   <section id="hero" class="page-section" style="display: block;">
-    <h1>შინაური ცხოველების უსაფრთხო ტრანსპორტირება</h1>
-    <p>ვეტექიმთან, სალონსა და სასტუმროში კომფორტული მგზავრობა თქვენი ოთხფეხა მეგობრებისთვის თბილისსა და მთელ საქართველოში.</p>
-    <a href="tel:+995568112350" class="phone-btn" style="display: inline-block; margin-bottom: 20px;">დაგვიკავშირდით</a>
+    
+    <!-- ფონური ფოტოების სლაიდერი ატვირთული ფაილების მიხედვით -->
+    <div class="hero-bg-slider">
+      <div class="bg-slide active" style="background-image: url('B.jpg.jpg');"></div>
+      <div class="bg-slide" style="background-image: url('B.2jpg.jpg');"></div>
+      <div class="bg-slide" style="background-image: url('B.3jpg.jpg');"></div>
+      <div class="bg-slide" style="background-image: url('B.4jpg.jpg');"></div>
+      <div class="bg-slide" style="background-image: url('B.5jpg.jpg');"></div>
+      <div class="bg-slide" style="background-image: url('B.6jpg.jpg');"></div>
+      <div class="bg-slide" style="background-image: url('B.7jpg.jpg');"></div>
+      <div class="bg-slide" style="background-image: url('B.8jpg.jpg');"></div>
+      <div class="bg-slide" style="background-image: url('B.9jpg.jpg');"></div>
+    </div>
 
-    <!-- კმაყოფილი მომხმარებლების სტატისტიკა -->
-    <div class="hero-stats">
-      <div class="stat-card">
-        <h3>1,500+</h3>
-        <p>კმაყოფილი მომხმარებელი</p>
+    <div class="hero-content">
+      <h1>შინაური ცხოველების უსაფრთხო ტრანსპორტირება</h1>
+      <p>ვეტექიმთან, სალონსა და სასტუმროში კომფორტული მგზავრობა თქვენი ოთხფეხა მეგობრებისთვის თბილისსა და მთელ საქართველოში.</p>
+      <a href="tel:+995568112350" class="phone-btn" style="display: inline-block; margin-bottom: 20px;">დაგვიკავშირდით</a>
+
+      <!-- კმაყოფილი მომხმარებლების სტატისტიკა -->
+      <div class="hero-stats">
+        <div class="stat-card">
+          <h3>1,500+</h3>
+          <p>კმაყოფილი მომხმარებელი</p>
+        </div>
       </div>
     </div>
   </section>
@@ -634,6 +696,21 @@
   </div>
 
   <script>
+    // ავტომატური ფონური სლაიდერი (იცვლება 5 წამში ერთხელ)
+    const slides = document.querySelectorAll('.bg-slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+      if (slides.length > 0) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }
+    }
+
+    setInterval(nextSlide, 5000); // 5000ms = 5 წამი
+
+    // სექციების გადართვის ფუნქცია
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.page-section');
       sections.forEach(sec => {
@@ -647,6 +724,7 @@
       }
     }
 
+    // ვიდეოს მოდალური ფანჯარა
     function openVideo(videoSrc) {
       const modal = document.getElementById('videoModal');
       const video = document.getElementById('modalVideo');
