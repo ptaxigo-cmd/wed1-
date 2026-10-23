@@ -24,7 +24,7 @@
     /* ჰედერი */
     header {
       background: #ffffff;
-      padding: 15px 40px;
+      padding: 12px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -34,14 +34,21 @@
       z-index: 100;
     }
 
+    /* ლოგო და ტექსტი ერთად */
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 22px;
       color: #1d3557;
       cursor: pointer;
+    }
+
+    .site-logo-img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
     }
 
     nav ul {
@@ -286,7 +293,7 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    /* პროფესიონალური მრავალსვეტიანი ფუტერი */
+    /* პროფესიონალური ფუტერი */
     footer {
       background-color: #112233;
       color: #ffffff;
@@ -310,6 +317,9 @@
       margin-bottom: 20px;
       color: #ffffff;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .footer-col p {
@@ -370,9 +380,10 @@
 </head>
 <body>
 
-  <!-- ჰედერი -->
+  <!-- ჰედერი ლოგოთი -->
   <header>
     <div class="logo-container" onclick="showSection('hero')">
+      <img src="logo.png" alt="PetTaxi Logo" class="site-logo-img">
       <span>PetTaxi Tbilisi</span>
     </div>
     <nav>
@@ -485,11 +496,14 @@
     </div>
   </section>
 
-  <!-- პროფესიონალური ფუტერი -->
+  <!-- ფუტერი ლოგოთი -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
-        <h3>PetTaxi Tbilisi</h3>
+        <h3>
+          <img src="logo.png" alt="PetTaxi Logo" style="height: 35px;">
+          PetTaxi Tbilisi
+        </h3>
         <p>შინაური ცხოველების უსაფრთხო და კომფორტული ტრანსპორტირება თბილისსა და მთელ საქართველოში.</p>
       </div>
       <div class="footer-col">
@@ -506,7 +520,7 @@
         <h3>კონტაქტი</h3>
         <p>📞 568 112 350</p>
         <p>🕒 24/7 გრაფიკი</p>
-        <p>📍 თბილისი და ქალაქგარეთ</p>
+        <p>📍 თბილისი და გარეუბნები</p>
       </div>
       <div class="footer-col">
         <h3>ნდობა და უსაფრთხოება</h3>
