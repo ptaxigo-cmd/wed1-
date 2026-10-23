@@ -299,20 +299,37 @@
             background: var(--bg-dots);
             border: 2px dashed var(--teal-color);
             border-radius: 20px;
-            padding: 40px 20px;
+            padding: 30px 20px;
             text-align: center;
         }
 
         .gallery-box i {
-            font-size: 40px;
+            font-size: 36px;
             color: var(--teal-color);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .gallery-box h3 {
-            font-size: 22px;
+            font-size: 20px;
             color: var(--primary-dark);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .sub-folders {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .folder-badge {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            border: 1px solid #E2E8F0;
         }
 
         /* Modal / Pop-up Video */
@@ -415,7 +432,7 @@
                 <li><a href="#services">სერვისები</a></li>
                 <li><a href="#about">ჩვენ შესახებ</a></li>
                 <li><a href="#gallery">გალერეა</a></li>
-                <li><a href="tel:+995599000000" class="btn-call"><i class="fa-solid fa-phone"></i> +995 599 00 00 00</a></li>
+                <li><a href="tel:+995568112350" class="btn-call"><i class="fa-solid fa-phone"></i> +995 568 112 350</a></li>
             </ul>
         </div>
     </header>
@@ -475,7 +492,7 @@
         </div>
 
         <div class="team-grid">
-            <!-- Team Member 1 -->
+            <!-- Team Member 1: Akaki -->
             <div class="team-card" onclick="openVideo('akaki.mp4')">
                 <div class="video-thumbnail">
                     <div class="play-btn"><i class="fa-solid fa-play"></i></div>
@@ -484,16 +501,16 @@
                 <p>PetTaxi - ის დამფუძნებელი</p>
             </div>
 
-            <!-- Team Member 2 -->
+            <!-- Team Member 2: Meriam -->
             <div class="team-card" onclick="openVideo('meriam.mp4')">
                 <div class="video-thumbnail">
                     <div class="play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <h4>მერიამ ქარაჯა</h4>
-                <p>PetTaxi - ის მარკეტოლოგი(SMM)</p>
+                <p>PetTaxi - ის მარკეტოლოგი</p>
             </div>
 
-            <!-- Team Member 3 -->
+            <!-- Team Member 3: Giviko -->
             <div class="team-card" onclick="openVideo('giviko.mp4')">
                 <div class="video-thumbnail">
                     <div class="play-btn"><i class="fa-solid fa-play"></i></div>
@@ -508,22 +525,28 @@
     <section class="gallery-section" id="gallery">
         <div class="section-title">
             <h3>მედია არქივი</h3>
-            <h2>ჩვენი ოთხფეხა მგზავრები</h2>
+            <h2>ფოტოები და ვიდეოები</h2>
         </div>
 
         <div class="gallery-grid">
-            <!-- Photos Folder -->
+            <!-- Photos Section -->
             <div class="gallery-box">
                 <i class="fa-solid fa-images"></i>
                 <h3>📷 ფოტოები</h3>
-                <p>ძაღლებისა და კატების ფოტოგალერეა</p>
+                <div class="sub-folders">
+                    <span class="folder-badge">🐶 ძაღლები</span>
+                    <span class="folder-badge">🐱 კატები</span>
+                </div>
             </div>
 
-            <!-- Videos Folder -->
+            <!-- Videos Section -->
             <div class="gallery-box">
                 <i class="fa-solid fa-film"></i>
                 <h3>🎥 ვიდეოები</h3>
-                <p>ძაღლებისა და კატების ვიდეოარქივი</p>
+                <div class="sub-folders">
+                    <span class="folder-badge">🐶 ძაღლები</span>
+                    <span class="folder-badge">🐱 კატები</span>
+                </div>
             </div>
         </div>
     </section>
