@@ -260,6 +260,36 @@
       font-weight: 500;
     }
 
+    /* სოციალური ღილაკების სტილები კონტაქტისთვის */
+    .social-links-grid {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: opacity 0.3s, transform 0.3s;
+      display: inline-block;
+    }
+
+    .social-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .social-btn.facebook { background-color: #1877f2; }
+    .social-btn.instagram { background-color: #e4405f; }
+    .social-btn.tiktok { background-color: #000000; }
+    .social-btn.whatsapp { background-color: #25d366; }
+
     /* მოდალური ფანჯარა ვიდეოსთვის */
     .video-modal {
       display: none;
@@ -517,16 +547,25 @@
     <p>აქ შეგიძლიათ განათავსოთ ძაღლებისა და კატების ფოტოები და ვიდეოები.</p>
   </section>
 
-  <!-- კონტაქტი -->
+  <!-- კონტაქტი სოციალური ქსელებით -->
   <section id="contact" class="page-section">
     <span class="sub-title">დაგვიკავშირდით</span>
     <h2 class="section-title">საკონტაქტო ინფორმაცია</h2>
-    <div class="services-grid" style="max-width: 500px; margin: 0 auto;">
+    <div class="services-grid" style="max-width: 600px; margin: 0 auto;">
       <div class="service-card" style="text-align: center;">
         <h3>📞 ტელეფონი</h3>
         <p style="margin-bottom: 20px;"><a href="tel:+995568112350" style="color: #ff6b00; font-size: 20px; text-decoration: none; font-weight: bold;">+995 568 112 350</a></p>
+        
         <h3>📍 მისამართი</h3>
-        <p>თბილისი და მთელი საქართველო</p>
+        <p style="margin-bottom: 25px;">თბილისი და მთელი საქართველო</p>
+
+        <h3>🌐 სოციალური ქსელები</h3>
+        <div class="social-links-grid">
+          <a href="https://www.facebook.com/PetTaxiTbilisi" target="_blank" class="social-btn facebook">Facebook</a>
+          <a href="https://www.instagram.com/pettaxi_tbilisi?xtok=bTN3N3B4amJ5cHcz&utm_source=qr" target="_blank" class="social-btn instagram">Instagram</a>
+          <a href="https://www.tiktok.com/@pettaxi_tbilisi?_r=1&_t=ZS-9AnL36T72KG" target="_blank" class="social-btn tiktok">TikTok</a>
+          <a href="https://wa.me/995568122350" target="_blank" class="social-btn whatsapp">WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
