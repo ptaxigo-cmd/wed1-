@@ -489,36 +489,6 @@
       background: #ff6b00;
     }
 
-    /* სოციალური ღილაკები */
-    .social-links-grid {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .social-btn {
-      padding: 10px 20px;
-      border-radius: 25px;
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: opacity 0.3s, transform 0.3s;
-      display: inline-block;
-    }
-
-    .social-btn:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
-
-    .social-btn.facebook { background-color: #1877f2; }
-    .social-btn.instagram { background-color: #e4405f; }
-    .social-btn.tiktok { background-color: #000000; }
-    .social-btn.whatsapp { background-color: #25d366; }
-
     /* ვიდეოს მოდალური ფანჯარა */
     .video-modal {
       display: none;
@@ -743,9 +713,9 @@
     <p class="section-description">მოხარული ვართ წარმოდგიდგინოთ ჩვენი გუნდი — პროფესიონალები, რომლებიც ზრუნავენ თქვენი ოთხფეხა მეგობრების უსაფრთხო, სტრესისგან თავისუფალ და მაქსიმალურად კომფორტულ მგზავრობაზე! 🐾✨</p>
     
     <div class="team-grid">
-      <div class="team-card" onclick="openVideo('akaki.mp4')">
+      <div class="team-card" onclick="openVideo('dog1.mp4')">
         <div class="video-preview-wrapper">
-          <video src="akaki.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
+          <video src="dog1.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
           <div class="play-overlay">
             <div class="play-btn-icon">▶</div>
           </div>
@@ -756,9 +726,9 @@
         </div>
       </div>
 
-      <div class="team-card" onclick="openVideo('meriam.mp4')">
+      <div class="team-card" onclick="openVideo('dog2.mp4')">
         <div class="video-preview-wrapper">
-          <video src="meriam.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
+          <video src="dog2.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
           <div class="play-overlay">
             <div class="play-btn-icon">▶</div>
           </div>
@@ -769,9 +739,9 @@
         </div>
       </div>
 
-      <div class="team-card" onclick="openVideo('giviko.mp4')">
+      <div class="team-card" onclick="openVideo('dog3.mp4')">
         <div class="video-preview-wrapper">
-          <video src="giviko.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
+          <video src="dog3.mp4#t=0.1" preload="metadata" muted playsinline class="card-video-preview"></video>
           <div class="play-overlay">
             <div class="play-btn-icon">▶</div>
           </div>
@@ -819,7 +789,7 @@
         </div>
 
         <!-- photo3 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo3.jpg', 'კორას წარმატებული ოპერაცია', 'ეს არის კორა, რომელსაც რამდენიმეჯერ მოუწია ვეტლაიფის ვეტერინალურ კლინიკაში ვიზიტი რადგან სიმსივნური წამონაზარდი ჰქონდა, წარმატებით ჩაუტარდა ოპერაცია და დღეს ის ბედნიერად და ჯანმრთელად გრძნობს თავს.')">
+        <div class="gallery-item" onclick="openPhotoModal('photo3.jpg', 'კორას წარმატებული ოპერაცია', 'ეს არის კორა, რომელსაც რამდენიმეჯერ მოუწია ვეტლაიფის ვეტერინარულ კლინიკაში ვიზიტი რადგან სიმსივნური წამონაზარდი ჰქონდა, წარმატებით ჩაუტარდა ოპერაცია და დღეს ის ბედნიერად და ჯანმრთელად გრძნობს თავს.')">
           <img src="photo3.jpg" alt="PetTaxi Photo 3">
           <div class="gallery-item-info">
             <h4>კორას წარმატებული ოპერაცია</h4>
@@ -981,30 +951,118 @@
       </div>
     </div>
 
-    <!-- ვიდეოების სექცია -->
+    <!-- ახალი ცხოველების ვიდეოების სექცია -->
     <div id="gallery-videos" class="gallery-content-pane">
       <div class="gallery-grid">
         
-        <div class="gallery-item" onclick="openVideo('akaki.mp4')">
-          <video src="akaki.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <div class="gallery-item" onclick="openVideo('dog1.mp4')">
+          <video src="dog1.mp4#t=0.1" preload="metadata" muted playsinline></video>
           <div class="gallery-item-info">
-            <h4>▶ ვიდეო მიმოხილვა - აკაკი</h4>
+            <h4>▶ ვიდეო - Dog 1</h4>
             <p>დააჭირეთ ვიდეოს სანახავად</p>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openVideo('meriam.mp4')">
-          <video src="meriam.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <div class="gallery-item" onclick="openVideo('dog2.mp4')">
+          <video src="dog2.mp4#t=0.1" preload="metadata" muted playsinline></video>
           <div class="gallery-item-info">
-            <h4>▶ ვიდეო მიმოხილვა - მერიამი</h4>
+            <h4>▶ ვიდეო - Dog 2</h4>
             <p>დააჭირეთ ვიდეოს სანახავად</p>
           </div>
         </div>
 
-        <div class="gallery-item" onclick="openVideo('giviko.mp4')">
-          <video src="giviko.mp4#t=0.1" preload="metadata" muted playsinline></video>
+        <div class="gallery-item" onclick="openVideo('dog3.mp4')">
+          <video src="dog3.mp4#t=0.1" preload="metadata" muted playsinline></video>
           <div class="gallery-item-info">
-            <h4>▶ ვიდეო მიმოხილვა - გივიკო</h4>
+            <h4>▶ ვიდეო - Dog 3</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog4.mp4')">
+          <video src="dog4.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 4</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog5.mp4')">
+          <video src="dog5.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 5</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog6.mp4')">
+          <video src="dog6.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 6</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog7.mp4')">
+          <video src="dog7.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 7</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog8.mp4')">
+          <video src="dog8.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 8</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog9.mp4')">
+          <video src="dog9.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 9</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog10.mp4')">
+          <video src="dog10.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 10</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog11.mp4')">
+          <video src="dog11.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 11</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog12.mp4')">
+          <video src="dog12.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 12</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog13.mp4')">
+          <video src="dog13.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 13</h4>
+            <p>დააჭირეთ ვიდეოს სანახავად</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openVideo('dog14.mp4')">
+          <video src="dog14.mp4#t=0.1" preload="metadata" muted playsinline></video>
+          <div class="gallery-item-info">
+            <h4>▶ ვიდეო - Dog 14</h4>
             <p>დააჭირეთ ვიდეოს სანახავად</p>
           </div>
         </div>
@@ -1021,30 +1079,16 @@
       <div class="service-card" style="text-align: center;">
         <h3>📞 ტელეფონი</h3>
         <p style="margin-bottom: 20px;"><a href="tel:+995568112350" style="color: #ff6b00; font-size: 20px; text-decoration: none; font-weight: bold;">+995 568 112 350</a></p>
-        
-        <h3>📍 მისამართი</h3>
-        <p style="margin-bottom: 25px;">თბილისი და მთელი საქართველო</p>
-
-        <h3>🌐 სოციალური ქსელები</h3>
-        <div class="social-links-grid">
-          <a href="https://www.facebook.com/PetTaxiTbilisi" target="_blank" class="social-btn facebook">Facebook</a>
-          <a href="https://www.instagram.com/pettaxi_tbilisi?xtok=bTN3N3B4amJ5cHcz&utm_source=qr" target="_blank" class="social-btn instagram">Instagram</a>
-          <a href="https://www.tiktok.com/@pettaxi_tbilisi?_r=1&_t=ZS-9AnL36T72KG" target="_blank" class="social-btn tiktok">TikTok</a>
-          <a href="https://wa.me/995568122350" target="_blank" class="social-btn whatsapp">WhatsApp</a>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- ფუტერი ლოგოთი -->
+  <!-- ფუტერი -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
-        <h3>
-          <img src="logo.png" alt="PetTaxi Logo" style="height: 35px;">
-          PetTaxi Tbilisi
-        </h3>
-        <p>შინაური ცხოველების უსაფრთხო და კომფორტული ტრანსპორტირება თბილისსა და მთელ საქართველოში.</p>
+        <h3>PetTaxi Tbilisi</h3>
+        <p>შინაური ცხოველების უსაფრთხო და კომფორტული ტრანსპორტირება მთელს საქართველოში.</p>
       </div>
       <div class="footer-col">
         <h3>ლინკები</h3>
@@ -1053,44 +1097,33 @@
           <li><a onclick="showSection('services')">სერვისები</a></li>
           <li><a onclick="showSection('about')">ჩვენ შესახებ</a></li>
           <li><a onclick="showSection('gallery')">გალერეა</a></li>
-          <li><a onclick="showSection('contact')">კონტაქტი</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h3>კონტაქტი</h3>
         <p>📞 568 112 350</p>
-        <p>🕒 24/7 გრაფიკი</p>
-        <p>📍 თბილისი და გარეუბნები</p>
-      </div>
-      <div class="footer-col">
-        <h3>ნდობა და უსაფრთხოება</h3>
-        <p>🛡️ ლიცენზირებული სერვისი</p>
-        <p>🔒 სრული კომფორტი და დაცულობა</p>
-        <p>🐾 გამოცდილი მძღოლები</p>
+        <p>🕒 24/7 მხარდაჭერა</p>
+        <p>📍 თბილისი და რეგიონები</p>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 PetTaxi Tbilisi. ყველა უფლება დაცულია.</p>
-      <div class="footer-bottom-links">
-        <a href="#">კონფიდენციალურობის პოლიტიკა</a>
-        <a href="#">სერვისის პირობები</a>
-      </div>
     </div>
   </footer>
 
   <!-- ვიდეოს მოდალური ფანჯარა -->
-  <div id="videoModal" class="video-modal" onclick="closeVideoOnOutside(event)">
-    <div class="modal-content-wrapper">
+  <div id="videoModal" class="video-modal" onclick="closeVideo()">
+    <div class="modal-content-wrapper" onclick="event.stopPropagation()">
       <button class="close-modal" onclick="closeVideo()">&times;</button>
-      <video id="modalVideo" class="modal-video" controls playsinline></video>
+      <video id="modalVideo" class="modal-video" controls autoplay></video>
     </div>
   </div>
 
-  <!-- ფოტოს დეტალური ტექსტის მოდალური ფანჯარა -->
-  <div id="photoModal" class="photo-modal" onclick="closePhotoModalOnOutside(event)">
-    <div class="photo-modal-content">
+  <!-- ფოტოს მოდალური ფანჯარა -->
+  <div id="photoModal" class="photo-modal" onclick="closePhotoModal()">
+    <div class="photo-modal-content" onclick="event.stopPropagation()">
       <button class="close-photo-modal" onclick="closePhotoModal()">&times;</button>
-      <img id="modalPhotoImg" src="" alt="Photo" class="photo-modal-img">
+      <img id="modalPhotoImg" src="" alt="" class="photo-modal-img">
       <div class="photo-modal-body">
         <h3 id="modalPhotoTitle"></h3>
         <p id="modalPhotoDesc"></p>
@@ -1098,65 +1131,30 @@
     </div>
   </div>
 
+  <!-- JavaScript ფუნქციონალი -->
   <script>
-    const slides = document.querySelectorAll('.bg-slide');
-    let currentSlide = 0;
-
-    function nextSlide() {
-      if (slides.length > 0) {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-      }
-    }
-
-    setInterval(nextSlide, 5000);
-
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.page-section');
-      sections.forEach(sec => {
-        sec.style.display = 'none';
-      });
-
-      const target = document.getElementById(sectionId);
-      if (target) {
-        target.style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(sectionId).style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function switchGalleryTab(tabName) {
-      const panes = document.querySelectorAll('.gallery-content-pane');
-      const buttons = document.querySelectorAll('.tab-btn');
+      const photosPane = document.getElementById('gallery-photos');
+      const videosPane = document.getElementById('gallery-videos');
+      const buttons = document.querySelectorAll('.gallery-tabs .tab-btn');
 
-      panes.forEach(pane => pane.classList.remove('active'));
       buttons.forEach(btn => btn.classList.remove('active'));
 
       if (tabName === 'photos') {
-        document.getElementById('gallery-photos').classList.add('active');
-        buttons[0].classList.add('active');
-      } else if (tabName === 'videos') {
-        document.getElementById('gallery-videos').classList.add('active');
-        buttons[1].classList.add('active');
-      }
-    }
-
-    function openPhotoModal(imgSrc, title, desc) {
-      const modal = document.getElementById('photoModal');
-      document.getElementById('modalPhotoImg').src = imgSrc;
-      document.getElementById('modalPhotoTitle').innerText = title;
-      document.getElementById('modalPhotoDesc').innerText = desc;
-      modal.style.display = 'flex';
-    }
-
-    function closePhotoModal() {
-      document.getElementById('photoModal').style.display = 'none';
-    }
-
-    function closePhotoModalOnOutside(event) {
-      const content = document.querySelector('.photo-modal-content');
-      if (!content.contains(event.target)) {
-        closePhotoModal();
+        photosPane.classList.add('active');
+        videosPane.classList.remove('active');
+        event.currentTarget.classList.add('active');
+      } else {
+        videosPane.classList.add('active');
+        photosPane.classList.remove('active');
+        event.currentTarget.classList.add('active');
       }
     }
 
@@ -1165,9 +1163,7 @@
       const video = document.getElementById('modalVideo');
       video.src = videoSrc;
       modal.style.display = 'flex';
-      video.play().catch(error => {
-        console.log("Autoplay prevented:", error);
-      });
+      video.play();
     }
 
     function closeVideo() {
@@ -1178,13 +1174,27 @@
       modal.style.display = 'none';
     }
 
-    function closeVideoOnOutside(event) {
-      const wrapper = document.querySelector('.modal-content-wrapper');
-      if (!wrapper.contains(event.target)) {
-        closeVideo();
-      }
+    function openPhotoModal(imgSrc, title, desc) {
+      document.getElementById('modalPhotoImg').src = imgSrc;
+      document.getElementById('modalPhotoTitle').innerText = title;
+      document.getElementById('modalPhotoDesc').innerText = desc;
+      document.getElementById('photoModal').style.display = 'flex';
     }
-  </script>
 
+    function closePhotoModal() {
+      document.getElementById('photoModal').style.display = 'none';
+    }
+
+    // ჰერო სექციის სლაიდერი
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.bg-slide');
+    function nextSlide() {
+      if(slides.length === 0) return;
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+    setInterval(nextSlide, 4000);
+  </script>
 </body>
 </html>
