@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ka">
 <head>
@@ -12,6 +11,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -73,9 +73,57 @@
       background: #ff6b00;
     }
 
+    /* მთავარი (Hero) სექცია */
+    .hero-section {
+      background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), url('B.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero-section h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .hero-section p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+
+    /* სერვისების სექცია */
+    .services-section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+
+    .service-card h3 {
+      color: #1d3557;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
     /* გუნდის სექცია */
     .team-section {
-      padding: 60px 20px;
+      padding: 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
       text-align: center;
@@ -231,18 +279,23 @@
       background: #ff6b00;
     }
 
-    /* მედია არქივი / გალერეა */
-    .media-archive-section {
-      padding: 40px 20px;
+    /* გალერეა და მედია არქივი */
+    .gallery-section {
+      padding: 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
       text-align: center;
+      background: #ffffff;
+      border-radius: 16px;
+      margin-bottom: 40px;
     }
 
-    .media-archive-section h3 {
-      font-size: 24px;
-      color: #1d3557;
-      margin-bottom: 20px;
+    footer {
+      background: #1d3557;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -251,20 +304,47 @@
   <!-- ჰედერი -->
   <header>
     <div class="logo-container">
-      <span>PetTaxi</span>
+      <span>PetTaxi Tbilisi</span>
     </div>
     <nav>
       <ul>
-        <li><a href="#">მთავარი</a></li>
-        <li><a href="#">სერვისები</a></li>
+        <li><a href="#hero">მთავარი</a></li>
+        <li><a href="#services">სერვისები</a></li>
         <li><a href="#about">ჩვენ შესახებ</a></li>
-        <li><a href="#">გალერეა</a></li>
+        <li><a href="#gallery">გალერეა</a></li>
       </ul>
     </nav>
     <a href="tel:+995568112350" class="phone-btn">+995 568 112 350</a>
   </header>
 
-  <!-- გუნდის სექცია -->
+  <!-- მთავარი სექცია -->
+  <section id="hero" class="hero-section">
+    <h1>შინაური ცხოველების უსაფრთხო ტრანსპორტირება</h1>
+    <p>ვეტექიმთან, სალონსა და სასტუმროში კომფორტული მგზავრობა თქვენი ოთხფეხა მეგობრებისთვის თბილისსა და მთელ საქართველოში.</p>
+    <a href="tel:+995568112350" class="phone-btn" style="display: inline-block;">დაგვიკავშირდით</a>
+  </section>
+
+  <!-- სერვისები -->
+  <section id="services" class="services-section">
+    <span class="sub-title">რას ვთავაზობთ</span>
+    <h2 class="section-title">ჩვენი სერვისები</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>🚗 ვეტექიმთან ტრანსპორტირება</h3>
+        <p>მოვემსახურებით თქვენს ცხოველებს ვეტერინარულ კლინიკებში ვიზიტისას, უსაფრთხოდ და დროულად.</p>
+      </div>
+      <div class="service-card">
+        <h3>✂️ გრუმინგი და სალონები</h3>
+        <p>ტრანსპორტირება ძაღლებისა და კატების თავის მოვლის ცენტრებში და უკან დაბრუნება.</p>
+      </div>
+      <div class="service-card">
+        <h3>🏨 ცხოველთა სასტუმროები</h3>
+        <p>კომფორტული გადაყვანა სასტუმროებსა და თავშესაფრებში მთელი საქართველოს მასშტაბით.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- გუნდის სექცია (ჩვენ შესახებ) -->
   <section id="about" class="team-section">
     <div class="container">
       <span class="sub-title">ჩვენ შესახებ</span>
@@ -316,11 +396,17 @@
     </div>
   </section>
 
-  <!-- მედია არქივის სექცია -->
-  <section class="media-archive-section">
-    <h3>მედია არქივი: ფოტოები და ვიდეოები</h3>
-    <p>სექცია ცხოველებისა და ტრანსპორტირების მასალებისთვის</p>
+  <!-- გალერეა და მედია არქივი -->
+  <section id="gallery" class="gallery-section">
+    <span class="sub-title">მედია არქივი</span>
+    <h2 class="section-title">ფოტოები და ვიდეოები</h2>
+    <p>აქ შეგიძლიათ განათავსოთ ძაღლებისა და კატების ფოტოები და ვიდეოები.</p>
   </section>
+
+  <!-- ფუტერი -->
+  <footer>
+    <p>&copy; 2026 PetTaxi Tbilisi. ყველა უფლება დაცულია.</p>
+  </footer>
 
   <!-- ვიდეოს მოდალური ფანჯარა -->
   <div id="videoModal" class="video-modal" onclick="closeVideoOnOutside(event)">
