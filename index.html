@@ -21,7 +21,7 @@
       min-height: 100vh;
     }
 
-    /* ჰედერი */
+    /* ჰედერის განახლებული, სტაბილური სტილები */
     header {
       background: #ffffff;
       padding: 12px 30px;
@@ -32,12 +32,14 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      gap: 20px;
     }
 
     .header-right {
       display: flex;
       align-items: center;
       gap: 15px;
+      flex-shrink: 0;
     }
 
     .logo-container {
@@ -48,6 +50,7 @@
       font-size: 22px;
       color: #1d3557;
       cursor: pointer;
+      flex-shrink: 0;
     }
 
     .site-logo-img {
@@ -56,10 +59,17 @@
       object-fit: contain;
     }
 
+    nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
     nav ul {
       display: flex;
       list-style: none;
       gap: 20px;
+      white-space: nowrap;
     }
 
     nav ul li a {
@@ -83,29 +93,42 @@
       font-weight: bold;
       transition: background 0.3s;
       font-size: 14px;
+      white-space: nowrap;
     }
 
     .phone-btn:hover {
       background: #ff6b00;
     }
 
-    /* ენების არჩევის დიზაინი */
-    .lang-select {
-      padding: 8px 12px;
+    /* თანამედროვე ენების გადამრთველი (Language Switcher) */
+    .lang-switcher {
+      display: flex;
+      background: #edf2f4;
+      padding: 3px;
       border-radius: 20px;
-      border: 1px solid #1d3557;
-      background: #ffffff;
-      color: #1d3557;
-      font-weight: bold;
-      cursor: pointer;
-      outline: none;
-      font-size: 14px;
-      transition: all 0.3s;
+      border: 1px solid #dcdcdc;
     }
 
-    .lang-select:hover {
-      border-color: #ff6b00;
-      color: #ff6b00;
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 13px;
+      font-weight: bold;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn.active {
+      background: #ff6b00;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(255, 107, 0, 0.3);
+    }
+
+    .lang-btn:hover:not(.active) {
+      color: #1d3557;
     }
 
     /* ძირითადი სექციების საერთო სტილი */
@@ -324,7 +347,7 @@
       object-fit: cover;
     }
 
-    /* Play ღილაკი გადატანილია კუთხეში, რომ სახე არ დაფაროს */
+    /* Play ღილაკი გადატანილია კუთხეში */
     .play-overlay {
       position: absolute;
       top: 0;
@@ -675,12 +698,12 @@
     </nav>
     <div class="header-right">
       <a href="tel:+995568112350" class="phone-btn">+995 568 112 350</a>
-      <!-- ენების არჩევის დროპდაუნი -->
-      <select class="lang-select" onchange="changeLanguage(this.value)">
-        <option value="ka">🇬🇪 KA</option>
-        <option value="en">🇬🇧 EN</option>
-        <option value="ru">🇷🇺 RU</option>
-      </select>
+      <!-- ახალი სტილური ენების გადამრთველი -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="changeLanguage('ka', this)">KA</button>
+        <button class="lang-btn" onclick="changeLanguage('en', this)">EN</button>
+        <button class="lang-btn" onclick="changeLanguage('ru', this)">RU</button>
+      </div>
     </div>
   </header>
 
@@ -867,7 +890,7 @@
     </div>
   </section>
 
-  <!-- ფუტერი (Google Reviews ჩასმულია მარჯვენა მხარეს) -->
+  <!-- ფუტერი -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -892,7 +915,6 @@
       </div>
       <div class="footer-col" style="min-width: 250px;">
         <h3 data-key="reviews_title">⭐ შეფასებები</h3>
-        <!-- Elfsight Google Reviews Widget -->
         <div class="elfsight-app-70eb222f-9926-461d-ba44-04a05aa12829" data-elfsight-app-lazy></div>
       </div>
     </div>
@@ -921,7 +943,7 @@
     </div>
   </div>
 
-  <!-- JavaScript სკრიპტები (ენები და მართვა) -->
+  <!-- JavaScript - ენების გადართვის ლოგიკა -->
   <script>
     const translations = {
       ka: {
@@ -1091,7 +1113,14 @@
       }
     };
 
-    function changeLanguage(lang) {
+    function changeLanguage(lang, btnElem) {
+      // ღილაკების აქტიური სტილის შეცვლა
+      if (btnElem) {
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        btnElem.classList.add('active');
+      }
+
+      // ტექსტების განახლება
       document.querySelectorAll('[data-key]').forEach(elem => {
         const key = elem.getAttribute('data-key');
         if (translations[lang] && translations[lang][key]) {
