@@ -12,7 +12,10 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    body {
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden; /* აცილებს მარჯვნივ თეთრ ცარიელ ადგილს */
       background-color: #f4f7f6;
       color: #333;
       line-height: 1.6;
@@ -21,10 +24,10 @@
       min-height: 100vh;
     }
 
-    /* ჰედერის განახლებული, სტაბილური სტილები */
+    /* ჰედერის ადაპტური სტილები */
     header {
       background: #ffffff;
-      padding: 12px 30px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -32,37 +35,29 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      gap: 20px;
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-shrink: 0;
+      width: 100%;
     }
 
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-weight: bold;
-      font-size: 22px;
+      font-size: 20px;
       color: #1d3557;
       cursor: pointer;
       flex-shrink: 0;
     }
 
     .site-logo-img {
-      height: 45px;
+      height: 40px;
       width: auto;
       object-fit: contain;
     }
 
     nav {
-      flex: 1;
       display: flex;
-      justify-content: center;
+      align-items: center;
     }
 
     nav ul {
@@ -84,15 +79,22 @@
       color: #ff6b00;
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
     .phone-btn {
       background: #1d3557;
       color: white;
-      padding: 10px 18px;
+      padding: 8px 15px;
       border-radius: 25px;
       text-decoration: none;
       font-weight: bold;
       transition: background 0.3s;
-      font-size: 14px;
+      font-size: 13px;
       white-space: nowrap;
     }
 
@@ -100,11 +102,11 @@
       background: #ff6b00;
     }
 
-    /* თანამედროვე ენების გადამრთველი (Language Switcher) */
+    /* ენების გადამრთველი */
     .lang-switcher {
       display: flex;
       background: #edf2f4;
-      padding: 3px;
+      padding: 2px;
       border-radius: 20px;
       border: 1px solid #dcdcdc;
     }
@@ -112,9 +114,9 @@
     .lang-btn {
       border: none;
       background: transparent;
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: 16px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: bold;
       color: #555;
       cursor: pointer;
@@ -124,33 +126,40 @@
     .lang-btn.active {
       background: #ff6b00;
       color: #ffffff;
-      box-shadow: 0 2px 8px rgba(255, 107, 0, 0.3);
+      box-shadow: 0 2px 6px rgba(255, 107, 0, 0.3);
     }
 
-    .lang-btn:hover:not(.active) {
+    /* მობილურის მენიუს ღილაკი (Hamburger) */
+    .mobile-menu-btn {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
       color: #1d3557;
+      cursor: pointer;
+      padding: 5px;
     }
 
-    /* ძირითადი სექციების საერთო სტილი */
+    /* ძირითადი სექციები */
     .page-section {
       display: none;
-      padding: 60px 20px;
+      padding: 50px 15px;
       max-width: 1200px;
       margin: 0 auto;
       text-align: center;
-      flex: 1;
+      width: 100%;
     }
 
     /* HERO სექცია */
     #hero {
       display: block;
-      max-width: 100%;
+      width: 100%;
       position: relative;
       color: white;
       text-align: center;
-      padding: 120px 20px;
+      padding: 90px 15px;
       overflow: hidden;
-      min-height: 500px;
+      min-height: 450px;
     }
 
     .hero-bg-slider {
@@ -185,102 +194,111 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(29, 53, 87, 0.7);
+      background: rgba(29, 53, 87, 0.75);
       z-index: 2;
     }
 
     .hero-content {
       position: relative;
       z-index: 3;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     #hero h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
+      font-size: 32px;
+      margin-bottom: 15px;
+      line-height: 1.3;
     }
 
     #hero p {
-      font-size: 18px;
-      max-width: 600px;
-      margin: 0 auto 30px auto;
+      font-size: 16px;
+      margin: 0 auto 25px auto;
       color: #e0e0e0;
     }
 
     .hero-stats {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      margin-top: 50px;
+      gap: 20px;
+      margin-top: 35px;
       flex-wrap: wrap;
     }
 
     .stat-card {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(5px);
-      padding: 20px 30px;
-      border-radius: 14px;
+      padding: 15px 25px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .stat-card h3 {
-      font-size: 32px;
+      font-size: 28px;
       color: #ffb703;
-      margin-bottom: 5px;
     }
 
     .stat-card p {
-      font-size: 15px;
+      font-size: 14px;
       color: #ffffff;
       margin: 0;
     }
 
-    /* სერვისების სექცია */
+    /* სერვისები */
+    .sub-title {
+      color: #ff6b00;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      color: #1d3557;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
     }
 
     .service-card {
       background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       text-align: left;
     }
 
     .service-card h3 {
       color: #1d3557;
-      margin-bottom: 15px;
-      font-size: 20px;
+      margin-bottom: 10px;
+      font-size: 18px;
     }
 
     /* სოციალური ქსელები */
     .social-links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 12px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 10px;
+      margin-top: 15px;
     }
 
     .social-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 10px 15px;
-      border-radius: 10px;
+      padding: 10px;
+      border-radius: 8px;
       color: white;
       text-decoration: none;
       font-weight: bold;
-      font-size: 14px;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .social-btn:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
+      font-size: 13px;
     }
 
     .social-fb { background-color: #1877f2; }
@@ -289,56 +307,26 @@
     .social-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
 
     /* გუნდის სექცია */
-    .sub-title {
-      color: #ff6b00;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
-
-    .section-title {
-      font-size: 32px;
-      color: #1d3557;
-      margin-top: 10px;
-      margin-bottom: 15px;
-    }
-
-    .section-description {
-      font-size: 16px;
-      color: #555;
-      max-width: 700px;
-      margin: 0 auto 40px auto;
-      line-height: 1.6;
-    }
-
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
     }
 
     .team-card {
       background: white;
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: left;
-    }
-
-    .team-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     }
 
     .video-preview-wrapper {
       position: relative;
       width: 100%;
-      height: 220px;
+      height: 200px;
       background-color: #0d1b2a;
-      overflow: hidden;
     }
 
     .card-video-preview {
@@ -347,7 +335,6 @@
       object-fit: cover;
     }
 
-    /* Play ღილაკი გადატანილია კუთხეში */
     .play-overlay {
       position: absolute;
       top: 0;
@@ -359,156 +346,102 @@
       align-items: flex-end;
       justify-content: flex-start;
       padding: 12px;
-      transition: background 0.3s ease;
-    }
-
-    .team-card:hover .play-overlay {
-      background: rgba(0, 0, 0, 0.05);
     }
 
     .play-btn-icon {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       background: #ff6b00;
       color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease;
-    }
-
-    .team-card:hover .play-btn-icon {
-      transform: scale(1.1);
+      font-size: 13px;
     }
 
     .team-info {
-      padding: 20px;
+      padding: 15px;
     }
 
     .team-info h3 {
-      font-size: 20px;
+      font-size: 18px;
       color: #1d3557;
-      margin-bottom: 5px;
     }
 
     .team-info p {
       color: #ff6b00;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 13px;
     }
 
     /* გალერეა */
     #gallery {
       background: #ffffff;
       border-radius: 16px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      padding: 60px 30px;
-      margin-bottom: 40px;
+      padding: 40px 15px;
+      margin-bottom: 30px;
     }
 
     .gallery-tabs {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin: 30px 0 40px 0;
+      gap: 10px;
+      margin: 20px 0 30px 0;
     }
 
     .tab-btn {
       background: #f4f7f6;
       color: #1d3557;
-      border: 2px solid #e0e0e0;
-      padding: 12px 30px;
-      border-radius: 30px;
-      font-size: 16px;
+      border: 1px solid #e0e0e0;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 14px;
       font-weight: bold;
       cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .tab-btn:hover {
-      border-color: #ff6b00;
-      color: #ff6b00;
     }
 
     .tab-btn.active {
       background: #ff6b00;
       color: white;
       border-color: #ff6b00;
-      box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
     }
 
-    .gallery-content-pane {
-      display: none;
-    }
-
-    .gallery-content-pane.active {
-      display: block;
-    }
+    .gallery-content-pane { display: none; }
+    .gallery-content-pane.active { display: block; }
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 15px;
     }
 
     .gallery-item {
       background: #ffffff;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
       cursor: pointer;
       text-align: left;
-      display: flex;
-      flex-direction: column;
     }
 
-    .gallery-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-    }
-
-    .gallery-item img, 
-    .gallery-item video {
+    .gallery-item img, .gallery-item video {
       width: 100%;
-      height: 220px;
+      height: 200px;
       object-fit: cover;
-      display: block;
-      background-color: #000000;
     }
 
     .gallery-item-info {
-      padding: 15px;
-      background: #ffffff;
+      padding: 12px;
     }
 
     .gallery-item-info h4 {
-      font-size: 16px;
+      font-size: 15px;
       color: #1d3557;
-      margin-bottom: 5px;
-      font-weight: 600;
-      text-align: left;
     }
 
     .gallery-item-info p {
-      font-size: 13px;
-      color: #666666;
-      margin: 0;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .read-more-hint {
-      display: inline-block;
-      margin-top: 8px;
-      font-size: 13px;
-      color: #ff6b00;
-      font-weight: 600;
+      font-size: 12px;
+      color: #666;
     }
 
     /* მოდალურები */
@@ -523,97 +456,50 @@
       z-index: 1000;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 15px;
     }
 
-    .photo-modal-content {
+    .photo-modal-content, .modal-content-wrapper {
       background: white;
       width: 100%;
       max-width: 600px;
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
       position: relative;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      text-align: left;
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
     }
 
-    .photo-modal-img {
+    .photo-modal-img, .modal-video {
       width: 100%;
-      max-height: 350px;
+      max-height: 300px;
       object-fit: cover;
     }
 
     .photo-modal-body {
-      padding: 25px;
-      overflow-y: auto;
-    }
-
-    .photo-modal-body h3 {
-      color: #1d3557;
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
-    .photo-modal-body p {
-      color: #444;
-      font-size: 15px;
-      line-height: 1.7;
+      padding: 20px;
     }
 
     .close-photo-modal, .close-modal {
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 10px;
+      right: 10px;
       background: rgba(0,0,0,0.6);
       color: white;
       border: none;
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      font-size: 20px;
+      font-size: 18px;
       cursor: pointer;
       z-index: 1010;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s;
-    }
-
-    .close-photo-modal:hover, .close-modal:hover {
-      background: #ff6b00;
-    }
-
-    .modal-content-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      background: #000;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-
-    .modal-video {
-      width: 100%;
-      max-height: 80vh;
-      display: block;
-    }
-
-    #contact {
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
     /* ფუტერი */
     footer {
       background-color: #112233;
       color: #ffffff;
-      padding: 50px 40px 20px 40px;
+      padding: 40px 20px 20px 20px;
       margin-top: auto;
+      width: 100%;
     }
 
     .footer-container {
@@ -621,90 +507,124 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      padding-bottom: 40px;
+      gap: 25px;
+      padding-bottom: 30px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       text-align: left;
     }
 
     .footer-col h3 {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #ffffff;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .footer-col p {
-      color: #b0c4de;
-      font-size: 14px;
-      line-height: 1.6;
+      font-size: 16px;
       margin-bottom: 15px;
+      color: #ffffff;
     }
 
-    .footer-col ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 10px;
-    }
-
-    .footer-col ul li a {
+    .footer-col p, .footer-col ul li a {
       color: #b0c4de;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
-      cursor: pointer;
+      font-size: 13px;
     }
 
-    .footer-col ul li a:hover {
-      color: #ff6b00;
-    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { text-decoration: none; cursor: pointer; }
 
     .footer-bottom {
       max-width: 1200px;
-      margin: 20px auto 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      font-size: 13px;
+      margin: 15px auto 0 auto;
+      text-align: center;
+      font-size: 12px;
       color: #8899a6;
+    }
+
+    /* ========================================================= */
+    /* 📱 MEDIA QUERIES - მობილურისთვის სპეციალური სტილები */
+    /* ========================================================= */
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+      }
+
+      .mobile-menu-btn {
+        display: block; /* მობილურზე გამოჩნდება მენიუს ღილაკი */
+      }
+
+      nav {
+        display: none; /* მობილურზე მენიუ თავიდან დამალულია */
+        width: 100%;
+        order: 3;
+        margin-top: 10px;
+        background: #ffffff;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+      }
+
+      nav.open {
+        display: block; /* ღილაკზე დაჭერისას გაიხსნება */
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .header-right {
+        gap: 8px;
+      }
+
+      .phone-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      #hero h1 {
+        font-size: 24px;
+      }
+
+      #hero p {
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
     }
   </style>
   <script src="https://elfsightcdn.com/platform.js" async></script>
 </head>
 <body>
 
-  <!-- ჰედერი -->
+  <!-- ჰედერი მობილურის მენიუს მხარდაჭერით -->
   <header>
     <div class="logo-container" onclick="showSection('hero')">
       <img src="logo.png" alt="PetTaxi Logo" class="site-logo-img">
-      <span>PetTaxi Tbilisi</span>
+      <span>PetTaxi</span>
     </div>
-    <nav>
-      <ul>
-        <li><a onclick="showSection('hero')" data-key="nav_home">მთავარი</a></li>
-        <li><a onclick="showSection('services')" data-key="nav_services">სერვისები</a></li>
-        <li><a onclick="showSection('about')" data-key="nav_about">ჩვენ შესახებ</a></li>
-        <li><a onclick="showSection('gallery')" data-key="nav_gallery">გალერეა</a></li>
-        <li><a onclick="showSection('contact')" data-key="nav_contact">კონტაქტი</a></li>
-      </ul>
-    </nav>
+
     <div class="header-right">
-      <a href="tel:+995568112350" class="phone-btn">+995 568 112 350</a>
-      <!-- ახალი სტილური ენების გადამრთველი -->
+      <a href="tel:+995568112350" class="phone-btn">📞 568 112 350</a>
+      
+      <!-- ენების გადამრთველი -->
       <div class="lang-switcher">
         <button class="lang-btn active" onclick="changeLanguage('ka', this)">KA</button>
         <button class="lang-btn" onclick="changeLanguage('en', this)">EN</button>
         <button class="lang-btn" onclick="changeLanguage('ru', this)">RU</button>
       </div>
+
+      <!-- Hamburger მენიუს ღილაკი მობილურისთვის -->
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
     </div>
+
+    <nav id="navMenu">
+      <ul>
+        <li><a onclick="showSection('hero'); closeMobileMenu()" data-key="nav_home">მთავარი</a></li>
+        <li><a onclick="showSection('services'); closeMobileMenu()" data-key="nav_services">სერვისები</a></li>
+        <li><a onclick="showSection('about'); closeMobileMenu()" data-key="nav_about">ჩვენ შესახებ</a></li>
+        <li><a onclick="showSection('gallery'); closeMobileMenu()" data-key="nav_gallery">გალერეა</a></li>
+        <li><a onclick="showSection('contact'); closeMobileMenu()" data-key="nav_contact">კონტაქტი</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- HERO სექცია -->
@@ -724,7 +644,7 @@
     <div class="hero-content">
       <h1 data-key="hero_title">შინაური ცხოველების უსაფრთხო ტრანსპორტირება</h1>
       <p data-key="hero_desc">ვეტექიმთან, სალონსა და სასტუმროში კომფორტული მგზავრობა თქვენი ოთხფეხა მეგობრებისთვის თბილისსა და მთელ საქართველოში.</p>
-      <a href="tel:+995568112350" class="phone-btn" style="display: inline-block; margin-bottom: 20px;" data-key="contact_us">დაგვიკავშირდით</a>
+      <a href="tel:+995568112350" class="phone-btn" style="display: inline-block; margin-bottom: 15px;" data-key="contact_us">დაგვიკავშირდით</a>
 
       <div class="hero-stats">
         <div class="stat-card">
@@ -763,7 +683,7 @@
   <section id="about" class="page-section">
     <span class="sub-title" data-key="about_sub">ჩვენ შესახებ</span>
     <h2 class="section-title" data-key="about_title">გაიცანით PetTaxi-ის გუნდი</h2>
-    <p class="section-description" data-key="about_desc">მოხარული ვართ წარმოდგიდგინოთ ჩვენი გუნდი — პროფესიონალები, რომლებიც ზრუნავენ თქვენი ოთხფეხა მეგობრების უსაფრთხო, სტრესისგან თავისუფალ და მაქსიმალურად კომფორტულ მგზავრობაზე! 🐾✨</p>
+    <p style="font-size: 14px; color: #555; max-width: 700px; margin: 0 auto 30px auto;" data-key="about_desc">მოხარული ვართ წარმოდგიდგინოთ ჩვენი გუნდი — პროფესიონალები, რომლებიც ზრუნავენ თქვენი ოთხფეხა მეგობრების უსაფრთხო და კომფორტულ მგზავრობაზე! 🐾✨</p>
     
     <div class="team-grid">
       <div class="team-card" onclick="openVideo('akaki.mp4')">
@@ -817,7 +737,6 @@
       <button class="tab-btn" onclick="switchGalleryTab('videos')" data-key="tab_videos">🎥 ვიდეოები</button>
     </div>
 
-    <!-- ფოტოები -->
     <div id="gallery-photos" class="gallery-content-pane active">
       <div class="gallery-grid">
         <div class="gallery-item" onclick="openPhotoModal('photo1.jpg', 'ლეკვების გადარჩენის ისტორია', 'გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში ჩამოყვანილი ორი პატარა ლეკვი მძიმე მდგომარეობაში იყო.')">
@@ -825,7 +744,6 @@
           <div class="gallery-item-info">
             <h4 data-key="p1_title">ლეკვების გადარჩენის ისტორია</h4>
             <p data-key="p1_desc">გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში...</p>
-            <span class="read-more-hint" data-key="read_more">მეტის წაკითხვა →</span>
           </div>
         </div>
         <div class="gallery-item" onclick="openPhotoModal('photo2.jpg', 'კიმჩი - Stamba Hotel', 'ყველასთვის საყვარელი მგზავრი — კიმჩი, Stamba Hotel-ის საყვარელი ბინადარი!')">
@@ -833,21 +751,11 @@
           <div class="gallery-item-info">
             <h4 data-key="p2_title">კიმჩი - Stamba Hotel</h4>
             <p data-key="p2_desc">ყველასთვის საყვარელი მგზავრი — კიმჩი, Stamba Hotel-ის...</p>
-            <span class="read-more-hint" data-key="read_more">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-        <div class="gallery-item" onclick="openPhotoModal('photo3.jpg', 'კორას წარმატებული ოპერაცია', 'ეს არის კორა, რომელსაც წარმატებით ჩაუტარდა ოპერაცია.')">
-          <img src="photo3.jpg" alt="PetTaxi Photo 3">
-          <div class="gallery-item-info">
-            <h4 data-key="p3_title">კორას წარმატებული ოპერაცია</h4>
-            <p data-key="p3_desc">ეს არის კორა, რომელსაც რამდენიმეჯერ მოუწია ვეტლაიფის...</p>
-            <span class="read-more-hint" data-key="read_more">მეტის წაკითხვა →</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ვიდეოები -->
     <div id="gallery-videos" class="gallery-content-pane">
       <div class="gallery-grid">
         <div class="gallery-item" onclick="openVideo('dog2.mp4')">
@@ -855,13 +763,6 @@
           <div class="gallery-item-info">
             <h4 data-key="v1_title">▶ მაქსი ირჩევს PetTaxi-ს</h4>
             <p data-key="v1_desc">მაქსი ირჩევს PetTaxi -ს– უსაფრთხო და კომფორტული მგზავრობა კლინიკისკენ!</p>
-          </div>
-        </div>
-        <div class="gallery-item" onclick="openVideo('dog5.mp4')">
-          <video src="dog5.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <div class="gallery-item-info">
-            <h4 data-key="v2_title">▶ გაიცანით ომი</h4>
-            <p data-key="v2_desc">გაიცანით ომი — ჩვენი დღევანდელი მგზავრი!</p>
           </div>
         </div>
       </div>
@@ -872,14 +773,14 @@
   <section id="contact" class="page-section">
     <span class="sub-title" data-key="contact_sub">დაგვიკავშირდით</span>
     <h2 class="section-title" data-key="contact_title">საკონტაქტო ინფორმაცია</h2>
-    <div class="services-grid" style="max-width: 600px; margin: 0 auto;">
+    <div class="services-grid" style="max-width: 500px; margin: 0 auto;">
       <div class="service-card" style="text-align: center;">
         <h3 data-key="phone_label">📞 ტელეფონი</h3>
-        <p style="margin-bottom: 20px;">
-          <a href="tel:+995568112350" style="color: #ff6b00; font-size: 22px; text-decoration: none; font-weight: bold;">+995 568 112 350</a>
+        <p style="margin-bottom: 15px;">
+          <a href="tel:+995568112350" style="color: #ff6b00; font-size: 20px; text-decoration: none; font-weight: bold;">+995 568 112 350</a>
         </p>
 
-        <h3 style="margin-top: 25px; color: #1d3557; margin-bottom: 10px;" data-key="social_label">🌐 სოციალური ქსელები</h3>
+        <h3 style="margin-top: 20px; color: #1d3557; margin-bottom: 10px;" data-key="social_label">🌐 სოციალური ქსელები</h3>
         <div class="social-links-grid">
           <a href="https://www.facebook.com/PetTaxiTbilisi" target="_blank" class="social-btn social-fb">Facebook</a>
           <a href="https://www.instagram.com/pettaxi_tbilisi?stkn=bTN3N3B4amJ5cHcz&utm_source=qr" target="_blank" class="social-btn social-insta">Instagram</a>
@@ -911,9 +812,8 @@
         <h3 data-key="nav_contact">კონტაქტი</h3>
         <p>📞 568 112 350</p>
         <p data-key="support_247">🕒 24/7 მხარდაჭერა</p>
-        <p data-key="location_text">📍 თბილისი და რეგიონები</p>
       </div>
-      <div class="footer-col" style="min-width: 250px;">
+      <div class="footer-col">
         <h3 data-key="reviews_title">⭐ შეფასებები</h3>
         <div class="elfsight-app-70eb222f-9926-461d-ba44-04a05aa12829" data-elfsight-app-lazy></div>
       </div>
@@ -923,7 +823,7 @@
     </div>
   </footer>
 
-  <!-- ვიდეოს მოდალური ფანჯარა -->
+  <!-- მოდალურები -->
   <div id="videoModal" class="video-modal" onclick="closeVideo()">
     <div class="modal-content-wrapper" onclick="event.stopPropagation()">
       <button class="close-modal" onclick="closeVideo()">&times;</button>
@@ -931,7 +831,6 @@
     </div>
   </div>
 
-  <!-- ფოტოს მოდალური ფანჯარა -->
   <div id="photoModal" class="photo-modal" onclick="closePhotoModal()">
     <div class="photo-modal-content" onclick="event.stopPropagation()">
       <button class="close-photo-modal" onclick="closePhotoModal()">&times;</button>
@@ -943,7 +842,7 @@
     </div>
   </div>
 
-  <!-- JavaScript - ენების გადართვის ლოგიკა -->
+  <!-- JavaScript - ენები და მობილურის მენიუ -->
   <script>
     const translations = {
       ka: {
@@ -968,7 +867,7 @@
         s4_desc: "უსაფრთხო და კომფორტული მგზავრობა რეგიონებსა და ქალაქგარეთ ნებისმიერ მანძილზე.",
         about_sub: "ჩვენ შესახებ",
         about_title: "გაიცანით PetTaxi-ის გუნდი",
-        about_desc: "მოხარული ვართ წარმოდგიდგინოთ ჩვენი გუნდი — პროფესიონალები, რომლებიც ზრუნავენ თქვენი ოთხფეხა მეგობრების უსაფრთხო, სტრესისგან თავისუფალ და მაქსიმალურად კომფორტულ მგზავრობაზე! 🐾✨",
+        about_desc: "მოხარული ვართ წარმოდგიდგინოთ ჩვენი გუნდი — პროფესიონალები, რომლებიც ზრუნავენ თქვენი ოთხფეხა მეგობრების უსაფრთხო და კომფორტულ მგზავრობაზე! 🐾✨",
         t1_name: "აკაკი თოლორდავა",
         t1_role: "PetTaxi - ის დამფუძნებელი",
         t2_name: "მერიამ ქარაჯა",
@@ -979,17 +878,12 @@
         gallery_title: "ფოტოები და ვიდეოები",
         tab_photos: "📸 ფოტოები",
         tab_videos: "🎥 ვიდეოები",
-        read_more: "მეტის წაკითხვა →",
         p1_title: "ლეკვების გადარჩენის ისტორია",
         p1_desc: "გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში...",
         p2_title: "კიმჩი - Stamba Hotel",
         p2_desc: "ყველასთვის საყვარელი მგზავრი — კიმჩი, Stamba Hotel-ის...",
-        p3_title: "კორას წარმატებული ოპერაცია",
-        p3_desc: "ეს არის კორა, რომელსაც რამდენიმეჯერ მოუწია ვეტლაიფის...",
         v1_title: "▶ მაქსი ირჩევს PetTaxi-ს",
         v1_desc: "მაქსი ირჩევს PetTaxi -ს– უსაფრთხო და კომფორტული მგზავრობა კლინიკისკენ!",
-        v2_title: "▶ გაიცანით ომი",
-        v2_desc: "გაიცანით ომი — ჩვენი დღევანდელი მგზავრი!",
         contact_sub: "დაგვიკავშირდით",
         contact_title: "საკონტაქტო ინფორმაცია",
         phone_label: "📞 ტელეფონი",
@@ -997,7 +891,6 @@
         footer_about: "შინაური ცხოველების უსაფრთხო და კომფორტული ტრანსპორტირება მთელს საქართველოში.",
         footer_links: "ლინკები",
         support_247: "🕒 24/7 მხარდაჭერა",
-        location_text: "📍 თბილისი და რეგიონები",
         reviews_title: "⭐ შეფასებები",
         rights_text: "ყველა უფლება დაცულია."
       },
@@ -1023,7 +916,7 @@
         s4_desc: "Safe and comfortable intercity travel for pets across any distance.",
         about_sub: "About Us",
         about_title: "Meet the PetTaxi Team",
-        about_desc: "We are excited to introduce our team — professionals dedicated to providing safe, stress-free, and comfy rides for your pets! 🐾✨",
+        about_desc: "We are excited to introduce our team — professionals dedicated to providing safe and comfy rides for your pets! 🐾✨",
         t1_name: "Akaki Tolordava",
         t1_role: "Founder of PetTaxi",
         t2_name: "Meriam Karadja",
@@ -1034,17 +927,12 @@
         gallery_title: "Photos & Videos",
         tab_photos: "📸 Photos",
         tab_videos: "🎥 Videos",
-        read_more: "Read More →",
         p1_title: "Puppy Rescue Story",
         p1_desc: "Two rescued puppies transported safely from Gori to LuckyPaw Clinic...",
         p2_title: "Kimchi - Stamba Hotel",
         p2_desc: "Everyone's favorite passenger — Kimchi from Stamba Hotel!",
-        p3_title: "Kora's Successful Surgery",
-        p3_desc: "This is Kora, who successfully underwent surgery at VetLife...",
         v1_title: "▶ Maxi Chooses PetTaxi",
         v1_desc: "Maxi chooses PetTaxi – safe and comfy ride to the clinic!",
-        v2_title: "▶ Meet Omi",
-        v2_desc: "Meet Omi — our lovely passenger for today!",
         contact_sub: "Get in Touch",
         contact_title: "Contact Information",
         phone_label: "📞 Phone",
@@ -1052,7 +940,6 @@
         footer_about: "Safe and comfortable pet transportation service throughout Georgia.",
         footer_links: "Quick Links",
         support_247: "🕒 24/7 Support",
-        location_text: "📍 Tbilisi & Regions",
         reviews_title: "⭐ Reviews",
         rights_text: "All rights reserved."
       },
@@ -1078,7 +965,7 @@
         s4_desc: "Безопасные поездки за город и между городами на любые расстояния.",
         about_sub: "О нас",
         about_title: "Познакомьтесь с командой PetTaxi",
-        about_desc: "Рады представить нашу команду — профессионалов, заботящихся о безопасных и комфортных поездках ваших питомцев! 🐾✨",
+        about_desc: "Рады представить нашу команду — профессионалов, заботящихся о безопасных поездках ваших питомцев! 🐾✨",
         t1_name: "Акакий Толордава",
         t1_role: "Основатель PetTaxi",
         t2_name: "Мериам Караджа",
@@ -1089,17 +976,12 @@
         gallery_title: "Фото и Видео",
         tab_photos: "📸 Фотографии",
         tab_videos: "🎥 Видео",
-        read_more: "Подробнее →",
         p1_title: "История спасения щенков",
         p1_desc: "Два спасенных щенка доставлены из Гори в клинику LuckyPaw...",
         p2_title: "Кимчи - Stamba Hotel",
         p2_desc: "Всеми любимый пассажир — Кимчи из отеля Stamba!",
-        p3_title: "Успешная операция Коры",
-        p3_desc: "Это Кора, которая успешно перенесла операцию в ветклинике...",
         v1_title: "▶ Макси выбирает PetTaxi",
         v1_desc: "Макси выбирает PetTaxi – безопасная и удобная поездка!",
-        v2_title: "▶ Познакомьтесь с Оми",
-        v2_desc: "Познакомьтесь с Оми — нашим сегодняшним пассажиром!",
         contact_sub: "Связаться",
         contact_title: "Контактная информация",
         phone_label: "📞 Телефон",
@@ -1107,20 +989,16 @@
         footer_about: "Безопасная и комфортная перевозка животных по всей Грузии.",
         footer_links: "Ссылки",
         support_247: "🕒 Поддержка 24/7",
-        location_text: "📍 Тбилиси и регионы",
         reviews_title: "⭐ Отзывы",
         rights_text: "Все права защищены."
       }
     };
 
     function changeLanguage(lang, btnElem) {
-      // ღილაკების აქტიური სტილის შეცვლა
       if (btnElem) {
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
         btnElem.classList.add('active');
       }
-
-      // ტექსტების განახლება
       document.querySelectorAll('[data-key]').forEach(elem => {
         const key = elem.getAttribute('data-key');
         if (translations[lang] && translations[lang][key]) {
@@ -1128,6 +1006,16 @@
         }
       });
       document.documentElement.lang = lang;
+    }
+
+    function toggleMobileMenu() {
+      const nav = document.getElementById('navMenu');
+      nav.classList.toggle('open');
+    }
+
+    function closeMobileMenu() {
+      const nav = document.getElementById('navMenu');
+      nav.classList.remove('open');
     }
 
     function showSection(sectionId) {
@@ -1182,7 +1070,7 @@
       document.getElementById('photoModal').style.display = 'none';
     }
 
-    // ჰერო სექციის სლაიდერი
+    // სლაიდერი
     let currentSlide = 0;
     const slides = document.querySelectorAll('.bg-slide');
     function nextSlide() {
