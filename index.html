@@ -24,7 +24,7 @@
     /* ჰედერი */
     header {
       background: #ffffff;
-      padding: 12px 40px;
+      padding: 12px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -32,6 +32,12 @@
       position: sticky;
       top: 0;
       z-index: 100;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
 
     .logo-container {
@@ -53,7 +59,7 @@
     nav ul {
       display: flex;
       list-style: none;
-      gap: 25px;
+      gap: 20px;
     }
 
     nav ul li a {
@@ -71,15 +77,35 @@
     .phone-btn {
       background: #1d3557;
       color: white;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: 25px;
       text-decoration: none;
       font-weight: bold;
       transition: background 0.3s;
+      font-size: 14px;
     }
 
     .phone-btn:hover {
       background: #ff6b00;
+    }
+
+    /* ენების არჩევის დიზაინი */
+    .lang-select {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: 1px solid #1d3557;
+      background: #ffffff;
+      color: #1d3557;
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .lang-select:hover {
+      border-color: #ff6b00;
+      color: #ff6b00;
     }
 
     /* ძირითადი სექციების საერთო სტილი */
@@ -92,7 +118,7 @@
       flex: 1;
     }
 
-    /* --- ავტომატური სლაიდერის სტილები HERO სექციისთვის --- */
+    /* HERO სექცია */
     #hero {
       display: block;
       max-width: 100%;
@@ -207,7 +233,7 @@
       font-size: 20px;
     }
 
-    /* სოციალური ქსელების ღილაკების სტილები */
+    /* სოციალური ქსელები */
     .social-links-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -298,7 +324,7 @@
       object-fit: cover;
     }
 
-    /* Play ღილაკის განთავსება კუთხეში (სახე რომ არ დაფაროს) */
+    /* Play ღილაკი გადატანილია კუთხეში, რომ სახე არ დაფაროს */
     .play-overlay {
       position: absolute;
       top: 0;
@@ -351,7 +377,7 @@
       font-weight: 500;
     }
 
-    /* გალერეის სტილები */
+    /* გალერეა */
     #gallery {
       background: #ffffff;
       border-radius: 16px;
@@ -462,8 +488,8 @@
       font-weight: 600;
     }
 
-    /* მოდალური ფანჯარა ფოტოს დეტალებისთვის */
-    .photo-modal {
+    /* მოდალურები */
+    .photo-modal, .video-modal {
       display: none;
       position: fixed;
       top: 0;
@@ -514,7 +540,7 @@
       line-height: 1.7;
     }
 
-    .close-photo-modal {
+    .close-photo-modal, .close-modal {
       position: absolute;
       top: 15px;
       right: 15px;
@@ -533,23 +559,8 @@
       transition: background 0.3s;
     }
 
-    .close-photo-modal:hover {
+    .close-photo-modal:hover, .close-modal:hover {
       background: #ff6b00;
-    }
-
-    /* ვიდეოს მოდალური ფანჯარა */
-    .video-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
     }
 
     .modal-content-wrapper {
@@ -568,36 +579,13 @@
       display: block;
     }
 
-    .close-modal {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      font-size: 22px;
-      cursor: pointer;
-      z-index: 1010;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s;
-    }
-
-    .close-modal:hover {
-      background: #ff6b00;
-    }
-
     #contact {
       background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    /* პროფესიონალური ფუტერი */
+    /* ფუტერი */
     footer {
       background-color: #112233;
       color: #ffffff;
@@ -666,12 +654,11 @@
       color: #8899a6;
     }
   </style>
-  <!-- Elfsight პლატფორმის სკრიპტი -->
   <script src="https://elfsightcdn.com/platform.js" async></script>
 </head>
 <body>
 
-  <!-- ჰედერი ლოგოთი -->
+  <!-- ჰედერი -->
   <header>
     <div class="logo-container" onclick="showSection('hero')">
       <img src="logo.png" alt="PetTaxi Logo" class="site-logo-img">
@@ -679,17 +666,25 @@
     </div>
     <nav>
       <ul>
-        <li><a onclick="showSection('hero')">მთავარი</a></li>
-        <li><a onclick="showSection('services')">სერვისები</a></li>
-        <li><a onclick="showSection('about')">ჩვენ შესახებ</a></li>
-        <li><a onclick="showSection('gallery')">გალერეა</a></li>
-        <li><a onclick="showSection('contact')">კონტაქტი</a></li>
+        <li><a onclick="showSection('hero')" data-key="nav_home">მთავარი</a></li>
+        <li><a onclick="showSection('services')" data-key="nav_services">სერვისები</a></li>
+        <li><a onclick="showSection('about')" data-key="nav_about">ჩვენ შესახებ</a></li>
+        <li><a onclick="showSection('gallery')" data-key="nav_gallery">გალერეა</a></li>
+        <li><a onclick="showSection('contact')" data-key="nav_contact">კონტაქტი</a></li>
       </ul>
     </nav>
-    <a href="tel:+995568112350" class="phone-btn">+995 568 112 350</a>
+    <div class="header-right">
+      <a href="tel:+995568112350" class="phone-btn">+995 568 112 350</a>
+      <!-- ენების არჩევის დროპდაუნი -->
+      <select class="lang-select" onchange="changeLanguage(this.value)">
+        <option value="ka">🇬🇪 KA</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="ru">🇷🇺 RU</option>
+      </select>
+    </div>
   </header>
 
-  <!-- მთავარი სექცია ავტომატური სლაიდერით -->
+  <!-- HERO სექცია -->
   <section id="hero" class="page-section" style="display: block;">
     <div class="hero-bg-slider">
       <div class="bg-slide active" style="background-image: url('B.jpg.jpg');"></div>
@@ -704,14 +699,14 @@
     </div>
 
     <div class="hero-content">
-      <h1>შინაური ცხოველების უსაფრთხო ტრანსპორტირება</h1>
-      <p>ვეტექიმთან, სალონსა და სასტუმროში კომფორტული მგზავრობა თქვენი ოთხფეხა მეგობრებისთვის თბილისსა და მთელ საქართველოში.</p>
-      <a href="tel:+995568112350" class="phone-btn" style="display: inline-block; margin-bottom: 20px;">დაგვიკავშირდით</a>
+      <h1 data-key="hero_title">შინაური ცხოველების უსაფრთხო ტრანსპორტირება</h1>
+      <p data-key="hero_desc">ვეტექიმთან, სალონსა და სასტუმროში კომფორტული მგზავრობა თქვენი ოთხფეხა მეგობრებისთვის თბილისსა და მთელ საქართველოში.</p>
+      <a href="tel:+995568112350" class="phone-btn" style="display: inline-block; margin-bottom: 20px;" data-key="contact_us">დაგვიკავშირდით</a>
 
       <div class="hero-stats">
         <div class="stat-card">
           <h3>1,500+</h3>
-          <p>კმაყოფილი მომხმარებელი</p>
+          <p data-key="stat_happy">კმაყოფილი მომხმარებელი</p>
         </div>
       </div>
     </div>
@@ -719,33 +714,33 @@
 
   <!-- სერვისები -->
   <section id="services" class="page-section">
-    <span class="sub-title">რას ვთავაზობთ</span>
-    <h2 class="section-title">ჩვენი სერვისები</h2>
+    <span class="sub-title" data-key="services_sub">რას ვთავაზობთ</span>
+    <h2 class="section-title" data-key="services_title">ჩვენი სერვისები</h2>
     <div class="services-grid">
       <div class="service-card">
-        <h3>🚗 ვეტექიმთან ტრანსპორტირება</h3>
-        <p>მოვემსახურებით თქვენს ცხოველებს ვეტერინარულ კლინიკებში ვიზიტისას, უსაფრთხოდ და დროულად.</p>
+        <h3 data-key="s1_title">🚗 ვეტექიმთან ტრანსპორტირება</h3>
+        <p data-key="s1_desc">მოვემსახურებით თქვენს ცხოველებს ვეტერინარულ კლინიკებში ვიზიტისას, უსაფრთხოდ და დროულად.</p>
       </div>
       <div class="service-card">
-        <h3>✂️ გრუმინგი და სალონები</h3>
-        <p>ტრანსპორტირება ძაღლებისა და კატების თავის მოვლის ცენტრებში და უკან დაბრუნება.</p>
+        <h3 data-key="s2_title">✂️ გრუმინგი და სალონები</h3>
+        <p data-key="s2_desc">ტრანსპორტირება ძაღლებისა და კატების თავის მოვლის ცენტრებში და უკან დაბრუნება.</p>
       </div>
       <div class="service-card">
-        <h3>🏨 ცხოველთა სასტუმროები</h3>
-        <p>კომფორტული გადაყვანა სასტუმროებსა და თავშესაფრებში მთელი საქართველოს მასშტაბით.</p>
+        <h3 data-key="s3_title">🏨 ცხოველთა სასტუმროები</h3>
+        <p data-key="s3_desc">კომფორტული გადაყვანა სასტუმროებსა და თავშესაფრებში მთელი საქართველოს მასშტაბით.</p>
       </div>
       <div class="service-card">
-        <h3>🏞️ ქალაქგარეთ ტრანსპორტირება</h3>
-        <p>უსაფრთხო და კომფორტული მგზავრობა რეგიონებსა და ქალაქგარეთ ნებისმიერ მანძილზე.</p>
+        <h3 data-key="s4_title">🏞️ ქალაქგარეთ ტრანსპორტირება</h3>
+        <p data-key="s4_desc">უსაფრთხო და კომფორტული მგზავრობა რეგიონებსა და ქალაქგარეთ ნებისმიერ მანძილზე.</p>
       </div>
     </div>
   </section>
 
-  <!-- გუნდის სექცია (ჩვენ შესახებ) -->
+  <!-- გუნდის სექცია -->
   <section id="about" class="page-section">
-    <span class="sub-title">ჩვენ შესახებ</span>
-    <h2 class="section-title">გაიცანით PetTaxi-ის გუნდი</h2>
-    <p class="section-description">მოხარული ვართ წარმოდგიდგინოთ ჩვენი გუნდი — პროფესიონალები, რომლებიც ზრუნავენ თქვენი ოთხფეხა მეგობრების უსაფრთხო, სტრესისგან თავისუფალ და მაქსიმალურად კომფორტულ მგზავრობაზე! 🐾✨</p>
+    <span class="sub-title" data-key="about_sub">ჩვენ შესახებ</span>
+    <h2 class="section-title" data-key="about_title">გაიცანით PetTaxi-ის გუნდი</h2>
+    <p class="section-description" data-key="about_desc">მოხარული ვართ წარმოდგიდგინოთ ჩვენი გუნდი — პროფესიონალები, რომლებიც ზრუნავენ თქვენი ოთხფეხა მეგობრების უსაფრთხო, სტრესისგან თავისუფალ და მაქსიმალურად კომფორტულ მგზავრობაზე! 🐾✨</p>
     
     <div class="team-grid">
       <div class="team-card" onclick="openVideo('akaki.mp4')">
@@ -756,8 +751,8 @@
           </div>
         </div>
         <div class="team-info">
-          <h3>აკაკი თოლორდავა</h3>
-          <p>PetTaxi - ის დამფუძნებელი</p>
+          <h3 data-key="t1_name">აკაკი თოლორდავა</h3>
+          <p data-key="t1_role">PetTaxi - ის დამფუძნებელი</p>
         </div>
       </div>
 
@@ -769,8 +764,8 @@
           </div>
         </div>
         <div class="team-info">
-          <h3>მერიამ ქარაჯა</h3>
-          <p>PetTaxi - ის მარკეტოლოგი</p>
+          <h3 data-key="t2_name">მერიამ ქარაჯა</h3>
+          <p data-key="t2_role">PetTaxi - ის მარკეტოლოგი</p>
         </div>
       </div>
 
@@ -782,329 +777,86 @@
           </div>
         </div>
         <div class="team-info">
-          <h3>გივიკო მერკვილაძე</h3>
-          <p>PetTaxi - ის გენერალური მენეჯერი</p>
+          <h3 data-key="t3_name">გივიკო მერკვილაძე</h3>
+          <p data-key="t3_role">PetTaxi - ის გენერალური მენეჯერი</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- გალერეა ფოტოებისა და ვიდეოების ტაბებით -->
+  <!-- გალერეა -->
   <section id="gallery" class="page-section">
-    <span class="sub-title">მედია არქივი</span>
-    <h2 class="section-title">ფოტოები და ვიდეოები</h2>
+    <span class="sub-title" data-key="gallery_sub">მედია არქივი</span>
+    <h2 class="section-title" data-key="gallery_title">ფოტოები და ვიდეოები</h2>
 
     <div class="gallery-tabs">
-      <button class="tab-btn active" onclick="switchGalleryTab('photos')">📸 ფოტოები</button>
-      <button class="tab-btn" onclick="switchGalleryTab('videos')">🎥 ვიდეოები</button>
+      <button class="tab-btn active" onclick="switchGalleryTab('photos')" data-key="tab_photos">📸 ფოტოები</button>
+      <button class="tab-btn" onclick="switchGalleryTab('videos')" data-key="tab_videos">🎥 ვიდეოები</button>
     </div>
 
-    <!-- ფოტოების სექცია -->
+    <!-- ფოტოები -->
     <div id="gallery-photos" class="gallery-content-pane active">
       <div class="gallery-grid">
-        
-        <!-- photo1 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo1.jpg', 'ლეკვების გადარჩენის ისტორია', 'გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში ჩამოყვანილი ორი პატარა ლეკვი მძიმე მდგომარეობაში იყო. ავარიის შედეგად მიყენებულმა დაზიანებებმა — ყბის მოტეხილობამ და კიდურების ტრავმებმა — მათი სიცოცხლე საფრთხის ქვეშ დააყენა. დროული ჩარევისა და ოპერაციის წყალობით, ორივე პატარა თავს უკეთ გრძნობს. უღრმესი მადლობა Tamo Tolordava-სა და ცხოველთა გადარჩენის სახალხო ფრონტს, რომლებმაც გულთან მიიტანეს და ადამიანების გვერდით დგომით ამ ორი უმწეო არსების გადასარჩენად ყველაფერი გააკეთეს. კეთილი საქმეები აუცილებლად ფასდება!')">
+        <div class="gallery-item" onclick="openPhotoModal('photo1.jpg', 'ლეკვების გადარჩენის ისტორია', 'გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში ჩამოყვანილი ორი პატარა ლეკვი მძიმე მდგომარეობაში იყო.')">
           <img src="photo1.jpg" alt="PetTaxi Photo 1">
           <div class="gallery-item-info">
-            <h4>ლეკვების გადარჩენის ისტორია</h4>
-            <p>გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
+            <h4 data-key="p1_title">ლეკვების გადარჩენის ისტორია</h4>
+            <p data-key="p1_desc">გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში...</p>
+            <span class="read-more-hint" data-key="read_more">მეტის წაკითხვა →</span>
           </div>
         </div>
-
-        <!-- photo2 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo2.jpg', 'კიმჩი - Stamba Hotel', 'ყველასთვის საყვარელი მგზავრი — კიმჩი, Stamba Hotel-ის საყვარელი ბინადარი! კიმჩი გრუმინგში მივიყვანეთ თავის მოვლის პროცედურებზე. მოხარულები ვართ, რომ მგზავრობამ კომფორტულად ჩაიარა და კიმჩი ბედნიერად გრძნობს თავს.')">
+        <div class="gallery-item" onclick="openPhotoModal('photo2.jpg', 'კიმჩი - Stamba Hotel', 'ყველასთვის საყვარელი მგზავრი — კიმჩი, Stamba Hotel-ის საყვარელი ბინადარი!')">
           <img src="photo2.jpg" alt="PetTaxi Photo 2">
           <div class="gallery-item-info">
-            <h4>კიმჩი - Stamba Hotel</h4>
-            <p>ყველასთვის საყვარელი მგზავრი — კიმჩი, Stamba Hotel-ის...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
+            <h4 data-key="p2_title">კიმჩი - Stamba Hotel</h4>
+            <p data-key="p2_desc">ყველასთვის საყვარელი მგზავრი — კიმჩი, Stamba Hotel-ის...</p>
+            <span class="read-more-hint" data-key="read_more">მეტის წაკითხვა →</span>
           </div>
         </div>
-
-        <!-- photo3 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo3.jpg', 'კორას წარმატებული ოპერაცია', 'ეს არის კორა, რომელსაც რამდენიმეჯერ მოუწია ვეტლაიფის ვეტერინარულ კლინიკაში ვიზიტი რადგან სიმსივნური წამონაზარდი ჰქონდა, წარმატებით ჩაუტარდა ოპერაცია და დღეს ის ბედნიერად და ჯანმრთელად გრძნობს თავს.')">
+        <div class="gallery-item" onclick="openPhotoModal('photo3.jpg', 'კორას წარმატებული ოპერაცია', 'ეს არის კორა, რომელსაც წარმატებით ჩაუტარდა ოპერაცია.')">
           <img src="photo3.jpg" alt="PetTaxi Photo 3">
           <div class="gallery-item-info">
-            <h4>კორას წარმატებული ოპერაცია</h4>
-            <p>ეს არის კორა, რომელსაც რამდენიმეჯერ მოუწია ვეტლაიფის...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
+            <h4 data-key="p3_title">კორას წარმატებული ოპერაცია</h4>
+            <p data-key="p3_desc">ეს არის კორა, რომელსაც რამდენიმეჯერ მოუწია ვეტლაიფის...</p>
+            <span class="read-more-hint" data-key="read_more">მეტის წაკითხვა →</span>
           </div>
         </div>
-
-        <!-- photo4 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo4.jpg', 'ლეკვები გორიდან (LuckyPaw)', 'გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში ჩამოყვანილი ორი პატარა ლეკვი მძიმე მდგომარეობაში იყო. ავარიის შედეგად მიყენებულმა დაზიანებებმა — ყბის მოტეხილობამ და კიდურების ტრავმებმა — მათი სიცოცხლე საფრთხის ქვეშ დააყენა. დროული ჩარევისა და ოპერაციის წყალობით, ორივე პატარა თავს უკეთ გრძნობს.')">
-          <img src="photo4.jpg" alt="PetTaxi Photo 4">
-          <div class="gallery-item-info">
-            <h4>ლეკვები გორიდან (LuckyPaw)</h4>
-            <p>გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo5 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo5.jpg', 'ნენე - Radio City', 'ეს არის ნენე — PetTaxi Tbilisi-ს მთავარი მგზავრი და განწყობის შემქმნელი! Radio City • რადიო ქალაქიდან. ნენე იმდენად უსაყვარლესი და უთბილესია, რომ მასთან ერთად მგზავრობა თავგადასავალია.')">
-          <img src="photo5.jpg" alt="PetTaxi Photo 5">
-          <div class="gallery-item-info">
-            <h4>ნენე - Radio City</h4>
-            <p>ეს არის ნენე — PetTaxi Tbilisi-ს მთავარი მგზავრი...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo6 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo6.jpg', 'არჩი - ANNCY DOG HOTEL', 'ჩვენ ისევ არჩის ვმასპინძლობთ. როგორც PetTaxi-ის მუდმივი მგზავრი, ის უკვე მიჩვეულია PetTaxi-ს სერვისს. არჩი მიგვყავს ANNCY DOG HOTEL-ის სასტუმროში, სადაც მას სრულიად ადაპტირებული და უსაფრთხო გარემო ელოდება.')">
-          <img src="photo6.jpg" alt="PetTaxi Photo 6">
-          <div class="gallery-item-info">
-            <h4>არჩი - ANNCY DOG HOTEL</h4>
-            <p>ჩვენ ისევ არჩის ვმასპინძლობთ. როგორც PetTaxi-ის მუდმივი...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo7 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo7.jpg', 'ფაფი - Groom.ge', 'ეს არის ფაფი ჩვენი მგზავრი! მოხარულები ვართ, რომ PetTaxi-ის გუნდმა ვიზრუნეთ მის უსაფრთხო და კომფორტულ მგზავრობაზე Groom.ge - გრუმინგ სალონისკენ, სადაც მას ნამდვილად საუკეთესო მომსახურება გაუწიეს.')">
-          <img src="photo7.jpg" alt="PetTaxi Photo 7">
-          <div class="gallery-item-info">
-            <h4>ფაფი - Groom.ge</h4>
-            <p>ეს არის ფაფი ჩვენი მგზავრი! მოხარულები ვართ, რომ...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo8 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo8.jpg', 'შავი - ტრანსპორტირების ისტორია', 'ყველაფერი დაიწყო ორი უცხოელი სტუმრის ზარით Ringovet. იპოვეს ძაღლი, რომელიც თავად ვერ გადაადგილდებოდა. რენტგენმა აჩვენა: ხერხემალში უცხო სხეული იყო, რამაც უკანა კიდურების სრული დამბლა გამოიწვია. საბოლოოდ გადაიყვანეს Tamaz Elizbarashvili dog shelter-ში.')">
-          <img src="photo8.jpg" alt="PetTaxi Photo 8">
-          <div class="gallery-item-info">
-            <h4>შავი - ტრანსპორტირების ისტორია</h4>
-            <p>ყველაფერი დაიწყო ორი უცხოელი სტუმრის ზარით Ringovet...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo9 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo9.jpg', 'ლაქი - Vetex კლინიკა', 'ჩვენი მუდმივი და ყველაზე სიმპატიური მგზავრი - ლაქი! უკვე მესამედ გვანდობს თავის კომფორტსა და უსაფრთხოებას. დღეს გეგმიურ აცრაზე ვიყავიით Vetex-ის კლინიკაში. ლაქი ნამდვილად გამორჩეულად ლამაზი და ჭკვიანი ბიჭია.')">
-          <img src="photo9.jpg" alt="PetTaxi Photo 9">
-          <div class="gallery-item-info">
-            <h4>ლაქი - Vetex კლინიკა</h4>
-            <p>ჩვენი მუდმივი და ყველაზე სიმპატიური მგზავრი - ლაქი!...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo10 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo10.jpg', 'შავი - Groom.ge', 'ეს არის შავი ჩვენი მგზავრი! მოხარულები ვართ, რომ PetTaxi-ის გუნდმა ვიზრუნეთ მის უსაფრთხო და კომფორტულ მგზავრობაზე Groom.ge - გრუმინგ სალონისკენ, სადაც მას საუკეთესო მომსახურება გაუწიეს.')">
-          <img src="photo10.jpg" alt="PetTaxi Photo 10">
-          <div class="gallery-item-info">
-            <h4>შავი - Groom.ge</h4>
-            <p>ეს არის შავი ჩვენი მგზავრი! მოხარულები ვართ, რომ...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo11 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo11.jpg', 'მარუსია - Zooplaza', 'ჩვენი საყვარელი მგზავრი მარუსია! ძაღლი, რომელიც პასუხისმგებლიანი პატრონის წყალობით ყოველთვის დროულად და ხალისით სტუმრობს Zooplaza-ს ვეტ-კლინიკას გეგმიური აცრებისთვის.')">
-          <img src="photo11.jpg" alt="PetTaxi Photo 11">
-          <div class="gallery-item-info">
-            <h4>მარუსია - Zooplaza</h4>
-            <p>ჩვენი საყვარელი მგზავრი მარუსია! ძაღლი, რომელიც...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo12 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo12.jpg', 'ქალბატონი ჯინა', 'გაიცანით ქალბატონი ჯინა! გზად მგზავრობა PetTaxi-ით ძალიან კომფორტულია. ვესტუმრეთ Groom.ge-ს, სადაც მოვლა და სილამაზე უმაღლეს დონეზეა შესრულებული. ჯინა უკვე სახლშია — ბედნიერი და განახლებული იმიჯით!')">
-          <img src="photo12.jpg" alt="PetTaxi Photo 12">
-          <div class="gallery-item-info">
-            <h4>ქალბატონი ჯინა</h4>
-            <p>გაიცანით ქალბატონი ჯინა! გზად მგზავრობა PetTaxi-ით...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo13 -->
-        <div class="gallery-item" onclick="openPhotoModal('photo13.jpg', 'ბელა - გეგმიური ვიზიტი', 'ეს თბილი, ჭკვიანი და ულამაზესი გოგო ბელა კლინიკაში გეგმიურ ვიზიტზე გვყავდა. ძალიან გვიხარია, რომ მან კვლავ PetTaxi-ის სერვისი აირჩია!')">
-          <img src="photo13.jpg" alt="PetTaxi Photo 13">
-          <div class="gallery-item-info">
-            <h4>ბელა - გეგმიური ვიზიტი</h4>
-            <p>ეს თბილი, ჭკვიანი და ულამაზესი გოგო ბელა კლინიკაში...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo14.jpg.jpg -->
-        <div class="gallery-item" onclick="openPhotoModal('photo14.jpg.jpg', 'მაქსი - აეროპორტიდან', 'ეს არის მაქსი, რომელსაც დავხვდით აეროპორტში და მივიყვანეთ სახლში უსაფრთხოდ და კომფორტულად.')">
-          <img src="photo14.jpg.jpg" alt="PetTaxi Photo 14">
-          <div class="gallery-item-info">
-            <h4>მაქსი - აეროპორტიდან</h4>
-            <p>ეს არის მაქსი, რომელსაც დავხვდით აეროპორტში და...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo15.jpg.jpg -->
-        <div class="gallery-item" onclick="openPhotoModal('photo15.jpg.jpg', 'გუდა - ვეტერინართან', 'გაიცანით გუდა! ცოტა ხნის წინ პატარა პრობლემა ჰქონდა და ჩვენი PetTaxi-ის დახმარებით ვეტერინართან მივიდა. დამცავი საყელო მიუხედავად იმისა, რომ უკეთია, უკვე შესანიშნავად და მხიარულად გრძნობს თავს!')">
-          <img src="photo15.jpg.jpg" alt="PetTaxi Photo 15">
-          <div class="gallery-item-info">
-            <h4>გუდა - ვეტერინართან</h4>
-            <p>გაიცანით გუდა! ცოტა ხნის წინ პატარა პრობლემა ჰქონდა...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo16.jpg.jpg -->
-        <div class="gallery-item" onclick="openPhotoModal('photo16.jpg.jpg', 'თედი - გრუმინგი', 'ეს არის თედი, რომელიც გრუმინგზე გვყავდა. ასე იჯდა მშვიდად, არც განძრეულა მთელი პროცედურის განმავლობაში.')">
-          <img src="photo16.jpg.jpg" alt="PetTaxi Photo 16">
-          <div class="gallery-item-info">
-            <h4>თედი - გრუმინგი</h4>
-            <p>ეს არის თედი, რომელიც გრუმინგზე გვყავდა. ასე იჯდა...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo17.jpg.jpg -->
-        <div class="gallery-item" onclick="openPhotoModal('photo17.jpg.jpg', 'დათუნია - ჩაუ ჩაუ', 'ეს არის ჩაუ ჩაუ, რომელიც მგზავრობდა ჩვენთან ერთად. მას დათუნია შევარქვით ზედმეტსახელად და შესანიშნავი მგზავრი აღმოჩნდა.')">
-          <img src="photo17.jpg.jpg" alt="PetTaxi Photo 17">
-          <div class="gallery-item-info">
-            <h4>დათუნია - ჩაუ ჩაუ</h4>
-            <p>ეს არის ჩაუ ჩაუ, რომელიც მგზავრობდა ჩვენთან ერთად...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
-        <!-- photo18.jpg.jpg -->
-        <div class="gallery-item" onclick="openPhotoModal('photo18.jpg.jpg', 'ბაქსი - გრუმინგ სალონი', 'ეს არის ბაქსი, რომელიც გვყავდა გრუმინგ სალონში. ბაქსი უთბილესი და უჭკვიანესი ბიჭია, რომელმაც ყველას თავი შეასყვარა.')">
-          <img src="photo18.jpg.jpg" alt="PetTaxi Photo 18">
-          <div class="gallery-item-info">
-            <h4>ბაქსი - გრუმინგ სალონი</h4>
-            <p>ეს არის ბაქსი, რომელიც გვყავდა გრუმინგ სალონში...</p>
-            <span class="read-more-hint">მეტის წაკითხვა →</span>
-          </div>
-        </div>
-
       </div>
     </div>
 
-    <!-- ვიდეოების სექცია -->
+    <!-- ვიდეოები -->
     <div id="gallery-videos" class="gallery-content-pane">
       <div class="gallery-grid">
-        
-        <!-- Dog 2 -->
         <div class="gallery-item" onclick="openVideo('dog2.mp4')">
           <video src="dog2.mp4#t=0.1" preload="metadata" muted playsinline></video>
           <div class="gallery-item-info">
-            <h4>▶ მაქსი ირჩევს PetTaxi-ს</h4>
-            <p>მაქსი ირჩევს PetTaxi -ს– უსაფრთხო და კომფორტული მგზავრობა კლინიკისკენ! 🚗✨ ჩვენთვის თითოეული ოთხფეხა მეგობრის უსაფრთხოება და კომფორტი უპირველესია.</p>
+            <h4 data-key="v1_title">▶ მაქსი ირჩევს PetTaxi-ს</h4>
+            <p data-key="v1_desc">მაქსი ირჩევს PetTaxi -ს– უსაფრთხო და კომფორტული მგზავრობა კლინიკისკენ!</p>
           </div>
         </div>
-
-        <!-- Dog 5 -->
         <div class="gallery-item" onclick="openVideo('dog5.mp4')">
           <video src="dog5.mp4#t=0.1" preload="metadata" muted playsinline></video>
           <div class="gallery-item-info">
-            <h4>▶ გაიცანით ომი</h4>
-            <p>გაიცანით ომი — ჩვენი დღევანდელი მგზავრი! ომმა გეგმიური კონსულტაციისთვის KIVI - Kartli International Veterinary Institute აირჩია.</p>
+            <h4 data-key="v2_title">▶ გაიცანით ომი</h4>
+            <p data-key="v2_desc">გაიცანით ომი — ჩვენი დღევანდელი მგზავრი!</p>
           </div>
         </div>
-
-        <!-- Dog 6 -->
-        <div class="gallery-item" onclick="openVideo('dog6.mp4')">
-          <video src="dog6.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <div class="gallery-item-info">
-            <h4>▶ ბელა - Bona Mente</h4>
-            <p>ეს არის ბელა რომელიც გვყავდა კლინიკა Veterinary Clinic Bona Mente - ვეტერინარული კლინიკა ბონა მენტე ში, მან აირჩია PetTaxi ის მომსახურების სერვისი.</p>
-          </div>
-        </div>
-
-        <!-- Dog 7 -->
-        <div class="gallery-item" onclick="openVideo('dog7.mp4')">
-          <video src="dog7.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <div class="gallery-item-info">
-            <h4>▶ ბელა - Bona Mente</h4>
-            <p>ეს არის ბელა რომელიც გვყავდა კლინიკა Veterinary Clinic Bona Mente - ვეტერინარული კლინიკა ბონა მენტე ში, მან აირჩია PetTaxi ის მომსახურების სერვისი.</p>
-          </div>
-        </div>
-
-        <!-- Dog 8 -->
-        <div class="gallery-item" onclick="openVideo('dog8.mp4')">
-          <video src="dog8.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <div class="gallery-item-info">
-            <h4>▶ ესეც ჩვენი სემი</h4>
-            <p>🐾 ესეც ჩვენი სემი, რომელსაც უკვე კარგად იცნობთ ! ❤️ თბილისი–ბათუმისა და ბათუმი–თბილისის წარმატებული მგზავრობის შემდეგ, სემმა ისევ ჩვენი სერვისი აირჩია.</p>
-          </div>
-        </div>
-
-        <!-- Dog 9 -->
-        <div class="gallery-item" onclick="openVideo('dog9.mp4')">
-          <video src="dog9.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <div class="gallery-item-info">
-            <h4>▶ გაიცანით მომხიბვლელი ლივი</h4>
-            <p>🐾 გაიცანით მომხიბვლელი ლივი! ეს საყვარელი ფრანგული ბულდოგი უკვე მრავალჯერ გვესტუმრა და ჩვენი PetTaxi Tbilisi-ს მუდმივი და კმაყოფილი მგზავრია.</p>
-          </div>
-        </div>
-
-        <!-- Dog 10 -->
-        <div class="gallery-item" onclick="openVideo('dog10.mp4')">
-          <video src="dog10.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <div class="gallery-item-info">
-            <h4>▶ პოზიტიური ოზი</h4>
-            <p>🐾 ლამაზი, ჭკვიანი და წარმოუდგენლად პოზიტიური ოზი 🐾❤️ ქალაქგარეთ დასვენება იწყება კომფორტული და უსაფრთხო მგზავრობით. 🌿✨</p>
-          </div>
-        </div>
-
-        <!-- Dog 11 -->
-        <div class="gallery-item" onclick="openVideo('dog11.mp4')">
-          <video src="dog11.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <div class="gallery-item-info">
-            <h4>▶ არისტოკრატული მგზავრი</h4>
-            <p>🐾როდესაც მგზავრობა ორმაგად სასიამოვნოა... ✨ გაიცანით ჩვენი დღევანდელი ძვირფასი და არისტოკრატული მგზავრი ❤️🐶</p>
-          </div>
-        </div>
-
-        <!-- Dog 12 -->
-        <div class="gallery-item" onclick="openVideo('dog12.mp4')">
-          <video src="dog12.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <div class="gallery-item-info">
-            <h4>▶ კოკო და თედი - Groom.ge</h4>
-            <p>🐾 დღეს ჩვენი მგზავრები იყვნენ კოკო და თედი– ორი საყვარელი ოთხფეხა მეგობარი, რომლებმაც გრუმინგ სალონ Groom.ge-ში წასასვლელად აგვირჩიეს.</p>
-          </div>
-        </div>
-
-        <!-- Dog 13 -->
-        <div class="gallery-item" onclick="openVideo('dog13.mp4')">
-          <video src="dog13.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <div class="gallery-item-info">
-            <h4>▶ ულამაზესი მოჩი</h4>
-            <p>🐾 გაიცანით ულამაზესი მოჩი❤️ მოჩი უკვე 15 დღიან მკურნალობის კურსს გადის ნათია ბერიძის ვეტერინარულ კლინიკაში.</p>
-          </div>
-        </div>
-
-        <!-- Dog 14 -->
-        <div class="gallery-item" onclick="openVideo('dog14.mp4')">
-          <video src="dog14.mp4#t=0.1" preload="metadata" muted playsinline></video>
-          <div class="gallery-item-info">
-            <h4>▶ არჩი - ANNCY DOG HOTEL</h4>
-            <p>🐾 უსაფრთხოება და კომფორტი პირველ ადგილზეა, როცა საქმე ჩვენს ოთხფეხა მეგობრებს ეხება! არჩიმ ისევ ჩვენი სერვისით ისარგებლა სასტუმროში გამგზავრებისას.</p>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- საკონტაქტო სექცია -->
   <section id="contact" class="page-section">
-    <span class="sub-title">დაგვიკავშირდით</span>
-    <h2 class="section-title">საკონტაქტო ინფორმაცია</h2>
+    <span class="sub-title" data-key="contact_sub">დაგვიკავშირდით</span>
+    <h2 class="section-title" data-key="contact_title">საკონტაქტო ინფორმაცია</h2>
     <div class="services-grid" style="max-width: 600px; margin: 0 auto;">
       <div class="service-card" style="text-align: center;">
-        <h3>📞 ტელეფონი</h3>
+        <h3 data-key="phone_label">📞 ტელეფონი</h3>
         <p style="margin-bottom: 20px;">
           <a href="tel:+995568112350" style="color: #ff6b00; font-size: 22px; text-decoration: none; font-weight: bold;">+995 568 112 350</a>
         </p>
 
-        <h3 style="margin-top: 25px; color: #1d3557; margin-bottom: 10px;">🌐 სოციალური ქსელები</h3>
+        <h3 style="margin-top: 25px; color: #1d3557; margin-bottom: 10px;" data-key="social_label">🌐 სოციალური ქსელები</h3>
         <div class="social-links-grid">
           <a href="https://www.facebook.com/PetTaxiTbilisi" target="_blank" class="social-btn social-fb">Facebook</a>
           <a href="https://www.instagram.com/pettaxi_tbilisi?stkn=bTN3N3B4amJ5cHcz&utm_source=qr" target="_blank" class="social-btn social-insta">Instagram</a>
@@ -1120,33 +872,32 @@
     <div class="footer-container">
       <div class="footer-col">
         <h3>PetTaxi Tbilisi</h3>
-        <p>შინაური ცხოველების უსაფრთხო და კომფორტული ტრანსპორტირება მთელს საქართველოში.</p>
+        <p data-key="footer_about">შინაური ცხოველების უსაფრთხო და კომფორტული ტრანსპორტირება მთელს საქართველოში.</p>
       </div>
       <div class="footer-col">
-        <h3>ლინკები</h3>
+        <h3 data-key="footer_links">ლინკები</h3>
         <ul>
-          <li><a onclick="showSection('hero')">მთავარი</a></li>
-          <li><a onclick="showSection('services')">სერვისები</a></li>
-          <li><a onclick="showSection('about')">ჩვენ შესახებ</a></li>
-          <li><a onclick="showSection('gallery')">გალერეა</a></li>
-          <li><a onclick="showSection('contact')">კონტაქტი</a></li>
+          <li><a onclick="showSection('hero')" data-key="nav_home">მთავარი</a></li>
+          <li><a onclick="showSection('services')" data-key="nav_services">სერვისები</a></li>
+          <li><a onclick="showSection('about')" data-key="nav_about">ჩვენ შესახებ</a></li>
+          <li><a onclick="showSection('gallery')" data-key="nav_gallery">გალერეა</a></li>
+          <li><a onclick="showSection('contact')" data-key="nav_contact">კონტაქტი</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h3>კონტაქტი</h3>
+        <h3 data-key="nav_contact">კონტაქტი</h3>
         <p>📞 568 112 350</p>
-        <p>🕒 24/7 მხარდაჭერა</p>
-        <p>📍 თბილისი და რეგიონები</p>
+        <p data-key="support_247">🕒 24/7 მხარდაჭერა</p>
+        <p data-key="location_text">📍 თბილისი და რეგიონები</p>
       </div>
-      <!-- წითლად შემოხაზული ადგილი - Google Reviews -->
       <div class="footer-col" style="min-width: 250px;">
-        <h3>⭐ შეფასებები</h3>
+        <h3 data-key="reviews_title">⭐ შეფასებები</h3>
         <!-- Elfsight Google Reviews Widget -->
         <div class="elfsight-app-70eb222f-9926-461d-ba44-04a05aa12829" data-elfsight-app-lazy></div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 PetTaxi Tbilisi. ყველა უფლება დაცულია.</p>
+      <p>&copy; 2026 PetTaxi Tbilisi. <span data-key="rights_text">ყველა უფლება დაცულია.</span></p>
     </div>
   </footer>
 
@@ -1170,8 +921,186 @@
     </div>
   </div>
 
-  <!-- JavaScript ფუნქციონალი -->
+  <!-- JavaScript სკრიპტები (ენები და მართვა) -->
   <script>
+    const translations = {
+      ka: {
+        nav_home: "მთავარი",
+        nav_services: "სერვისები",
+        nav_about: "ჩვენ შესახებ",
+        nav_gallery: "გალერეა",
+        nav_contact: "კონტაქტი",
+        contact_us: "დაგვიკავშირდით",
+        hero_title: "შინაური ცხოველების უსაფრთხო ტრანსპორტირება",
+        hero_desc: "ვეტექიმთან, სალონსა და სასტუმროში კომფორტული მგზავრობა თქვენი ოთხფეხა მეგობრებისთვის თბილისსა და მთელ საქართველოში.",
+        stat_happy: "კმაყოფილი მომხმარებელი",
+        services_sub: "რას ვთავაზობთ",
+        services_title: "ჩვენი სერვისები",
+        s1_title: "🚗 ვეტექიმთან ტრანსპორტირება",
+        s1_desc: "მოვემსახურებით თქვენს ცხოველებს ვეტერინარულ კლინიკებში ვიზიტისას, უსაფრთხოდ და დროულად.",
+        s2_title: "✂️ გრუმინგი და სალონები",
+        s2_desc: "ტრანსპორტირება ძაღლებისა და კატების თავის მოვლის ცენტრებში და უკან დაბრუნება.",
+        s3_title: "🏨 ცხოველთა სასტუმროები",
+        s3_desc: "კომფორტული გადაყვანა სასტუმროებსა და თავშესაფრებში მთელი საქართველოს მასშტაბით.",
+        s4_title: "🏞️ ქალაქგარეთ ტრანსპორტირება",
+        s4_desc: "უსაფრთხო და კომფორტული მგზავრობა რეგიონებსა და ქალაქგარეთ ნებისმიერ მანძილზე.",
+        about_sub: "ჩვენ შესახებ",
+        about_title: "გაიცანით PetTaxi-ის გუნდი",
+        about_desc: "მოხარული ვართ წარმოდგიდგინოთ ჩვენი გუნდი — პროფესიონალები, რომლებიც ზრუნავენ თქვენი ოთხფეხა მეგობრების უსაფრთხო, სტრესისგან თავისუფალ და მაქსიმალურად კომფორტულ მგზავრობაზე! 🐾✨",
+        t1_name: "აკაკი თოლორდავა",
+        t1_role: "PetTaxi - ის დამფუძნებელი",
+        t2_name: "მერიამ ქარაჯა",
+        t2_role: "PetTaxi - ის მარკეტოლოგი",
+        t3_name: "გივიკო მერკვილაძე",
+        t3_role: "PetTaxi - ის გენერალური მენეჯერი",
+        gallery_sub: "მედია არქივი",
+        gallery_title: "ფოტოები და ვიდეოები",
+        tab_photos: "📸 ფოტოები",
+        tab_videos: "🎥 ვიდეოები",
+        read_more: "მეტის წაკითხვა →",
+        p1_title: "ლეკვების გადარჩენის ისტორია",
+        p1_desc: "გორიდან თბილისში, LuckyPaw ვეტერინარულ კლინიკაში...",
+        p2_title: "კიმჩი - Stamba Hotel",
+        p2_desc: "ყველასთვის საყვარელი მგზავრი — კიმჩი, Stamba Hotel-ის...",
+        p3_title: "კორას წარმატებული ოპერაცია",
+        p3_desc: "ეს არის კორა, რომელსაც რამდენიმეჯერ მოუწია ვეტლაიფის...",
+        v1_title: "▶ მაქსი ირჩევს PetTaxi-ს",
+        v1_desc: "მაქსი ირჩევს PetTaxi -ს– უსაფრთხო და კომფორტული მგზავრობა კლინიკისკენ!",
+        v2_title: "▶ გაიცანით ომი",
+        v2_desc: "გაიცანით ომი — ჩვენი დღევანდელი მგზავრი!",
+        contact_sub: "დაგვიკავშირდით",
+        contact_title: "საკონტაქტო ინფორმაცია",
+        phone_label: "📞 ტელეფონი",
+        social_label: "🌐 სოციალური ქსელები",
+        footer_about: "შინაური ცხოველების უსაფრთხო და კომფორტული ტრანსპორტირება მთელს საქართველოში.",
+        footer_links: "ლინკები",
+        support_247: "🕒 24/7 მხარდაჭერა",
+        location_text: "📍 თბილისი და რეგიონები",
+        reviews_title: "⭐ შეფასებები",
+        rights_text: "ყველა უფლება დაცულია."
+      },
+      en: {
+        nav_home: "Home",
+        nav_services: "Services",
+        nav_about: "About Us",
+        nav_gallery: "Gallery",
+        nav_contact: "Contact",
+        contact_us: "Contact Us",
+        hero_title: "Safe Pet Transportation Services",
+        hero_desc: "Comfortable rides for your four-legged friends to vets, grooming salons, and pet hotels across Tbilisi and Georgia.",
+        stat_happy: "Happy Clients",
+        services_sub: "What We Offer",
+        services_title: "Our Services",
+        s1_title: "🚗 Vet Clinic Rides",
+        s1_desc: "Safe and timely transportation for your pets' veterinary clinic visits.",
+        s2_title: "✂️ Grooming & Salons",
+        s2_desc: "Comfortable transfers to pet grooming centers and back home.",
+        s3_title: "🏨 Pet Hotels",
+        s3_desc: "Reliable transfers to pet hotels and shelters across Georgia.",
+        s4_title: "🏞️ Long Distance Rides",
+        s4_desc: "Safe and comfortable intercity travel for pets across any distance.",
+        about_sub: "About Us",
+        about_title: "Meet the PetTaxi Team",
+        about_desc: "We are excited to introduce our team — professionals dedicated to providing safe, stress-free, and comfy rides for your pets! 🐾✨",
+        t1_name: "Akaki Tolordava",
+        t1_role: "Founder of PetTaxi",
+        t2_name: "Meriam Karadja",
+        t2_role: "Marketer of PetTaxi",
+        t3_name: "Giviko Merkviladze",
+        t3_role: "General Manager of PetTaxi",
+        gallery_sub: "Media Archive",
+        gallery_title: "Photos & Videos",
+        tab_photos: "📸 Photos",
+        tab_videos: "🎥 Videos",
+        read_more: "Read More →",
+        p1_title: "Puppy Rescue Story",
+        p1_desc: "Two rescued puppies transported safely from Gori to LuckyPaw Clinic...",
+        p2_title: "Kimchi - Stamba Hotel",
+        p2_desc: "Everyone's favorite passenger — Kimchi from Stamba Hotel!",
+        p3_title: "Kora's Successful Surgery",
+        p3_desc: "This is Kora, who successfully underwent surgery at VetLife...",
+        v1_title: "▶ Maxi Chooses PetTaxi",
+        v1_desc: "Maxi chooses PetTaxi – safe and comfy ride to the clinic!",
+        v2_title: "▶ Meet Omi",
+        v2_desc: "Meet Omi — our lovely passenger for today!",
+        contact_sub: "Get in Touch",
+        contact_title: "Contact Information",
+        phone_label: "📞 Phone",
+        social_label: "🌐 Social Networks",
+        footer_about: "Safe and comfortable pet transportation service throughout Georgia.",
+        footer_links: "Quick Links",
+        support_247: "🕒 24/7 Support",
+        location_text: "📍 Tbilisi & Regions",
+        reviews_title: "⭐ Reviews",
+        rights_text: "All rights reserved."
+      },
+      ru: {
+        nav_home: "Главная",
+        nav_services: "Услуги",
+        nav_about: "О нас",
+        nav_gallery: "Галерея",
+        nav_contact: "Контакты",
+        contact_us: "Связаться с нами",
+        hero_title: "Безопасная перевозка домашних животных",
+        hero_desc: "Комфортные поездки для ваших питомцев к ветеринару, в груминг-салоны и отели по Тбилиси и всей Грузии.",
+        stat_happy: "Довольных клиентов",
+        services_sub: "Что мы предлагаем",
+        services_title: "Наши услуги",
+        s1_title: "🚗 Поездки к ветеринару",
+        s1_desc: "Безопасная и своевременная доставка ваших питомцев в ветеринарные клиники.",
+        s2_title: "✂️ Груминг и салоны",
+        s2_desc: "Транспортировка собак и кошек в салоны красоты и обратно домой.",
+        s3_title: "🏨 Зоогостиницы",
+        s3_desc: "Комфортная перевозка в зоогостиницы и приюты по всей Грузии.",
+        s4_title: "🏞️ Междугородние поездки",
+        s4_desc: "Безопасные поездки за город и между городами на любые расстояния.",
+        about_sub: "О нас",
+        about_title: "Познакомьтесь с командой PetTaxi",
+        about_desc: "Рады представить нашу команду — профессионалов, заботящихся о безопасных и комфортных поездках ваших питомцев! 🐾✨",
+        t1_name: "Акакий Толордава",
+        t1_role: "Основатель PetTaxi",
+        t2_name: "Мериам Караджа",
+        t2_role: "Маркетолог PetTaxi",
+        t3_name: "Гивико Мерквиладзе",
+        t3_role: "Генеральный менеджер PetTaxi",
+        gallery_sub: "Медиа архив",
+        gallery_title: "Фото и Видео",
+        tab_photos: "📸 Фотографии",
+        tab_videos: "🎥 Видео",
+        read_more: "Подробнее →",
+        p1_title: "История спасения щенков",
+        p1_desc: "Два спасенных щенка доставлены из Гори в клинику LuckyPaw...",
+        p2_title: "Кимчи - Stamba Hotel",
+        p2_desc: "Всеми любимый пассажир — Кимчи из отеля Stamba!",
+        p3_title: "Успешная операция Коры",
+        p3_desc: "Это Кора, которая успешно перенесла операцию в ветклинике...",
+        v1_title: "▶ Макси выбирает PetTaxi",
+        v1_desc: "Макси выбирает PetTaxi – безопасная и удобная поездка!",
+        v2_title: "▶ Познакомьтесь с Оми",
+        v2_desc: "Познакомьтесь с Оми — нашим сегодняшним пассажиром!",
+        contact_sub: "Связаться",
+        contact_title: "Контактная информация",
+        phone_label: "📞 Телефон",
+        social_label: "🌐 Социальные сети",
+        footer_about: "Безопасная и комфортная перевозка животных по всей Грузии.",
+        footer_links: "Ссылки",
+        support_247: "🕒 Поддержка 24/7",
+        location_text: "📍 Тбилиси и регионы",
+        reviews_title: "⭐ Отзывы",
+        rights_text: "Все права защищены."
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-key]').forEach(elem => {
+        const key = elem.getAttribute('data-key');
+        if (translations[lang] && translations[lang][key]) {
+          elem.innerText = translations[lang][key];
+        }
+      });
+      document.documentElement.lang = lang;
+    }
+
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.page-section');
       sections.forEach(sec => sec.style.display = 'none');
