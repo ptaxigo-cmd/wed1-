@@ -303,6 +303,10 @@
       border-radius: 12px;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .partner-card:hover {
@@ -310,10 +314,18 @@
       box-shadow: 0 6px 15px rgba(0,0,0,0.08);
     }
 
+    .partner-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 12px;
+      border-radius: 8px;
+    }
+
     .partner-card h3 {
       color: #1d3557;
-      font-size: 17px;
-      margin-bottom: 8px;
+      font-size: 16px;
+      margin-bottom: 6px;
     }
 
     .partner-card p {
@@ -973,34 +985,42 @@
     
     <div class="partners-grid">
       <div class="partner-card">
+        <img src="ringovet.png" alt="Ringovet Logo" class="partner-logo">
         <h3>რინგოვეტი • Ringovet</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
+        <img src="luckypaw.png" alt="LuckyPaw Logo" class="partner-logo">
         <h3>LuckyPaw ვეტერინარული კლინიკა</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
+        <img src="aibo.png" alt="Aibo Logo" class="partner-logo">
         <h3>ვეტერინარული კლინიკა აიბო • Veterinary Clinic Aibo</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
+        <img src="ნათია.png" alt="Natia Beridze Logo" class="partner-logo">
         <h3 data-key="p_natia_name">ნათია ბერიძის ვეტ-კლინიკა</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
+        <img src="vetlife.png" alt="Vetlife Logo" class="partner-logo">
         <h3>Vetlife Animal Hospital • ცხოველთა ჰოსპიტალი ვეტლაიფი</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
+        <img src="vethouse.png" alt="Vet House Logo" class="partner-logo">
         <h3>Vet House - ვეტ ჰაუსი</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
+        <img src="groomge.png" alt="Groom.ge Logo" class="partner-logo">
         <h3>Groom.ge</h3>
         <p data-key="p_groom">გრუმინგ ცენტრი</p>
       </div>
       <div class="partner-card">
+        <img src="anncy.png" alt="Anncy Dog Hotel Logo" class="partner-logo">
         <h3>Anncy Dog Hotel</h3>
         <p data-key="p_hotel">ცხოველთა სასტუმრო</p>
       </div>
