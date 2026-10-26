@@ -299,15 +299,15 @@
     .partner-card {
       background: #f8f9fa;
       border: 1px solid #e9ecef;
-      padding: 20px;
+      padding: 20px 15px;
       border-radius: 12px;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 180px;
+      justify-content: flex-start;
+      min-height: 220px;
     }
 
     .partner-card:hover {
@@ -317,16 +317,23 @@
 
     .partner-logo {
       width: 100%;
-      height: 95px;
+      height: 80px;
       object-fit: contain;
       margin-bottom: 10px;
       border-radius: 6px;
     }
 
+    .partner-card h3 {
+      color: #1d3557;
+      font-size: 15px;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
     .partner-card p {
       color: #666;
-      font-size: 13px;
-      margin-top: 4px;
+      font-size: 12px;
+      margin-top: auto;
     }
 
     /* სოციალური ქსელები */
@@ -982,34 +989,42 @@
     <div class="partners-grid">
       <div class="partner-card">
         <img src="ringovet.png.jpg" alt="Ringovet Logo" class="partner-logo">
+        <h3>რინგოვეტი • Ringovet</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
         <img src="luckypaw.png.jpg" alt="LuckyPaw Logo" class="partner-logo">
+        <h3>LuckyPaw ვეტერინარული კლინიკა</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
         <img src="aibo.png.jpg" alt="Aibo Logo" class="partner-logo">
+        <h3>ვეტერინარული კლინიკა აიბო</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
-        <img src="natia.png.jpg" alt="Natia Beridze Logo" class="partner-logo">
+        <img src="ნათია.png.jpg" alt="Natia Beridze Logo" class="partner-logo">
+        <h3 data-key="p_natia_name">ნათია ბერიძის ვეტ-კლინიკა</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
         <img src="vetlife.png.jpg" alt="Vetlife Logo" class="partner-logo">
+        <h3>Vetlife Animal Hospital</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
         <img src="vethouse.png.jpg" alt="Vet House Logo" class="partner-logo">
+        <h3>Vet House - ვეტ ჰაუსი</h3>
         <p data-key="p_vet_clinic">ვეტერინარული კლინიკა</p>
       </div>
       <div class="partner-card">
         <img src="groomge.png.jpg" alt="Groom.ge Logo" class="partner-logo">
+        <h3>Groom.ge</h3>
         <p data-key="p_groom">გრუმინგ ცენტრი</p>
       </div>
       <div class="partner-card">
         <img src="anncy.png.jpg" alt="Anncy Dog Hotel Logo" class="partner-logo">
+        <h3>Anncy Dog Hotel</h3>
         <p data-key="p_hotel">ცხოველთა სასტუმრო</p>
       </div>
     </div>
@@ -1133,6 +1148,7 @@
         p_vet_clinic: "ვეტერინარული კლინიკა",
         p_groom: "გრუმინგ ცენტრი",
         p_hotel: "ცხოველთა სასტუმრო",
+        p_natia_name: "ნათია ბერიძის ვეტ-კლინიკა",
         contact_sub: "დაგვიკავშირდით",
         contact_title: "საკონტაქტო ინფორმაცია",
         phone_label: "📞 ტელეფონი",
@@ -1184,6 +1200,7 @@
         p_vet_clinic: "Veterinary Clinic",
         p_groom: "Grooming Center",
         p_hotel: "Pet Hotel",
+        p_natia_name: "Natia Beridze Vet Clinic",
         contact_sub: "Get in Touch",
         contact_title: "Contact Information",
         phone_label: "📞 Phone",
@@ -1235,6 +1252,7 @@
         p_vet_clinic: "Ветеринарная клиника",
         p_groom: "Центр груминга",
         p_hotel: "Зоогостиница",
+        p_natia_name: "Ветклиника Натии Беридзе",
         contact_sub: "Связаться",
         contact_title: "Контактная информация",
         phone_label: "📞 Телефон",
